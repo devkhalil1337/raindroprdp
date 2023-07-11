@@ -1,0 +1,3170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>RainDrop</title>
+
+	<meta name="description" content="" />
+	<meta name="title" content="" />
+	<meta name="keywords" content="" />
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<link rel="manifest" href="images/site.webmanifest">
+	<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link class="color-scheme-link" href="css/dark.css" rel="stylesheet">
+
+	<!--=== Add By Designer ===-->
+	<link href="fonts/fonts.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link href="css/fontawesome.min.css" rel="stylesheet">
+
+	<!-- add Data Table Css -->
+	<link rel="stylesheet" type="text/css" href="DataTables/jquery.dataTables.min.css" />
+	<link rel="stylesheet" type="text/css" href="DataTables/select.dataTables.min.css" />
+	<link rel="stylesheet" type="text/css" href="DataTables/dataTables.responsive.css" />
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+	<!-- <link rel="stylesheet" type="text/css" href="DataTables/scroller.dataTables.min.css" /> -->
+	<!--=== Windows Phone JS Code Start ===-->
+	<script type="text/javascript">
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto!important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+	</script>
+
+	<script>
+		let url = "https://api.raindroprdp.com/public";
+		let optionsApi = '{"query":"getdemodashboard"}';
+	</script>
+
+	<style>
+		body {
+			opacity: 0.2;
+		}
+
+		.dropdown-menu {
+			box-shadow: rgb(0 0 0 / 33%) 0px 15px 15px !important;
+		}
+
+		.btn-primary:disabled,
+		.btn-primary.disabled {
+			color: #fff;
+			background-color: rgba(135, 104, 241, 0.06);
+			border-color: rgba(135, 104, 241, 0.06);
+		}
+	</style>
+
+	<!--=== Windows Phone JS Code End ===-->
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="dark-mode">
+	<!-- header start -->
+	<header class="header">
+		<div class="container">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content"
+				aria-expanded="true">
+				<span class="navbar-toggler-icon">
+					<span class="toggle-bar"></span>
+					<span class="toggle-bar"></span>
+					<span class="toggle-bar"></span>
+				</span>
+			</button>
+
+			<div class="row justify-content-between">
+				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
+					<div class="h-left">
+						<div class="title d-block d-md-none">
+							<h2>Choose data</h2>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+								<div id="item_name"
+									style="color: #fff; margin-bottom: 15px; font-size: 30px; height: 100%; display: flex; align-items: center;">
+									Test Account
+								</div>
+							</div>
+							<!-- <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+								<div class="dropdown">
+									<button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										<div class="h-block">
+											<div class="icon" style="margin-left: 8px;">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													viewBox="0 0 20 20">
+													<path id="bank"
+														d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+														transform="translate(0.002 0.002)" fill="#fff" />
+												</svg>
+											</div>
+											<span id="dropdown_company_button">Company</span>
+										</div>
+									</button>
+									<ul class="dropdown-menu"
+										style="box-shadow: 0 15px 15px rgba(0,0,0,0.33); padding-top: 20px;"
+										aria-labelledby="dropdownMenuButton1" id="dropdown_company">
+									</ul>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+								<div class="dropdown">
+							<button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<div class="h-block">
+									<div class="icon" style="margin-left: 8px;">
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+											viewBox="0 0 20 20">
+											<path id="bank"
+												d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+												transform="translate(0.002 0.002)" fill="#fff" />
+										</svg>
+									</div>
+									<span id="dropdown_2_button">Unit</span>
+								</div>
+							</button>
+							<ul class="dropdown-menu"
+								style="box-shadow: 0 15px 15px rgba(0,0,0,0.33); padding-top: 20px; max-height: 70vh; overflow-y: scroll;"
+								aria-labelledby="dropdownMenuButton1" id="dropdown_2">
+							</ul>
+						</div>
+					</div> -->
+
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 d-md-block d-none">
+								<div class="h-block justify-content-between month-block">
+									<div class="left">
+										<p>This month<span id="finance_this">$40.000</span></p>
+										<p>Last month<span id="finance_last">$40.000</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-5">
+					<div class="h-right">
+						<div class="row justify-content-end">
+							<div class="col-7 col-sm-7 col-md-5 col-lg-4 col-xl-6 col-xxl-5">
+								<div class="dropdown">
+									<button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										<div class="h-block">
+											<div class="icon">
+												<svg xmlns="http://www.w3.org/2000/svg" width="22.648" height="23.554"
+													viewBox="0 0 22.648 23.554">
+													<g id="Group_7384" data-name="Group 7384"
+														transform="translate(-146.007 -75.101)">
+														<g id="Group_6977" data-name="Group 6977"
+															transform="translate(0 0.033)">
+															<ellipse id="Ellipse_126" data-name="Ellipse 126"
+																cx="11.324" cy="11.777" rx="11.324" ry="11.777"
+																transform="translate(146.007 75.068)" fill="#181f2f" />
+														</g>
+														<g id="Group_6584" data-name="Group 6584"
+															transform="translate(-574.622 -54.186)">
+															<path id="Path_32" data-name="Path 32" d="M18,7.5v7.907"
+																transform="translate(713.954 129.61)" fill="none"
+																stroke="#fff" stroke-linecap="round"
+																stroke-linejoin="round" stroke-width="1.5" />
+															<path id="Path_33" data-name="Path 33" d="M7.5,18h7.907"
+																transform="translate(720.5 123.064)" fill="none"
+																stroke="#fff" stroke-linecap="round"
+																stroke-linejoin="round" stroke-width="1.5" />
+														</g>
+													</g>
+												</svg>
+
+
+											</div>
+											<!-- <span class="d-md-block d-none">Add RainDrops</span> -->
+											<span class="">Add</span>
+										</div>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+										<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+												data-bs-target=".add-company">
+												<svg xmlns="http://www.w3.org/2000/svg" width="19.52" height="19.519"
+													viewBox="0 0 19.52 19.519">
+													<path id="bank"
+														d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+														transform="translate(0.002 0.002)" fill="#fff" />
+												</svg>
+
+												Company</a></li>
+										<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+												data-bs-target=".add-building">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													viewBox="0 0 20 20">
+													<path id="building"
+														d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+														fill="#fff" />
+												</svg>
+
+												Building</a></li>
+										<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+												data-bs-target=".add-department">
+												<svg xmlns="http://www.w3.org/2000/svg" width="18.36" height="18.358"
+													viewBox="0 0 18.36 18.358">
+													<path id="chart-tree"
+														d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+														transform="translate(0.001 -0.002)" fill="#fff" />
+												</svg>
+
+												Department</a></li>
+										<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+												data-bs-target=".add-team">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20.706" height="20.706"
+													viewBox="0 0 20.706 20.706">
+													<path id="users"
+														d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+														fill="#fff" />
+												</svg>
+
+												Team</a></li>
+										<li>
+											<a class="dropdown-item" href="#" data-bs-target="#inviteAdminModal"
+												data-bs-toggle="modal" onclick="$('#admin-tab').trigger('click');">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20.002" height="21.826"
+													viewBox="0 0 20.002 21.826">
+													<path id="dice-d6"
+														d="M18.794,3.92,13.339.647a4.534,4.534,0,0,0-4.678,0L3.207,3.92A4.57,4.57,0,0,0,1,7.819V14a4.57,4.57,0,0,0,2.207,3.9l5.455,3.273a4.532,4.532,0,0,0,4.678,0L18.794,17.9A4.57,4.57,0,0,0,21,14V7.819a4.57,4.57,0,0,0-2.207-3.9ZM9.6,2.207a2.718,2.718,0,0,1,2.806,0L17.859,5.48a2.707,2.707,0,0,1,.418.31L11,10.154,3.73,5.79a2.665,2.665,0,0,1,.418-.31ZM4.143,16.34A2.741,2.741,0,0,1,2.818,14V7.819a2.619,2.619,0,0,1,.035-.432l7.238,4.341v8.117a2.747,2.747,0,0,1-.494-.234ZM19.184,14a2.743,2.743,0,0,1-1.325,2.339L12.4,19.613a2.747,2.747,0,0,1-.494.234V11.728l7.238-4.342a2.619,2.619,0,0,1,.035.433Z"
+														transform="translate(-1 0.003)" fill="#fff" />
+												</svg>
+												Invite Admin
+											</a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#" data-bs-target="#exampleModal"
+												data-bs-toggle="modal" onclick="$('#raindrop-tab').trigger('click');">
+												<svg xmlns="http://www.w3.org/2000/svg" width="19.605" height="19.597"
+													viewBox="0 0 19.605 19.597">
+													<g id="raindrops" transform="translate(0 -0.01)">
+														<path id="Path_10227" data-name="Path 10227"
+															d="M11.9,21.318a4.906,4.906,0,0,1-4.9-4.9c0-1.274.98-3.3,2.9-6.035a2.464,2.464,0,0,1,4,0c1.922,2.731,2.9,4.761,2.9,6.035A4.906,4.906,0,0,1,11.9,21.318Zm0-10.339a.8.8,0,0,0-.664.345c-2.349,3.332-2.6,4.672-2.6,5.093a3.267,3.267,0,1,0,6.535,0c0-.421-.254-1.761-2.6-5.093A.8.8,0,0,0,11.9,10.979Z"
+															transform="translate(-1.282 -1.711)" fill="#fff" />
+														<path id="Path_10228" data-name="Path 10228"
+															d="M4.084,8.987A4.089,4.089,0,0,1,0,4.9C0,3.874.688,2.571,2.1.919a2.614,2.614,0,0,1,3.963,0c1.415,1.65,2.1,2.953,2.1,3.984A4.089,4.089,0,0,1,4.084,8.987Zm0-7.352a.958.958,0,0,0-.74.344C1.757,3.832,1.634,4.684,1.634,4.9a2.451,2.451,0,0,0,4.9,0c0-.217-.123-1.069-1.711-2.921a.957.957,0,0,0-.74-.346Z"
+															fill="#fff" />
+														<path id="Path_10229" data-name="Path 10229"
+															d="M18.676,8.141A3.68,3.68,0,0,1,15,4.465c0-.891.572-2.047,1.753-3.534a2.467,2.467,0,0,1,3.846,0c1.181,1.487,1.753,2.643,1.753,3.534a3.68,3.68,0,0,1-3.676,3.676Zm0-6.505a.817.817,0,0,0-.643.311c-1.3,1.637-1.4,2.341-1.4,2.518a2.042,2.042,0,0,0,4.084,0c0-.177-.1-.881-1.4-2.518a.817.817,0,0,0-.643-.312Z"
+															transform="translate(-2.747 0)" fill="#fff" />
+													</g>
+												</svg>
+												Raindrop
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-3 col-sm-3 col-md-4 col-lg-4">
+								<div class="dropdown user-dropdown">
+									<button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										<div class="h-block">
+											<span id="user_name" style="margin-right: 10px;">John Devone</span>
+											<div class="img">
+												<img src="images/user.png" alt="user" class="img-fluid">
+											</div>
+										</div>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+										<li class="" style="">
+											<div class="mode" style="margin-bottom: 15px; margin-left: 20px;">
+												<a href="#" class="dark-link active" data-src="css/dark.css">
+													<svg xmlns="http://www.w3.org/2000/svg" width="9.361"
+														height="10.213" viewBox="0 0 9.361 10.213">
+														<path id="Icon_ionic-ios-moon" data-name="Icon ionic-ios-moon"
+															d="M14.172,12.215c-.077,0-.154.005-.231.005a4.688,4.688,0,0,1-3.372-1.42,4.845,4.845,0,0,1-1.4-3.425,4.906,4.906,0,0,1,.465-2.093A6.931,6.931,0,0,1,10,4.659.1.1,0,0,0,9.9,4.5a5.144,5.144,0,0,0,.784,10.212A5.013,5.013,0,0,0,14.534,12.9a4.858,4.858,0,0,0,.436-.58.107.107,0,0,0-.109-.162A4.541,4.541,0,0,1,14.172,12.215Z"
+															transform="translate(-5.625 -4.496)" fill="#fff" />
+													</svg>
+												</a>
+												<a href="#" class="light-link" data-src="css/light.css">
+													<svg xmlns="http://www.w3.org/2000/svg" width="12.772"
+														height="12.714" viewBox="0 0 12.772 12.714">
+														<path id="Icon_material-wb-sunny"
+															data-name="Icon material-wb-sunny"
+															d="M4.844,3.316,3.8,2.276l-.819.819L4.02,4.134ZM3.242,6.6H1.5V7.763H3.242ZM8.467.825H7.306V2.538H8.467V.825Zm4.325,2.27-.819-.819L10.934,3.316l.819.819Zm-1.864,7.954,1.039,1.045.819-.819-1.045-1.039-.813.813Zm1.6-4.447V7.763h1.742V6.6ZM7.886,3.7a3.483,3.483,0,1,0,3.483,3.483A3.486,3.486,0,0,0,7.886,3.7Zm-.581,9.84H8.467V11.827H7.306ZM2.98,11.269l.819.819,1.039-1.045-.819-.819L2.98,11.269Z"
+															transform="translate(-1.5 -0.825)" fill="#fff" />
+													</svg>
+												</a>
+											</div>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#"
+												onclick="$('#billingModal').modal('show')">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+													<path
+														d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+													<path
+														d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+												</svg>
+
+												Billing</a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#"
+												onclick="$('#profileModal').modal('show')">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													fill="currentColor" class="bi bi-person-bounding-box"
+													viewBox="0 0 16 16">
+													<path
+														d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
+													<path
+														d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+												</svg>
+
+												Profile</a>
+										</li>
+										<li class="logout">
+											<a class="dropdown-item" href="#">
+												<svg id="sign-out-alt" xmlns="http://www.w3.org/2000/svg" width="17.001"
+													height="17.184" viewBox="0 0 17.001 17.184">
+													<path id="Path_3787" data-name="Path 3787"
+														d="M8.217,10.74a.716.716,0,0,0-.716.716V13.6a2.148,2.148,0,0,1-2.148,2.148H3.58A2.148,2.148,0,0,1,1.432,13.6V3.58A2.148,2.148,0,0,1,3.58,1.432H5.353A2.148,2.148,0,0,1,7.5,3.58V5.728a.716.716,0,1,0,1.432,0V3.58A3.584,3.584,0,0,0,5.353,0H3.58A3.584,3.584,0,0,0,0,3.58V13.6a3.584,3.584,0,0,0,3.58,3.58H5.353a3.584,3.584,0,0,0,3.58-3.58V11.456A.716.716,0,0,0,8.217,10.74Z"
+														fill="#8768f1" />
+													<path id="Path_3788" data-name="Path 3788"
+														d="M17.792,8.493,14.509,5.21A.716.716,0,1,0,13.5,6.222l3.052,3.052L5.716,9.3a.716.716,0,0,0,0,1.432h0l10.874-.022-3.1,3.1a.716.716,0,1,0,1.012,1.012l3.283-3.284a2.148,2.148,0,0,0,0-3.037Z"
+														transform="translate(-1.42 -1.42)" fill="#8768f1" />
+												</svg>
+												Logout
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header end -->
+
+	<div class="container">
+		<div class="overview d-md-none d-block">
+			<div class="account">
+				<div class="left">
+					<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+						<g id="Group_6971" data-name="Group 6971" transform="translate(-153 -83)">
+							<circle id="Ellipse_126" data-name="Ellipse 126" cx="19" cy="19" r="19"
+								transform="translate(153 83)" fill="#181f2f" />
+							<path id="users"
+								d="M6.66,11.442a4,4,0,1,1,4-4,4,4,0,0,1-4,4Zm0-6.216a2.22,2.22,0,1,0,2.22,2.22A2.22,2.22,0,0,0,6.66,5.227Zm6.66,15.095v-.444A6.66,6.66,0,1,0,0,19.878v.444a.888.888,0,1,0,1.776,0v-.444a4.884,4.884,0,0,1,9.767,0v.444a.888.888,0,0,0,1.776,0Z"
+								transform="translate(165.322 89.169)" fill="#fff" />
+						</g>
+					</svg>
+					<span>Account</span>
+				</div>
+				<div class="right">
+					<span>Item name</span>
+					<p>Last month</p>
+				</div>
+
+			</div>
+
+			<div class="overview-block">
+				<h2>Overview</h2>
+				<div class="h-block">
+					<div class="icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<g id="Group_6892" data-name="Group 6892" transform="translate(-1516.278 -870.278)">
+								<circle id="Ellipse_504" data-name="Ellipse 504" cx="12" cy="12" r="12"
+									transform="translate(1516.278 870.278)" fill="#181f2f" />
+								<path id="money"
+									d="M9.459,11.966H2.489A2.492,2.492,0,0,1,0,9.476V6.489A2.492,2.492,0,0,1,2.489,4h6.97a2.492,2.492,0,0,1,2.489,2.489V9.476a2.492,2.492,0,0,1-2.489,2.489ZM2.489,5A1.494,1.494,0,0,0,1,6.489V9.476A1.494,1.494,0,0,0,2.489,10.97h6.97a1.494,1.494,0,0,0,1.494-1.494V6.489A1.494,1.494,0,0,0,9.459,5ZM5.974,9.974A1.991,1.991,0,1,1,7.966,7.983,1.991,1.991,0,0,1,5.974,9.974Zm0-2.987a1,1,0,1,0,1,1A1,1,0,0,0,5.974,6.987Zm-3.485-1a.5.5,0,1,0,.5.5A.5.5,0,0,0,2.489,5.991Zm6.472.5a.5.5,0,1,0,.5-.5A.5.5,0,0,0,8.961,6.489ZM2.489,8.979a.5.5,0,1,0,.5.5A.5.5,0,0,0,2.489,8.979Zm6.472.5a.5.5,0,1,0,.5-.5A.5.5,0,0,0,8.961,9.476Z"
+									transform="translate(1522.326 874.317)" fill="#fff" />
+							</g>
+						</svg>
+
+
+
+					</div>
+					<span>$40.000</span>
+				</div>
+			</div>
+
+			<div class="time-block">
+				<div class="dropdown">
+					<button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						<div class="h-block">
+							<span>07:00</span>
+						</div>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+
+					</ul>
+				</div>
+				<div class="dropdown">
+					<button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						<div class="h-block">
+
+							<span>07:00</span>
+
+						</div>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+						<li><a class="dropdown-item" href="#">
+
+								1:00</a></li>
+
+					</ul>
+				</div>
+				<div class="icon">
+					<svg id="calendar" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+						<path id="Path_10224" data-name="Path 10224"
+							d="M12.667,1.333H12V.667a.667.667,0,0,0-1.333,0v.667H5.333V.667A.667.667,0,1,0,4,.667v.667H3.333A3.337,3.337,0,0,0,0,4.667v8A3.337,3.337,0,0,0,3.333,16h9.333A3.337,3.337,0,0,0,16,12.667v-8A3.337,3.337,0,0,0,12.667,1.333ZM1.333,4.667a2,2,0,0,1,2-2h9.333a2,2,0,0,1,2,2v.667H1.333Zm11.333,10H3.333a2,2,0,0,1-2-2v-6H14.667v6A2,2,0,0,1,12.667,14.667Z"
+							fill="#fff" />
+						<circle id="Ellipse_130" data-name="Ellipse 130" cx="1" cy="1" r="1" transform="translate(7 9)"
+							fill="#fff" />
+						<circle id="Ellipse_131" data-name="Ellipse 131" cx="1" cy="1" r="1"
+							transform="translate(3.667 9)" fill="#fff" />
+						<circle id="Ellipse_132" data-name="Ellipse 132" cx="1" cy="1" r="1"
+							transform="translate(10.333 9)" fill="#fff" />
+					</svg>
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- content start -->
+	<div class="content">
+		<div class="container">
+			<!-- charts here -->
+			<div style="margin-top: 30px;">
+
+				<div class="row">
+					<div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6">
+						<!-- <div id="container" style="height: 390px"></div> -->
+						<div style="background-color: #232c3b;
+						border-radius: 8px; margin-bottom: -10px;">
+							<div class="dropdown" style="padding: 0 20px; padding-top: 14px;">
+								<div class="row">
+									<!-- <div class="col-sm-12 col-md-4">
+										<div class="form-group">
+											<select id="chart_1_1" class="form-select form-select-lg mb-3">
+												<option value="company" selected>Company</option>
+												<option value="building">Building</option>
+												<option value="department">Department</option>
+												<option value="team">Team</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-sm-12 col-md-4">
+										<div class="form-group">
+											<select id="chart_1_2" class="form-select form-select-lg mb-3">
+											</select>
+										</div>
+									</div> -->
+									<div class="col-sm-12 col-md-4">
+										<div class="form-group">
+											<select id="chart_1_3" class="form-select form-select-lg mb-3">
+												<option value="30" selected>Last 30 days</option>
+												<option value="14">Last 14 days</option>
+												<option value="7">Last 7 days</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="chart-spinner"
+							style="position: relative; width: 100%; display: flex; justify-content: center;">
+							<div style="position: absolute; top: 80px; width: 7rem; height: 7rem;"
+								class="spinner-border text-info" role="status">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+						</div>
+						<div id="chart-container" class="chart-container" style="height: 330px"></div>
+					</div>
+					<div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6">
+						<div style="background-color: #232c3b; height: 100%;
+						border-radius: 8px; margin-bottom: -10px; padding: 15px;">
+							<!-- <div class="chart-spinner"
+							style="position: relative; width: 100%; display: flex; justify-content: center;">
+							<div style="position: absolute; top: 140px; width: 7rem; height: 7rem;"
+								class="spinner-border text-info" role="status">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+						</div> -->
+							<!-- <div id="bar-chart-container" class="bar-chart-container" style="height: 190px"></div> -->
+							<div style="display: flex; justify-content: center; height: 100%;">
+								<div class="w-100" style="margin-top: 25px;">
+									<div class="text-color"
+										style="font-size: 20px; margin-top: 5px; margin-bottom: 20px;">
+										Environmental
+									</div>
+									<div class="row g-4 text-color">
+										<div class="col-md-6">
+											<div class="admin-block"
+												style="border: 1px solid #7df9ff; border-radius: 10px; padding-bottom: 10px; padding-top: 5px;">
+												<div class="top" style="display: flex; align-items: center;">
+													<span style="font-size: 16px;">e-waste prevented</span>
+													<div class="icon">
+														<img style="height: 46px; margin-top: 10px;"
+															src="images/E-waste Prevented.svg" alt="">
+													</div>
+												</div>
+												<div class="count" style="margin-top: -20px;">
+													<h2 id="ewaste_count" style="font-size: 20px;">
+													</h2><h2 style="font-size: 20px;">kg</h2>
+													<div class="icon"></div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="admin-block"
+												style="border: 1px solid #7df9ff; border-radius: 10px; padding-bottom: 10px; padding-top: 5px;">
+												<div class="top" style="display: flex; align-items: center;">
+													<span style="font-size: 16px;">electric savings</span>
+													<div class="icon">
+														<img style="height: 46px; margin-top: 10px;"
+															src="images/Electric Savings.svg" alt="">
+													</div>
+												</div>
+												<div class="count" style="margin-top: -20px;">
+													<h2 id="electricity_count" style="font-size: 20px;">
+													</h2><h2 style="font-size: 20px;">KWh</h2>
+													<div class="icon"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="text-color"
+										style="font-size: 20px; margin-top: 15px; margin-bottom: 5px;">
+										Materials Preserved
+									</div>
+
+									<div class="row g-4 text-color" style="margin-top: 0px;">
+										<div class="col-md-4">
+											<div class="admin-block"
+												style="border: 1px solid #7df9ff; border-radius: 10px; padding-bottom: 5px; padding-top: 10px;">
+												<div class="top" style="display: flex; align-items: center;">
+													<span style="font-size: 14px;">Water</span>
+													<div class="icon">
+														<img style="height: 36px;" src="images/Environmental Impact.svg"
+															alt="">
+													</div>
+												</div>
+												<div class="count" style="margin-top: -10px;">
+													<h2 id="water_count" style="font-size: 20px;">
+													</h2><h2 style="font-size: 20px;">L</h2>
+													<div class="icon"></div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="admin-block"
+												style="border: 1px solid #7df9ff; border-radius: 10px; padding-bottom: 5px; padding-top: 10px;">
+												<div class="top" style="display: flex; align-items: center;">
+													<span style="font-size: 12px;">Precious Metals</span>
+													<div class="icon">
+														<img style="height: 36px;" src="images/Metals.svg" alt="">
+													</div>
+												</div>
+												<div class="count" style="margin-top: -10px;">
+													<h2 id="metals_count" style="font-size: 20px;">
+													</h2><h2 style="font-size: 20px;">kg</h2>
+													<div class="icon"></div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="admin-block"
+												style="border: 1px solid #7df9ff; border-radius: 10px; padding-bottom: 5px; padding-top: 10px;">
+												<div class="top" style="display: flex; align-items: center;">
+													<span style="font-size: 12px;">Plastics Prevented</span>
+													<div class="icon">
+														<img style="height: 36px;" src="images/Plastics.svg" alt="">
+													</div>
+												</div>
+												<div class="count" style="margin-top: -10px;">
+													<h2 id="plastics_count" style="font-size: 20px;">
+													</h2><h2 style="font-size: 20px;">kg</h2>
+													<div class="icon"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="admin-head">
+				<div class="row">
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+						<div class="admin-block active table-admin" data-name="Raindrops">
+							<div class="top">
+								<span>Raindrops</span>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="25.206" height="24.523"
+										viewBox="0 0 25.206 24.523">
+										<g id="Icon_feather-layers" data-name="Icon feather-layers"
+											transform="translate(1.342 1)">
+											<path id="Path_2483" data-name="Path 2483"
+												d="M14.261,3,3,8.631l11.261,5.631L25.523,8.631Z"
+												transform="translate(-3 -3)" fill="none" stroke="#fff"
+												stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+											<path id="Path_2484" data-name="Path 2484"
+												d="M3,25.5l11.261,5.631L25.523,25.5" transform="translate(-3 -8.608)"
+												fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+												stroke-width="2" />
+											<path id="Path_2485" data-name="Path 2485" d="M3,18l11.261,5.631L25.523,18"
+												transform="translate(-3 -6.739)" fill="none" stroke="#fff"
+												stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+										</g>
+									</svg>
+								</div>
+							</div>
+							<div class="count">
+								<h2 id="user_count">
+								</h2>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+										viewBox="0 0 22.419 22.297">
+										<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+											d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+											transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+											fill="#b3b9e2" opacity="0.5" />
+									</svg>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+						<div class="admin-block table-admin" data-name="Pending Upgrades">
+							<div id="pending_upgrades_span" style="position: absolute; top: -10px; right: -10px; background: #7DF9FF; display: flex; 
+								justify-content: center; align-items: center; width: 30px; height: 30px; font-size: 14px; border-radius: 50%;">
+								12
+							</div>
+							<div class="top">
+								<span>Pending Upgrades</span>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="25.206" height="24.523"
+										viewBox="0 0 25.206 24.523">
+										<g id="Icon_feather-layers" data-name="Icon feather-layers"
+											transform="translate(1.342 1)">
+											<path id="Path_2483" data-name="Path 2483"
+												d="M14.261,3,3,8.631l11.261,5.631L25.523,8.631Z"
+												transform="translate(-3 -3)" fill="none" stroke="#fff"
+												stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+											<path id="Path_2484" data-name="Path 2484"
+												d="M3,25.5l11.261,5.631L25.523,25.5" transform="translate(-3 -8.608)"
+												fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+												stroke-width="2" />
+											<path id="Path_2485" data-name="Path 2485" d="M3,18l11.261,5.631L25.523,18"
+												transform="translate(-3 -6.739)" fill="none" stroke="#fff"
+												stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+										</g>
+									</svg>
+
+								</div>
+							</div>
+							<div class="count">
+								<h2 id="pending_upgrades">
+									<!-- 25,578 -->
+								</h2>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+										viewBox="0 0 22.419 22.297">
+										<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+											d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+											transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+											fill="#b3b9e2" opacity="0.5" />
+									</svg>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+						<div class="admin-block table-admin" data-name="Teams">
+							<div class="top">
+								<span>TEAMS</span>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20.706" height="20.706"
+										viewBox="0 0 20.706 20.706">
+										<path id="users"
+											d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+											fill="#fff"></path>
+									</svg>
+
+
+								</div>
+							</div>
+							<div class="count">
+								<h2 id="team_count">
+									<!-- 12 -->
+								</h2>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+										viewBox="0 0 22.419 22.297">
+										<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+											d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+											transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+											fill="#b3b9e2" opacity="0.5" />
+									</svg>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+						<div class="admin-block table-admin" data-name="Departments">
+							<div class="top">
+								<span>Departments</span>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="18.36" height="18.358"
+										viewBox="0 0 18.36 18.358">
+										<path id="chart-tree"
+											d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+											transform="translate(0.001 -0.002)" fill="#fff"></path>
+									</svg>
+
+
+								</div>
+							</div>
+							<div class="count">
+								<h2 id="department_count">
+									<!-- 24 -->
+								</h2>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+										viewBox="0 0 22.419 22.297">
+										<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+											d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+											transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+											fill="#b3b9e2" opacity="0.5" />
+									</svg>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+						<div class="admin-block table-admin" data-name="Buildings">
+							<div class="top">
+								<span>BUILDINGS</span>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+										<path id="building"
+											d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+											fill="#fff"></path>
+									</svg>
+
+
+
+
+								</div>
+							</div>
+							<div class="count">
+								<h2 id="building_count">
+									<!-- 2 -->
+								</h2>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+										viewBox="0 0 22.419 22.297">
+										<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+											d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+											transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+											fill="#b3b9e2" opacity="0.5" />
+									</svg>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+						<div class="admin-block table-admin" data-name="Companies">
+							<div class="top">
+								<span>COMPANIES</span>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="19.52" height="19.519"
+										viewBox="0 0 19.52 19.519">
+										<path id="bank"
+											d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+											transform="translate(0.002 0.002)" fill="#fff"></path>
+									</svg>
+
+								</div>
+							</div>
+							<div class="count">
+								<h2 id="company_count">
+									<!-- 34 -->
+								</h2>
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+										viewBox="0 0 22.419 22.297">
+										<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+											d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+											transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+											fill="#b3b9e2" opacity="0.5" />
+									</svg>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="d-md-block d-none">
+
+				<div class="employee-table">
+					<div class="table-head" style="box-shadow: 0px -5px 20px rgba(0,0,0,0.75);">
+						<h2 id="table_header">Raindrops</h2>
+
+						<div class="dropdown user-dropdown only-raindrop">
+							<button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<div class="img">
+									<i class="bi bi-three-dots-vertical"></i>
+								</div>
+								<span>Actions</span>
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+								<li>
+									<a onclick="$('#detailModal').modal('show')" class="dropdown-item" href="#">
+										detail
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">
+										reboot
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">
+										upgrade
+									</a>
+								</li>
+								<li class="">
+									<a class="dropdown-item" href="#">
+										update user
+									</a>
+								</li>
+								<li class="">
+									<a class="dropdown-item" href="#">
+										remove
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="dropdown user-dropdown only-pending-updates" style="display: none;">
+							<button class="dropdown-toggle" type="button" id="dropdownMenuButton2"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<div class="img">
+									<i class="bi bi-three-dots-vertical"></i>
+								</div>
+								<span>Actions</span>
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+								<li>
+									<a class="dropdown-item" href="#">
+										approve
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">
+										reject
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="table-responsive" style="height: 100%; max-height: 400px; overflow: auto;">
+						<table id="example" class="display table clearfix" style="width:100%">
+							<thead id="raindrops_table_head">
+								<tr class="">
+									<th>
+										<button id="MyTableCheckAllButton">
+											<span class="icon"></span>
+										</button>
+									</th>
+									<th>User</th>
+									<th>Specs</th>
+									<th>Type</th>
+									<th>Disk Utilization</th>
+									<th>Role</th>
+									<th>Last Connected</th>
+									<th>Last Connection</th>
+								</tr>
+							</thead>
+							<tbody id="raindrops_table_body">
+
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="employee-data d-md-none d-block">
+				<div class="emp-block">
+					<div class="top">
+						<div class="name">
+							<div class="img">
+
+							</div>
+							<span>John Doe</span>
+						</div>
+						<ul>
+							<li>
+								<a href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+										<g id="Group_7014" data-name="Group 7014" transform="translate(-214 -1365)">
+											<g id="Rectangle_1736" data-name="Rectangle 1736"
+												transform="translate(214 1365)" fill="rgba(135,104,241,0.06)"
+												stroke="#b3b9e2" stroke-width="1">
+												<rect width="35" height="35" rx="5" stroke="none" />
+												<rect x="0.5" y="0.5" width="34" height="34" rx="4.5" fill="none" />
+											</g>
+											<g id="upload" transform="translate(222.922 1373.922)">
+												<path id="Path_2513" data-name="Path 2513"
+													d="M8.578,0a8.578,8.578,0,1,0,8.578,8.578A8.587,8.587,0,0,0,8.578,0Zm0,15.6A7.018,7.018,0,1,1,15.6,8.578,7.026,7.026,0,0,1,8.578,15.6Z"
+													fill="#b3b9e2" />
+												<path id="Path_2514" data-name="Path 2514"
+													d="M97.035,60.229a.78.78,0,0,0-1.1,0l-2.978,2.977a.78.78,0,0,0,1.1,1.1L95.7,62.662v4.356a.78.78,0,1,0,1.56,0V62.663l1.646,1.646a.78.78,0,1,0,1.1-1.1Z"
+													transform="translate(-87.906 -56.881)" fill="#b3b9e2" />
+												<path id="Path_2515" data-name="Path 2515"
+													d="M123.9,240H120.78a.78.78,0,0,0,0,1.56H123.9a.78.78,0,1,0,0-1.56Z"
+													transform="translate(-113.762 -227.523)" fill="#b3b9e2" />
+											</g>
+										</g>
+									</svg>
+
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+										<g id="Group_7015" data-name="Group 7015" transform="translate(-256 -1364)">
+											<g id="Path_10231" data-name="Path 10231" transform="translate(256 1364)"
+												fill="rgba(135,104,241,0.06)">
+												<path
+													d="M 30 34.5 L 5 34.5 C 2.51869010925293 34.5 0.5 32.4813117980957 0.5 30 L 0.5 5 C 0.5 2.51869010925293 2.51869010925293 0.5 5 0.5 L 30 0.5 C 32.4813117980957 0.5 34.5 2.51869010925293 34.5 5 L 34.5 30 C 34.5 32.4813117980957 32.4813117980957 34.5 30 34.5 Z"
+													stroke="none" />
+												<path
+													d="M 5 1 C 2.794391632080078 1 1 2.794391632080078 1 5 L 1 30 C 1 32.20560836791992 2.794391632080078 34 5 34 L 30 34 C 32.20560836791992 34 34 32.20560836791992 34 30 L 34 5 C 34 2.794391632080078 32.20560836791992 1 30 1 L 5 1 M 5 0 L 30 0 C 32.76142120361328 0 35 2.238571166992188 35 5 L 35 30 C 35 32.76142120361328 32.76142120361328 35 30 35 L 5 35 C 2.238571166992188 35 0 32.76142120361328 0 30 L 0 5 C 0 2.238571166992188 2.238571166992188 0 5 0 Z"
+													stroke="none" fill="#b3b9e2" />
+											</g>
+											<path id="reboot"
+												d="M13.129,8.5a4.626,4.626,0,1,1-2.934-4.308l-.257-.65a.531.531,0,1,1,.988-.391l.848,2.144a.531.531,0,0,1-.3.689l-2.144.848a.531.531,0,0,1-.391-.988l1.239-.49A3.567,3.567,0,1,0,12.066,8.5a.531.531,0,1,1,1.063,0ZM17,8.5A8.5,8.5,0,1,1,8.5,0,8.51,8.51,0,0,1,17,8.5Zm-1.063,0A7.438,7.438,0,1,0,8.5,15.937,7.446,7.446,0,0,0,15.938,8.5Z"
+												transform="translate(265 1373.001)" fill="#b3b9e2" />
+										</g>
+									</svg>
+
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+										<g id="Group_7016" data-name="Group 7016" transform="translate(-300 -1364)">
+											<g id="Rectangle_1737" data-name="Rectangle 1737"
+												transform="translate(300 1364)" fill="rgba(135,104,241,0.06)"
+												stroke="#b3b9e2" stroke-width="1">
+												<rect width="35" height="35" rx="5" stroke="none" />
+												<rect x="0.5" y="0.5" width="34" height="34" rx="4.5" fill="none" />
+											</g>
+											<path id="users"
+												d="M5.861,10.293A3.47,3.47,0,0,1,2.344,6.872,3.47,3.47,0,0,1,5.861,3.451,3.47,3.47,0,0,1,9.378,6.872a3.474,3.474,0,0,1-3.517,3.421Zm0-5.322a1.9,1.9,0,1,0,1.954,1.9A1.928,1.928,0,0,0,5.861,4.971ZM11.722,17.9v-.38a5.783,5.783,0,0,0-5.861-5.7A5.783,5.783,0,0,0,0,17.515v.38a.771.771,0,0,0,.781.76.771.771,0,0,0,.781-.76v-.38a4.241,4.241,0,0,1,4.3-4.181,4.241,4.241,0,0,1,4.3,4.181v.38a.782.782,0,0,0,1.563,0Z"
+												transform="translate(312 1370.549)" fill="#b3b9e2" />
+										</g>
+									</svg>
+
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+										<g id="Group_7383" data-name="Group 7383" transform="translate(-337 -1364)">
+											<g id="Path_2516" data-name="Path 2516" transform="translate(337 1364)"
+												fill="rgba(253,177,40,0.06)">
+												<path
+													d="M 30 34.5 L 5 34.5 C 2.51869010925293 34.5 0.5 32.4813117980957 0.5 30 L 0.5 5 C 0.5 2.51869010925293 2.51869010925293 0.5 5 0.5 L 30 0.5 C 32.4813117980957 0.5 34.5 2.51869010925293 34.5 5 L 34.5 30 C 34.5 32.4813117980957 32.4813117980957 34.5 30 34.5 Z"
+													stroke="none" />
+												<path
+													d="M 5 1 C 2.794391632080078 1 1 2.794391632080078 1 5 L 1 30 C 1 32.20560836791992 2.794391632080078 34 5 34 L 30 34 C 32.20560836791992 34 34 32.20560836791992 34 30 L 34 5 C 34 2.794391632080078 32.20560836791992 1 30 1 L 5 1 M 5 0 L 30 0 C 32.76142120361328 0 35 2.238571166992188 35 5 L 35 30 C 35 32.76142120361328 32.76142120361328 35 30 35 L 5 35 C 2.238571166992188 35 0 32.76142120361328 0 30 L 0 5 C 0 2.238571166992188 2.238571166992188 0 5 0 Z"
+													stroke="none" fill="#fdb128" />
+											</g>
+											<g id="trash_1_" data-name="trash (1)"
+												transform="translate(345.213 1372.756)">
+												<path id="Path_2516-2" data-name="Path 2516"
+													d="M15.845,2.915H13.586A3.65,3.65,0,0,0,10.015,0H8.558A3.65,3.65,0,0,0,4.988,2.915H2.729a.729.729,0,1,0,0,1.457h.729v9.473A3.648,3.648,0,0,0,7.1,17.488h4.372a3.648,3.648,0,0,0,3.643-3.643V4.372h.729a.729.729,0,1,0,0-1.457ZM8.558,1.457h1.457a2.19,2.19,0,0,1,2.061,1.457H6.5A2.19,2.19,0,0,1,8.558,1.457Zm5.1,12.388a2.186,2.186,0,0,1-2.186,2.186H7.1a2.186,2.186,0,0,1-2.186-2.186V4.372h8.744Z"
+													fill="#fdb128" />
+												<path id="Path_2517" data-name="Path 2517"
+													d="M9.729,15.829a.729.729,0,0,0,.729-.729V10.729a.729.729,0,0,0-1.457,0V15.1A.729.729,0,0,0,9.729,15.829Z"
+													transform="translate(-1.899 -2.713)" fill="#fdb128" />
+												<path id="Path_2518" data-name="Path 2518"
+													d="M13.729,15.829a.729.729,0,0,0,.729-.729V10.729a.729.729,0,1,0-1.457,0V15.1A.729.729,0,0,0,13.729,15.829Z"
+													transform="translate(-2.985 -2.713)" fill="#fdb128" />
+											</g>
+										</g>
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<p><span>12-02-2022 13:00</span><span>Vienna, Austria</span></p>
+
+					<ul class="list">
+						<li><span>Specs</span>
+							<h6>Lorem ipsum</h6>
+						</li>
+						<li><span>role</span>
+							<h6>Lorem ipsum</h6>
+						</li>
+					</ul>
+				</div>
+				<div class="emp-block">
+					<div class="top">
+						<div class="name">
+							<div class="img">
+
+							</div>
+							<span>John Doe</span>
+						</div>
+						<ul>
+							<li>
+								<a href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+										<g id="Group_7014" data-name="Group 7014" transform="translate(-214 -1365)">
+											<g id="Rectangle_1736" data-name="Rectangle 1736"
+												transform="translate(214 1365)" fill="rgba(135,104,241,0.06)"
+												stroke="#b3b9e2" stroke-width="1">
+												<rect width="35" height="35" rx="5" stroke="none" />
+												<rect x="0.5" y="0.5" width="34" height="34" rx="4.5" fill="none" />
+											</g>
+											<g id="upload" transform="translate(222.922 1373.922)">
+												<path id="Path_2513" data-name="Path 2513"
+													d="M8.578,0a8.578,8.578,0,1,0,8.578,8.578A8.587,8.587,0,0,0,8.578,0Zm0,15.6A7.018,7.018,0,1,1,15.6,8.578,7.026,7.026,0,0,1,8.578,15.6Z"
+													fill="#b3b9e2" />
+												<path id="Path_2514" data-name="Path 2514"
+													d="M97.035,60.229a.78.78,0,0,0-1.1,0l-2.978,2.977a.78.78,0,0,0,1.1,1.1L95.7,62.662v4.356a.78.78,0,1,0,1.56,0V62.663l1.646,1.646a.78.78,0,1,0,1.1-1.1Z"
+													transform="translate(-87.906 -56.881)" fill="#b3b9e2" />
+												<path id="Path_2515" data-name="Path 2515"
+													d="M123.9,240H120.78a.78.78,0,0,0,0,1.56H123.9a.78.78,0,1,0,0-1.56Z"
+													transform="translate(-113.762 -227.523)" fill="#b3b9e2" />
+											</g>
+										</g>
+									</svg>
+
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+										<g id="Group_7015" data-name="Group 7015" transform="translate(-256 -1364)">
+											<g id="Path_10231" data-name="Path 10231" transform="translate(256 1364)"
+												fill="rgba(135,104,241,0.06)">
+												<path
+													d="M 30 34.5 L 5 34.5 C 2.51869010925293 34.5 0.5 32.4813117980957 0.5 30 L 0.5 5 C 0.5 2.51869010925293 2.51869010925293 0.5 5 0.5 L 30 0.5 C 32.4813117980957 0.5 34.5 2.51869010925293 34.5 5 L 34.5 30 C 34.5 32.4813117980957 32.4813117980957 34.5 30 34.5 Z"
+													stroke="none" />
+												<path
+													d="M 5 1 C 2.794391632080078 1 1 2.794391632080078 1 5 L 1 30 C 1 32.20560836791992 2.794391632080078 34 5 34 L 30 34 C 32.20560836791992 34 34 32.20560836791992 34 30 L 34 5 C 34 2.794391632080078 32.20560836791992 1 30 1 L 5 1 M 5 0 L 30 0 C 32.76142120361328 0 35 2.238571166992188 35 5 L 35 30 C 35 32.76142120361328 32.76142120361328 35 30 35 L 5 35 C 2.238571166992188 35 0 32.76142120361328 0 30 L 0 5 C 0 2.238571166992188 2.238571166992188 0 5 0 Z"
+													stroke="none" fill="#b3b9e2" />
+											</g>
+											<path id="reboot"
+												d="M13.129,8.5a4.626,4.626,0,1,1-2.934-4.308l-.257-.65a.531.531,0,1,1,.988-.391l.848,2.144a.531.531,0,0,1-.3.689l-2.144.848a.531.531,0,0,1-.391-.988l1.239-.49A3.567,3.567,0,1,0,12.066,8.5a.531.531,0,1,1,1.063,0ZM17,8.5A8.5,8.5,0,1,1,8.5,0,8.51,8.51,0,0,1,17,8.5Zm-1.063,0A7.438,7.438,0,1,0,8.5,15.937,7.446,7.446,0,0,0,15.938,8.5Z"
+												transform="translate(265 1373.001)" fill="#b3b9e2" />
+										</g>
+									</svg>
+
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+										<g id="Group_7016" data-name="Group 7016" transform="translate(-300 -1364)">
+											<g id="Rectangle_1737" data-name="Rectangle 1737"
+												transform="translate(300 1364)" fill="rgba(135,104,241,0.06)"
+												stroke="#b3b9e2" stroke-width="1">
+												<rect width="35" height="35" rx="5" stroke="none" />
+												<rect x="0.5" y="0.5" width="34" height="34" rx="4.5" fill="none" />
+											</g>
+											<path id="users"
+												d="M5.861,10.293A3.47,3.47,0,0,1,2.344,6.872,3.47,3.47,0,0,1,5.861,3.451,3.47,3.47,0,0,1,9.378,6.872a3.474,3.474,0,0,1-3.517,3.421Zm0-5.322a1.9,1.9,0,1,0,1.954,1.9A1.928,1.928,0,0,0,5.861,4.971ZM11.722,17.9v-.38a5.783,5.783,0,0,0-5.861-5.7A5.783,5.783,0,0,0,0,17.515v.38a.771.771,0,0,0,.781.76.771.771,0,0,0,.781-.76v-.38a4.241,4.241,0,0,1,4.3-4.181,4.241,4.241,0,0,1,4.3,4.181v.38a.782.782,0,0,0,1.563,0Z"
+												transform="translate(312 1370.549)" fill="#b3b9e2" />
+										</g>
+									</svg>
+
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+										<g id="Group_7383" data-name="Group 7383" transform="translate(-337 -1364)">
+											<g id="Path_2516" data-name="Path 2516" transform="translate(337 1364)"
+												fill="rgba(253,177,40,0.06)">
+												<path
+													d="M 30 34.5 L 5 34.5 C 2.51869010925293 34.5 0.5 32.4813117980957 0.5 30 L 0.5 5 C 0.5 2.51869010925293 2.51869010925293 0.5 5 0.5 L 30 0.5 C 32.4813117980957 0.5 34.5 2.51869010925293 34.5 5 L 34.5 30 C 34.5 32.4813117980957 32.4813117980957 34.5 30 34.5 Z"
+													stroke="none" />
+												<path
+													d="M 5 1 C 2.794391632080078 1 1 2.794391632080078 1 5 L 1 30 C 1 32.20560836791992 2.794391632080078 34 5 34 L 30 34 C 32.20560836791992 34 34 32.20560836791992 34 30 L 34 5 C 34 2.794391632080078 32.20560836791992 1 30 1 L 5 1 M 5 0 L 30 0 C 32.76142120361328 0 35 2.238571166992188 35 5 L 35 30 C 35 32.76142120361328 32.76142120361328 35 30 35 L 5 35 C 2.238571166992188 35 0 32.76142120361328 0 30 L 0 5 C 0 2.238571166992188 2.238571166992188 0 5 0 Z"
+													stroke="none" fill="#fdb128" />
+											</g>
+											<g id="trash_1_" data-name="trash (1)"
+												transform="translate(345.213 1372.756)">
+												<path id="Path_2516-2" data-name="Path 2516"
+													d="M15.845,2.915H13.586A3.65,3.65,0,0,0,10.015,0H8.558A3.65,3.65,0,0,0,4.988,2.915H2.729a.729.729,0,1,0,0,1.457h.729v9.473A3.648,3.648,0,0,0,7.1,17.488h4.372a3.648,3.648,0,0,0,3.643-3.643V4.372h.729a.729.729,0,1,0,0-1.457ZM8.558,1.457h1.457a2.19,2.19,0,0,1,2.061,1.457H6.5A2.19,2.19,0,0,1,8.558,1.457Zm5.1,12.388a2.186,2.186,0,0,1-2.186,2.186H7.1a2.186,2.186,0,0,1-2.186-2.186V4.372h8.744Z"
+													fill="#fdb128" />
+												<path id="Path_2517" data-name="Path 2517"
+													d="M9.729,15.829a.729.729,0,0,0,.729-.729V10.729a.729.729,0,0,0-1.457,0V15.1A.729.729,0,0,0,9.729,15.829Z"
+													transform="translate(-1.899 -2.713)" fill="#fdb128" />
+												<path id="Path_2518" data-name="Path 2518"
+													d="M13.729,15.829a.729.729,0,0,0,.729-.729V10.729a.729.729,0,1,0-1.457,0V15.1A.729.729,0,0,0,13.729,15.829Z"
+													transform="translate(-2.985 -2.713)" fill="#fdb128" />
+											</g>
+										</g>
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<p><span>12-02-2022 13:00</span><span>Vienna, Austria</span></p>
+
+					<ul class="list">
+						<li><span>Specs</span>
+							<h6>Lorem ipsum</h6>
+						</li>
+						<li><span>role</span>
+							<h6>Lorem ipsum</h6>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- content end -->
+
+		<!-- footer start -->
+		<footer class="footer">
+
+		</footer>
+		<!-- footer end -->
+
+		<!-- detail modal -->
+		<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+					</button>
+					<div class="modal-body">
+						<!-- <h2 style="color: #fff;">Detail</h2> -->
+						<div class="row row-cols-4 g-4">
+							<div class="col">
+								<div class="admin-block">
+									<div class="top">
+										<span>CPU</span>
+										<div class="icon">
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="detail1">
+											2
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="admin-block">
+									<div class="top">
+										<span>RAM</span>
+										<div class="icon">
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="detail2">
+											4GB
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="admin-block">
+									<div class="top">
+										<span>Disk Space Used</span>
+										<div class="icon">
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="detail2">
+											40%
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="admin-block">
+									<div class="top">
+										<span>Operating System</span>
+										<div class="icon">
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="detail2">
+											40%
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="admin-block">
+									<div class="top">
+										<span>Role</span>
+										<div class="icon">
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="detail2">
+											engineer
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="admin-block">
+									<div class="top">
+										<span>Last Connected</span>
+										<div class="icon">
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="detail2">
+											JAN 01 1970
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="admin-block">
+									<div class="top">
+										<span>Last Location</span>
+										<div class="icon">
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="detail2">
+											192.168.2.22
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="admin-block">
+									<div class="top">
+										<span>Upgrade Requested</span>
+										<div class="icon">
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="detail2">
+											<div class="btn-group btn-group-sm">
+												<button type="button" class="btn btn-primary">Yes</button>
+												<button type="button" class="btn btn-primary">No</button>
+											</div>
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-content" id="myTabContent" style="margin-top: 20px;">
+							<div class="tab-pane fade show active" role="tabpanel" aria-labelledby="admin-tab"
+								style="padding: 5px;">
+								<div class="d-flex justify-content-center">
+									<div id="chart-container-modal" class="chart-container"
+										style="height: 330px; width: 1000px;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- billing modal -->
+		<div class="modal fade" id="billingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+					</button>
+					<div class="modal-body">
+						<h2 style="color: #fff;">Billing</h2>
+						<div class="row g-4">
+							<div class="col-sm-12 col-md-4">
+								<div class="admin-block">
+									<div class="top">
+										<span>Pricing Tier</span>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" style="color: #fff;" width="24"
+												height="24" fill="currentColor" class="bi bi-cash-stack"
+												viewBox="0 0 16 16">
+												<path
+													d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+												<path
+													d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
+											</svg>
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="billing_pils_tier">
+											tier
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-4">
+								<div class="admin-block">
+									<div class="top">
+										<span>This Month</span>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" style="color: #fff;" width="24"
+												height="24" fill="currentColor" class="bi bi-calendar-event"
+												viewBox="0 0 16 16">
+												<path
+													d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+												<path
+													d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+											</svg>
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="billing_pils_this_month">
+											this_month
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-4">
+								<div class="admin-block">
+									<div class="top">
+										<span>Last Month</span>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" style="color: #fff;" width="24"
+												height="24" fill="currentColor" class="bi bi-calendar-event"
+												viewBox="0 0 16 16">
+												<path
+													d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+												<path
+													d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+											</svg>
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="billing_pils_last_month">
+											last_month
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-content" id="myTabContent" style="margin-top: 50px;">
+							<div class="tab-pane fade show active" id="admin" role="tabpanel"
+								aria-labelledby="admin-tab">
+								<div class="billing-table">
+									<div class="employee-table">
+										<div class="table-responsive"
+											style="height: 100%; max-height: 400px; overflow: auto;">
+											<table id="billing_table" class="display table clearfix" style="width:100%">
+												<thead>
+													<tr>
+														<th>Date</th>
+														<th>Authorization</th>
+														<th>Tier</th>
+														<th>Total Charge</th>
+													</tr>
+												</thead>
+												<tbody id="billing_table_body">
+													<tr>
+														<td>10-13-2022</td>
+														<td>aut_3dwefqrgw6rhrst</td>
+														<td>1</td>
+														<td>34561</td>
+													</tr>
+													<tr>
+														<td>10-13-2022</td>
+														<td>aut_3dwefqrgw6rhrst</td>
+														<td>1</td>
+														<td>34561</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- profile modal -->
+		<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+					</button>
+					<div class="modal-body">
+						<h2 style="color: #fff;">Profile</h2>
+						<div class="row g-4">
+							<div class="col-sm-12 col-md-6">
+								<div class="admin-block">
+									<div class="top">
+										<span>Administration level</span>
+										<div class="icon">
+											<svg style="color: #fff;" xmlns="http://www.w3.org/2000/svg" width="24"
+												height="24" fill="currentColor" class="bi bi-person-bounding-box"
+												viewBox="0 0 16 16">
+												<path
+													d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
+												<path
+													d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+											</svg>
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="profile_pils_admin_level">
+											level
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-6">
+								<div class="admin-block">
+									<div class="top">
+										<span>Admin of</span>
+										<div class="icon">
+											<svg style="color: #fff;" xmlns="http://www.w3.org/2000/svg" width="24"
+												height="24" fill="currentColor" class="bi bi-person-bounding-box"
+												viewBox="0 0 16 16">
+												<path
+													d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
+												<path
+													d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+											</svg>
+										</div>
+									</div>
+									<div class="count">
+										<h2 id="profile_pils_item_name">
+											item_name
+										</h2>
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
+												viewBox="0 0 22.419 22.297">
+												<path id="Icon_awesome-arrow-left" data-name="Icon awesome-arrow-left"
+													d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+													transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
+													fill="#b3b9e2" opacity="0.5" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-content" id="myTabContent" style="margin-top: 50px;">
+							<div class="tab-pane fade show active" id="admin" role="tabpanel"
+								aria-labelledby="admin-tab">
+								<div class="profile-form">
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<label for="profile_first_name"
+													style="color: #fff; margin-bottom: 10px;">
+													First name
+												</label>
+												<input id="profile_first_name" type="text" class="form-control"
+													placeholder="First name" disabled>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="form-group">
+												<label for="profile_last_name"
+													style="color: #fff; margin-bottom: 10px;">
+													Last name
+												</label>
+												<input id="profile_last_name" type="text" class="form-control"
+													placeholder="Last name" disabled>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-5">
+											<div class="form-group">
+												<label for="profile_email" style="color: #fff; margin-bottom: 10px;">
+													Email
+												</label>
+												<input id="profile_email" type="text" class="form-control"
+													placeholder="Email address">
+											</div>
+										</div>
+									</div>
+
+									<div class="invite" style="display: flex; justify-content: end;">
+										<a href="#">
+											Save
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- invite admin modal -->
+
+		<div class="modal fade" id="inviteAdminModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+
+					</button>
+					<div class="modal-body">
+						<h2 style="color: #fff;">Invite Admin</h2>
+						<div class="tab-content" id="myTabContent" style="margin-top: 50px;">
+							<div class="tab-pane fade show active" id="admin" role="tabpanel"
+								aria-labelledby="admin-tab">
+								<div class="admin-form">
+									<div class="row">
+										<div class="col-sm-12 col-md-6">
+											<div class="form-group">
+												<label for="invite_admin_1" style="color: #fff; margin-bottom: 10px;">
+													Permissions Level
+												</label>
+												<select id="invite_admin_1" class="form-select form-select-lg mb-3">
+													<!-- <option>Level</option> -->
+													<option value="company" selected>Company</option>
+													<option value="building">Building</option>
+													<option value="department">Department</option>
+													<option value="team">Team</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6">
+											<div class="form-group">
+												<label for="invite_admin_2"
+													style="color: #fff; margin-bottom: 10px; opacity: 0;">
+													label
+												</label>
+												<select id="invite_admin_2" class="form-select form-select-lg mb-3">
+													<!-- <option selected>Level</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="row" style="display: none;">
+										<div class="col-sm-12 col-md-6">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<!-- <svg xmlns="http://www.w3.org/2000/svg" width="38"
+																	height="38" viewBox="0 0 38 38">
+																	<g id="Group_7382" data-name="Group 7382"
+																		transform="translate(-153 -83)">
+																		<circle id="Ellipse_126" data-name="Ellipse 126"
+																			cx="19" cy="19" r="19"
+																			transform="translate(153 83)"
+																			fill="#181f2f"></circle>
+																		<path id="users"
+																			d="M6.66,11.442a4,4,0,1,1,4-4,4,4,0,0,1-4,4Zm0-6.216a2.22,2.22,0,1,0,2.22,2.22A2.22,2.22,0,0,0,6.66,5.227Zm6.66,15.095v-.444A6.66,6.66,0,1,0,0,19.878v.444a.888.888,0,1,0,1.776,0v-.444a4.884,4.884,0,0,1,9.767,0v.444a.888.888,0,0,0,1.776,0Z"
+																			transform="translate(165.322 89.169)"
+																			fill="#fff"></path>
+																	</g>
+																</svg> -->
+															</div>
+															<span>Level</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="padding-top: 20px;">
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<!-- <svg xmlns="http://www.w3.org/2000/svg" width="38"
+																	height="38" viewBox="0 0 38 38">
+																	<g id="Group_7382" data-name="Group 7382"
+																		transform="translate(-153 -83)">
+																		<circle id="Ellipse_126" data-name="Ellipse 126"
+																			cx="19" cy="19" r="19"
+																			transform="translate(153 83)"
+																			fill="#181f2f"></circle>
+																		<path id="users"
+																			d="M6.66,11.442a4,4,0,1,1,4-4,4,4,0,0,1-4,4Zm0-6.216a2.22,2.22,0,1,0,2.22,2.22A2.22,2.22,0,0,0,6.66,5.227Zm6.66,15.095v-.444A6.66,6.66,0,1,0,0,19.878v.444a.888.888,0,1,0,1.776,0v-.444a4.884,4.884,0,0,1,9.767,0v.444a.888.888,0,0,0,1.776,0Z"
+																			transform="translate(165.322 89.169)"
+																			fill="#fff"></path>
+																	</g>
+																</svg> -->
+															</div>
+															<span>Teams</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="padding-top: 20px;">
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="First name">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Last name">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-5">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Email address">
+											</div>
+										</div>
+									</div>
+
+									<div class="row d-none">
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg id="company" xmlns="http://www.w3.org/2000/svg"
+																	width="38" height="38" viewBox="0 0 38 38">
+																	<circle id="Ellipse_507" data-name="Ellipse 507"
+																		cx="19" cy="19" r="19" fill="#181f2f" />
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(9.552 8.502)"
+																		fill="#fff" />
+																</svg>
+
+															</div>
+															<span>Company</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg id="team" xmlns="http://www.w3.org/2000/svg"
+																	width="38" height="38" viewBox="0 0 38 38">
+																	<circle id="Ellipse_508" data-name="Ellipse 508"
+																		cx="19" cy="19" r="19" fill="#181f2f" />
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		transform="translate(8.646 9)" fill="#fff" />
+																</svg>
+
+															</div>
+															<span>Team</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg xmlns="http://www.w3.org/2000/svg" width="38"
+																	height="38" viewBox="0 0 38 38">
+																	<g id="building2"
+																		transform="translate(-994.903 -401)">
+																		<circle id="Ellipse_509" data-name="Ellipse 509"
+																			cx="19" cy="19" r="19"
+																			transform="translate(994.903 401)"
+																			fill="#181f2f" />
+																		<path id="building"
+																			d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																			transform="translate(1004.551 410)"
+																			fill="#fff" />
+																	</g>
+																</svg>
+
+
+															</div>
+															<span>Building</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg xmlns="http://www.w3.org/2000/svg" width="38"
+																	height="38" viewBox="0 0 38 38">
+																	<g id="department2"
+																		transform="translate(-1229.903 -402)">
+																		<circle id="Ellipse_510" data-name="Ellipse 510"
+																			cx="19" cy="19" r="19"
+																			transform="translate(1229.903 402)"
+																			fill="#181f2f" />
+																		<path id="chart-tree"
+																			d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																			transform="translate(1240.131 411.479)"
+																			fill="#fff" />
+																	</g>
+																</svg>
+
+
+
+															</div>
+															<span>Department</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="invite" style="display: flex; justify-content: end;">
+										<a href="#">
+											<svg xmlns="http://www.w3.org/2000/svg" width="23.899" height="20.832"
+												viewBox="0 0 23.899 20.832">
+												<g id="invite" transform="translate(-1371.189 -966.142)">
+													<g id="user_2_" data-name="user (2)"
+														transform="translate(1371.189 966.142)">
+														<path id="Path_126" data-name="Path 126"
+															d="M11.584,11.168A5.584,5.584,0,1,0,6,5.584a5.584,5.584,0,0,0,5.584,5.584Zm0-9.307A3.723,3.723,0,1,1,7.861,5.584a3.723,3.723,0,0,1,3.723-3.723Z"
+															transform="translate(-3.208)" fill="#b3b9e2" />
+														<path id="Path_127" data-name="Path 127"
+															d="M11.376,14A8.386,8.386,0,0,0,3,22.376a.931.931,0,1,0,1.861,0,6.515,6.515,0,0,1,13.03,0,.931.931,0,1,0,1.861,0A8.386,8.386,0,0,0,11.376,14Z"
+															transform="translate(-3 -2.474)" fill="#b3b9e2" />
+													</g>
+													<g id="Group_6584" data-name="Group 6584"
+														transform="translate(1387.942 969.182)">
+														<path id="Path_32" data-name="Path 32" d="M18,7.5v6.147"
+															transform="translate(-14.927 -7.5)" fill="none"
+															stroke="#b3b9e2" stroke-linecap="round"
+															stroke-linejoin="round" stroke-width="2" />
+														<path id="Path_33" data-name="Path 33" d="M7.5,18h6.147"
+															transform="translate(-7.5 -14.927)" fill="none"
+															stroke="#b3b9e2" stroke-linecap="round"
+															stroke-linejoin="round" stroke-width="2" />
+													</g>
+												</g>
+											</svg>
+
+											Invite Admin
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+
+					</button>
+					<div class="modal-body">
+						<h2 style="color: #fff;">Add Raindrop</h2>
+						<div class="tab-content" id="myTabContent" style="margin-top: 50px;">
+							<div class="tab-pane fade show active" id="raindrop" role="tabpanel"
+								aria-labelledby="home-tab">
+
+								<div style="padding-bottom: 25px;">
+									<div class="row">
+										<div class="col-4 col-md-4">
+											<div class="form-group">
+												<select name="" class="form-select form-control" id="rd_modal_company">
+													<!-- <option value="">company01</option> -->
+												</select>
+											</div>
+										</div>
+										<div class="col-8 col-md-8">
+											<div class="form-group">
+												<select name="" class="form-select form-control" id="rd_modal_details">
+													<!-- <option value="">building01 > department01 > team01</option> -->
+													<!-- <option value="">
+														building_name -> department_name -> team_name
+													</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="d-flex justify-content-between align-items-center"
+									style="margin-bottom: 25px;">
+									<div style="color: #fff;">
+										<svg style="margin-top: -7px;" xmlns="http://www.w3.org/2000/svg" width="24.706"
+											height="24.706" viewBox="0 0 20.706 20.706">
+											<path id="users"
+												d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+												fill="#fff"></path>
+										</svg>
+										<span style="font-size: 24px; margin-left: 10px;">"<span
+												id="rd_name_team_add">team01</span>" Add Raindrops:</span>
+									</div>
+									<div>
+										<div class="input-group">
+											<div class="input-group-text"
+												style="height: 40px; background-color: #151d26; border-color: #192531;">
+												<input id="lead_checkbox" class="form-check-input mt-0" type="checkbox"
+													value="">
+											</div>
+											<input id="lead_input" style="height: 40px;" type="text"
+												class="form-control" placeholder="Lead scenario">
+										</div>
+									</div>
+								</div>
+
+								<div class="member-list-main"
+									style="height: auto; max-height: 280px; padding-top: 15px; padding-bottom: 0px;">
+									<div class="member-list" style="height: auto;"></div>
+								</div>
+
+								<div class="add-member">
+									<div class="add-btn">
+										<a href="#">
+											<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+												viewBox="0 0 30 30">
+												<g id="Group_7048" data-name="Group 7048"
+													transform="translate(-157 -87)">
+													<circle id="Ellipse_126" data-name="Ellipse 126" cx="15" cy="15"
+														r="15" transform="translate(157 87)" fill="#181f2f" />
+													<g id="Group_6584" data-name="Group 6584"
+														transform="translate(-560.335 -39.446)">
+														<path id="Path_32" data-name="Path 32" d="M18,7.5v8.67"
+															transform="translate(714.335 129.61)" fill="none"
+															stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+															stroke-width="2" />
+														<path id="Path_33" data-name="Path 33" d="M7.5,18h8.67"
+															transform="translate(720.5 123.446)" fill="none"
+															stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+															stroke-width="2" />
+													</g>
+												</g>
+											</svg>
+
+											Add more
+										</a>
+									</div>
+								</div>
+
+
+								<div class="member-footer">
+									<div class="row justify-content-end">
+										<div class="col-sm-12 col-md-5">
+											<div class="change-block">
+												<div class="admin-block active"
+													style="background: transparent; text-align: right;">
+													<div class="top" style="justify-content: center;">
+														<span>Montly change</span>
+														<!-- <div class="icon">
+															<svg id="doller" xmlns="http://www.w3.org/2000/svg"
+																width="26.529" height="26.529"
+																viewBox="0 0 26.529 26.529">
+																<path id="Path_2513" data-name="Path 2513"
+																	d="M13.265,0A13.265,13.265,0,1,0,26.529,13.265,13.28,13.28,0,0,0,13.265,0Zm0,24.117A10.853,10.853,0,1,1,24.117,13.265,10.865,10.865,0,0,1,13.265,24.117Z"
+																	fill="#fff" />
+																<text id="_" data-name="$"
+																	transform="translate(8.275 18.133)" fill="#fff"
+																	font-size="14"
+																	font-family="Poppins-SemiBold, Poppins"
+																	font-weight="600">
+																	<tspan x="0" y="0">$</tspan>
+																</text>
+															</svg>
+														</div> -->
+													</div>
+													<div class="count" style="justify-content: center;">
+														<h2><span>+</span> <span style="color: #fff;"
+																id="montly_change">$256</span></h2>
+													</div>
+												</div>
+												<div style="display: flex; align-items: center; padding-left: 15px;">
+													<div class="form-group">
+														<button class="btn btn-primary create-raindrop">Submit</button>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+								<div class="admin-form">
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="First name">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="First name">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-5">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="First name">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg xmlns="http://www.w3.org/2000/svg" width="38"
+																	height="38" viewBox="0 0 38 38">
+																	<g id="Group_7382" data-name="Group 7382"
+																		transform="translate(-153 -83)">
+																		<circle id="Ellipse_126" data-name="Ellipse 126"
+																			cx="19" cy="19" r="19"
+																			transform="translate(153 83)"
+																			fill="#181f2f"></circle>
+																		<path id="users"
+																			d="M6.66,11.442a4,4,0,1,1,4-4,4,4,0,0,1-4,4Zm0-6.216a2.22,2.22,0,1,0,2.22,2.22A2.22,2.22,0,0,0,6.66,5.227Zm6.66,15.095v-.444A6.66,6.66,0,1,0,0,19.878v.444a.888.888,0,1,0,1.776,0v-.444a4.884,4.884,0,0,1,9.767,0v.444a.888.888,0,0,0,1.776,0Z"
+																			transform="translate(165.322 89.169)"
+																			fill="#fff"></path>
+																	</g>
+																</svg>
+															</div>
+															<span>Admin level</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg id="company" xmlns="http://www.w3.org/2000/svg"
+																	width="38" height="38" viewBox="0 0 38 38">
+																	<circle id="Ellipse_507" data-name="Ellipse 507"
+																		cx="19" cy="19" r="19" fill="#181f2f" />
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(9.552 8.502)"
+																		fill="#fff" />
+																</svg>
+
+															</div>
+															<span>Company</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg id="team" xmlns="http://www.w3.org/2000/svg"
+																	width="38" height="38" viewBox="0 0 38 38">
+																	<circle id="Ellipse_508" data-name="Ellipse 508"
+																		cx="19" cy="19" r="19" fill="#181f2f" />
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		transform="translate(8.646 9)" fill="#fff" />
+																</svg>
+
+															</div>
+															<span>Team</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg xmlns="http://www.w3.org/2000/svg" width="38"
+																	height="38" viewBox="0 0 38 38">
+																	<g id="building2"
+																		transform="translate(-994.903 -401)">
+																		<circle id="Ellipse_509" data-name="Ellipse 509"
+																			cx="19" cy="19" r="19"
+																			transform="translate(994.903 401)"
+																			fill="#181f2f" />
+																		<path id="building"
+																			d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																			transform="translate(1004.551 410)"
+																			fill="#fff" />
+																	</g>
+																</svg>
+
+
+															</div>
+															<span>Building</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-3">
+											<div class="form-group">
+												<div class="dropdown">
+													<button class="dropdown-toggle" type="button"
+														id="dropdownMenuButton1" data-bs-toggle="dropdown"
+														aria-expanded="false">
+														<div class="h-block">
+															<div class="icon">
+																<svg xmlns="http://www.w3.org/2000/svg" width="38"
+																	height="38" viewBox="0 0 38 38">
+																	<g id="department2"
+																		transform="translate(-1229.903 -402)">
+																		<circle id="Ellipse_510" data-name="Ellipse 510"
+																			cx="19" cy="19" r="19"
+																			transform="translate(1229.903 402)"
+																			fill="#181f2f" />
+																		<path id="chart-tree"
+																			d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																			transform="translate(1240.131 411.479)"
+																			fill="#fff" />
+																	</g>
+																</svg>
+
+
+
+															</div>
+															<span>Department</span>
+														</div>
+													</button>
+													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+														style="">
+														<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
+																	height="19.519" viewBox="0 0 19.52 19.519">
+																	<path id="bank"
+																		d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+																		transform="translate(0.002 0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Company</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20">
+																	<path id="building"
+																		d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Building</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
+																	height="18.358" viewBox="0 0 18.36 18.358">
+																	<path id="chart-tree"
+																		d="M16.725,13.867a4.083,4.083,0,0,0-3.97-3.157H10.327V9.473a4.805,4.805,0,1,0-2.295,0V10.71H5.6a4.083,4.083,0,0,0-3.97,3.157,2.295,2.295,0,1,0,2.234.528A1.783,1.783,0,0,1,5.6,13H8.032v1.071a2.295,2.295,0,1,0,2.295,0V13h2.428a1.783,1.783,0,0,1,1.736,1.39,2.295,2.295,0,1,0,2.234-.528ZM6.669,4.807A2.511,2.511,0,1,1,9.179,7.317,2.511,2.511,0,0,1,6.669,4.807Z"
+																		transform="translate(0.001 -0.002)" fill="#fff">
+																	</path>
+																</svg>
+
+																Department</a></li>
+														<li><a class="dropdown-item" href="#">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20.706"
+																	height="20.706" viewBox="0 0 20.706 20.706">
+																	<path id="users"
+																		d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+																		fill="#fff"></path>
+																</svg>
+
+																Team</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="invite">
+										<a href="#">
+											<svg xmlns="http://www.w3.org/2000/svg" width="23.899" height="20.832"
+												viewBox="0 0 23.899 20.832">
+												<g id="invite" transform="translate(-1371.189 -966.142)">
+													<g id="user_2_" data-name="user (2)"
+														transform="translate(1371.189 966.142)">
+														<path id="Path_126" data-name="Path 126"
+															d="M11.584,11.168A5.584,5.584,0,1,0,6,5.584a5.584,5.584,0,0,0,5.584,5.584Zm0-9.307A3.723,3.723,0,1,1,7.861,5.584a3.723,3.723,0,0,1,3.723-3.723Z"
+															transform="translate(-3.208)" fill="#b3b9e2" />
+														<path id="Path_127" data-name="Path 127"
+															d="M11.376,14A8.386,8.386,0,0,0,3,22.376a.931.931,0,1,0,1.861,0,6.515,6.515,0,0,1,13.03,0,.931.931,0,1,0,1.861,0A8.386,8.386,0,0,0,11.376,14Z"
+															transform="translate(-3 -2.474)" fill="#b3b9e2" />
+													</g>
+													<g id="Group_6584" data-name="Group 6584"
+														transform="translate(1387.942 969.182)">
+														<path id="Path_32" data-name="Path 32" d="M18,7.5v6.147"
+															transform="translate(-14.927 -7.5)" fill="none"
+															stroke="#b3b9e2" stroke-linecap="round"
+															stroke-linejoin="round" stroke-width="2" />
+														<path id="Path_33" data-name="Path 33" d="M7.5,18h6.147"
+															transform="translate(-7.5 -14.927)" fill="none"
+															stroke="#b3b9e2" stroke-linecap="round"
+															stroke-linejoin="round" stroke-width="2" />
+													</g>
+												</g>
+											</svg>
+
+											Invite
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade add-modal add-company" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content modal-form">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+
+					</button>
+					<div class="modal-body">
+						<div class="modal-title">
+							<svg xmlns="http://www.w3.org/2000/svg" width="19.52" height="19.519"
+								viewBox="0 0 19.52 19.519">
+								<path id="bank"
+									d="M19.518,18.7a.813.813,0,0,1-.813.813H.813a.813.813,0,1,1,0-1.626H18.7A.813.813,0,0,1,19.518,18.7ZM.236,6.955A1.987,1.987,0,0,1,.361,4.868a3.835,3.835,0,0,1,1.356-1.22L7.817.473a4.208,4.208,0,0,1,3.882,0L17.8,3.65a3.835,3.835,0,0,1,1.356,1.22,1.987,1.987,0,0,1,.124,2.087,2.206,2.206,0,0,1-1.965,1.175h-.237v6.506h.813a.813.813,0,0,1,0,1.626H1.626a.813.813,0,0,1,0-1.626h.813V8.132H2.2A2.206,2.206,0,0,1,.236,6.955Zm3.83,7.684h2.44V8.132H4.066ZM8.132,8.132v6.506h3.253V8.132Zm7.319,0h-2.44v6.506h2.44ZM1.677,6.2a.583.583,0,0,0,.525.3H17.315a.583.583,0,0,0,.525-.3.368.368,0,0,0-.02-.407,2.2,2.2,0,0,0-.772-.7l-6.1-3.177a2.583,2.583,0,0,0-2.38,0L2.47,5.091a2.206,2.206,0,0,0-.772.7.368.368,0,0,0-.021.406Z"
+									transform="translate(0.002 0.002)" fill="#fff">
+								</path>
+							</svg>
+
+							<h2>Adding a company</h2>
+						</div>
+
+						<div class="admin-form" style="margin-bottom: -60px;">
+
+							<div class="form-group">
+								<label for="company_office_schedule" style="color: #fff; margin-bottom: 10px;">
+									Office Hours<i style="width: 30%;" id="question-icon" class="fas fa-question-circle" data-toggle="tooltip" title="By default, your company's RainDrops can stay on 24/7/365.  If you'd like to conserve energy and get a discount, choose an alternative office schedule to match your company's needs.  NOTE:  if you choose an office schedule every night, all RainDrops in that company will be shut down to conserve energy and started before the opening hours.  This is completed automatically and if there are open applications with unsaved files at the time of office closing, DATA LOSS CAN OCCUR."></i>
+								</label>
+								<select id="company_office_schedule" class="form-select form-control"
+									style="width: 100%; max-width: 100%; height: 58px;">
+									<option value="1">Around the Clock (24/7)</option>
+									<option value="9-5">9AM-5PM (40% savings!)</option>
+									<option value="7-7">7AM-7PM (30% savings!)</option>
+									<option value="5-11">5AM-11PM (20% savings!)</option>
+								</select>
+							</div>
+							<form id="add_company">
+								<div class="form-group">
+									<label for="company_name" style="color: #fff; margin-bottom: 10px;">
+										Company name
+									</label>
+									<input id="company_name" type="text" class="form-control"
+										placeholder="company name">
+								</div>
+	
+								<div class="d-flex justify-content-end">
+									<div class="col-sm-12-col-md-8 col-lg-2">
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary create-company">Submit</button>
+										</div>
+									</div>
+								</div>
+							</form>
+							
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade add-modal add-team" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content modal-form">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+
+					</button>
+					<div class="modal-body">
+						<div class="modal-title">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20.706" height="20.706"
+								viewBox="0 0 20.706 20.706">
+								<path id="users"
+									d="M6.471,11.216a3.882,3.882,0,1,1,3.882-3.882,3.882,3.882,0,0,1-3.882,3.882Zm0-6.039A2.157,2.157,0,1,0,8.628,7.333,2.157,2.157,0,0,0,6.471,5.177Zm6.471,14.667v-.431A6.471,6.471,0,0,0,0,19.412v.431a.863.863,0,1,0,1.726,0v-.431a4.745,4.745,0,1,1,9.49,0v.431a.863.863,0,1,0,1.726,0Zm7.765-4.314a6.039,6.039,0,0,0-10.066-4.5.863.863,0,1,0,1.151,1.286,4.314,4.314,0,0,1,7.189,3.215.863.863,0,0,0,1.726,0ZM15.1,7.765a3.882,3.882,0,1,1,3.882-3.882A3.882,3.882,0,0,1,15.1,7.765Zm0-6.039a2.157,2.157,0,1,0,2.157,2.157A2.157,2.157,0,0,0,15.1,1.726Z"
+									fill="#fff"></path>
+							</svg>
+
+							<h2>Adding a team</h2>
+						</div>
+
+						<div class="admin-form">
+							<div class="form-group">
+								<label for="team_department" style="color: #fff; margin-bottom: 10px;">
+									Department
+								</label>
+								<select id="team_department" class="form-select form-control"
+									style="width: 100%; max-width: 100%; height: 58px;">
+								</select>
+							</div>
+							<div class="row">
+								<div class="col-sm-12-col-md-8 col-lg-10">
+									<div class="form-group">
+										<input id="team_name" type="text" class="form-control"
+											placeholder="team name">
+									</div>
+								</div>
+								<div class="col-sm-12-col-md-8 col-lg-2">
+									<div class="form-group">
+										<button class="btn btn-primary create-team">Submit</button>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade add-modal add-building" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content modal-form">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+
+					</button>
+					<div class="modal-body">
+						<div class="modal-title">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+								<path id="building"
+									d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+									fill="#fff"></path>
+							</svg>
+
+							<h2>Adding a building</h2>
+						</div>
+
+						<div class="admin-form">
+							<div class="row">
+								<div class="form-group">
+									<label for="building_company" style="color: #fff; margin-bottom: 10px;">
+										Company
+									</label>
+									<select id="building_company" class="form-select form-control"
+										style="width: 100%; max-width: 100%; height: 58px;">
+									</select>
+								</div>
+								<div class="col-sm-12 col-md-12">
+									<div class="form-group">
+										<label for="building_name" style="color: #fff; margin-bottom: 10px;">
+											Building info:
+										</label>
+										<input id="building_name" type="text" class="form-control"
+											placeholder="building name">
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-8 col-lg-8">
+									<div class="form-group">
+										<input id="building_address" type="text" class="form-control"
+											placeholder="building address">
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-8 col-lg-4">
+									<div class="form-group">
+										<input id="building_zip" type="text" class="form-control"
+											placeholder="ZIP code">
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<div class="form-group">
+										<input id="building_ip" type="text" class="form-control"
+											placeholder="building IP">
+									</div>
+								</div>
+							</div>
+							<div class="text-end">
+								<button class="btn btn-primary create-building">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade add-modal add-department" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content modal-form">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
+							viewBox="0 0 18.185 18.185">
+							<g id="Group_7174" data-name="Group 7174"
+								transform="translate(-616.575 426.915) rotate(-45)">
+								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217"
+									transform="translate(719.859 129.61)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217"
+									transform="translate(720.5 128.969)" fill="none" stroke="#fff"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+							</g>
+						</svg>
+
+					</button>
+					<div class="modal-body">
+						<div class="modal-title">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+								<path id="building"
+									d="M5.833,11.667A.833.833,0,0,1,5,12.5H4.167a.833.833,0,0,1,0-1.667H5A.833.833,0,0,1,5.833,11.667Zm3.333-.833H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,14.167H4.167a.833.833,0,0,0,0,1.667H5a.833.833,0,0,0,0-1.667Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,4.167H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,4.167Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM5,7.5H4.167a.833.833,0,1,0,0,1.667H5A.833.833,0,0,0,5,7.5Zm4.167,0H8.333a.833.833,0,0,0,0,1.667h.833a.833.833,0,1,0,0-1.667ZM20,8.333v7.5A4.172,4.172,0,0,1,15.833,20H4.167A4.172,4.172,0,0,1,0,15.833V4.167A4.172,4.172,0,0,1,4.167,0h5a4.172,4.172,0,0,1,4.167,4.167h2.5A4.172,4.172,0,0,1,20,8.333Zm-15.833,10h7.5V4.167a2.5,2.5,0,0,0-2.5-2.5h-5a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5Zm14.167-10a2.5,2.5,0,0,0-2.5-2.5h-2.5v12.5h2.5a2.5,2.5,0,0,0,2.5-2.5Zm-2.5,2.5a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,10.833Zm0,3.333a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,14.167Zm0-6.667a.833.833,0,1,0,.833.833A.833.833,0,0,0,15.833,7.5Z"
+									fill="#fff"></path>
+							</svg>
+
+							<h2>Adding a department</h2>
+						</div>
+
+						<div class="admin-form">
+							<div class="form-group">
+								<label for="department_building" style="color: #fff; margin-bottom: 10px;">
+									Building
+								</label>
+								<select id="department_building" class="form-select form-control"
+									style="width: 100%; max-width: 100%; height: 58px;">
+								</select>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 col-md-12">
+									<div class="form-group">
+										<label for="department_building" style="color: #fff; margin-bottom: 10px;">
+											Department info:
+										</label>
+										<input id="department_name" type="text" class="form-control"
+											placeholder="department name">
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-12">
+									<div class="form-group">
+										<input id="department_address" type="text" class="form-control"
+											placeholder="department address">
+									</div>
+								</div>
+								<div class="col-sm-12-col-md-6 col-lg-6">
+									<div class="form-group">
+										<input id="department_first_name" type="text" class="form-control"
+											placeholder="Contact first name">
+									</div>
+								</div>
+								<div class="col-sm-12-col-md-6 col-lg-6">
+									<div class="form-group">
+										<input id="department_last_name" type="text" class="form-control"
+											placeholder="Contact last name">
+									</div>
+								</div>
+								<div class="col-sm-12-col-md-6 col-lg-8">
+									<div class="form-group icon-group">
+										<input id="department_email" type="text" class="form-control"
+											placeholder="email">
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="20.727" height="19"
+												viewBox="0 0 20.727 19">
+												<path id="envelope"
+													d="M16.409,1H4.318A4.323,4.323,0,0,0,0,5.318V15.682A4.323,4.323,0,0,0,4.318,20H16.409a4.323,4.323,0,0,0,4.318-4.318V5.318A4.323,4.323,0,0,0,16.409,1ZM4.318,2.727H16.409a2.591,2.591,0,0,1,2.4,1.63L12.2,10.972a2.6,2.6,0,0,1-3.665,0L1.917,4.357a2.591,2.591,0,0,1,2.4-1.63ZM16.409,18.273H4.318a2.591,2.591,0,0,1-2.591-2.591V6.614L7.31,12.193a4.324,4.324,0,0,0,6.108,0L19,6.614v9.068A2.591,2.591,0,0,1,16.409,18.273Z"
+													transform="translate(0 -1)" fill="#f1f5fb" />
+											</svg>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12-col-md-6 col-lg-4">
+									<div class="form-group icon-group">
+										<input id="department_phone" type="text" class="form-control"
+											placeholder="Phone number">
+										<div class="icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16.181" height="16.21"
+												viewBox="0 0 16.181 16.21">
+												<path id="Icon_feather-phone" data-name="Icon feather-phone"
+													d="M17.347,13.637v2.139A1.426,1.426,0,0,1,15.793,17.2,14.11,14.11,0,0,1,9.64,15.013a13.9,13.9,0,0,1-4.278-4.278A14.11,14.11,0,0,1,3.174,4.554,1.426,1.426,0,0,1,4.592,3H6.731A1.426,1.426,0,0,1,8.157,4.226a9.154,9.154,0,0,0,.5,2,1.426,1.426,0,0,1-.321,1.5l-.905.905a11.407,11.407,0,0,0,4.278,4.278l.905-.905a1.426,1.426,0,0,1,1.5-.321,9.154,9.154,0,0,0,2,.5,1.426,1.426,0,0,1,1.226,1.447Z"
+													transform="translate(-2.168 -2)" fill="none" stroke="#f1f5fb"
+													stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="text-end">
+								<button class="btn btn-primary create-department">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- Bootstrap Bundle with Popper -->
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<!-- ofi -->
+		<script src="js/ofi.min.js"></script>
+		<!-- Echart js -->
+		<script src="js/echarts.min.js"></script>
+
+
+
+		<!-- data tables -->
+		<script src="DataTables/jquery.dataTables.min.js"></script>
+		<script src="DataTables/dataTables.responsive.js"></script>
+		<script src="DataTables/dataTables.select.min.js"></script>
+		<!-- <script src="DataTables/dataTables.scroller.min.js"></script> -->
+
+		<script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
+
+		<script src="js/script.js"></script>
+
+		<script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>

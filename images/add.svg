@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+  <g id="Group_6971" data-name="Group 6971" transform="translate(-153 -83)">
+    <circle id="Ellipse_126" data-name="Ellipse 126" cx="19" cy="19" r="19" transform="translate(153 83)" fill="#181f2f"/>
+    <path id="users" d="M6.66,11.442a4,4,0,1,1,4-4,4,4,0,0,1-4,4Zm0-6.216a2.22,2.22,0,1,0,2.22,2.22A2.22,2.22,0,0,0,6.66,5.227Zm6.66,15.095v-.444A6.66,6.66,0,1,0,0,19.878v.444a.888.888,0,1,0,1.776,0v-.444a4.884,4.884,0,0,1,9.767,0v.444a.888.888,0,0,0,1.776,0Z" transform="translate(165.322 89.169)" fill="#fff"/>
+  </g>
+</svg>

@@ -1,0 +1,405 @@
+/*---------- Google Fonts ----------*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* Typograpy */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  background-color: #192531;
+}
+p {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.5);
+}
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1664px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+/* Media Query */
+@media (min-width: 992px) {
+  p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+/* End Typograpy */
+
+/* Header */
+.header {
+  background-color: #232c3b;
+}
+.header .nav {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+}
+/* Media Query */
+@media (min-width: 992px) {
+  .header .nav {
+    height: 106px;
+    padding: 0px 60px;
+  }
+}
+/* End Header */
+
+/* Trial Section */
+.trial-section {
+  padding: 60px 0px 65px 0px;
+}
+.trial-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(333px, 1fr));
+  grid-gap: 35px;
+}
+.free-trial-content-lft {
+  background-color: #232c3b;
+  padding: 25px 20px 40px;
+  border: 1px solid #b3b9e2;
+  border-radius: 20px;
+}
+.free-trial-content h3 {
+  font-size: 24px;
+  line-height: 33px;
+  color: #b3b9e2;
+  padding-bottom: 20px;
+}
+.tier-box-wrp {
+  padding: 30px 0px;
+}
+.tier-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 55px;
+  align-items: flex-end;
+}
+.tier-box-content {
+  text-align: center;
+  background-color: #232c3b;
+  border-radius: 20px;
+  min-height: 150px;
+  overflow: hidden;
+}
+.tier-box-content:nth-child(1) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.tier-box-content:nth-child(2) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.tier-box-content:nth-child(3) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.tier-box-content strong {
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  padding: 13px 0px;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.tier-box-content ul {
+  padding: 22px 10px;
+}
+.tier-box-content ul li {
+  font-size: 16px;
+  line-height: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.tier-box-content ul li span {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #b3b9e2;
+}
+.most-popular-tier {
+  min-height: 212px;
+  background-color: #181f2f;
+}
+.most-popular-tier .popular-text {
+  background-color: #fdb128;
+  font-size: 12px;
+  line-height: 22px;
+  color: #181f2f;
+  font-weight: 500;
+  padding: 2px 0px;
+}
+.most-popular-tier ul {
+  padding: 33px 10px 30px;
+}
+/* Media Query */
+@media (min-width: 992px) {
+  .trial-section {
+    padding: 73px 0px 90px 0px;
+  }
+  .trial-row {
+    grid-gap: 73px;
+  }
+  .free-trial-content-lft {
+    padding: 44px 52px 100px;
+    border-radius: 20px;
+  }
+  .free-trial-content h3 {
+    font-size: 30px;
+    line-height: 40px;
+    padding-bottom: 30px;
+  }
+  .tier-box-wrp {
+    padding: 62px 0px;
+  }
+  .tier-box {
+    padding-top: 115px;
+  }
+  .tier-box-content strong {
+    font-size: 24px;
+    line-height: 32px;
+    padding: 20px 0px;
+  }
+  .most-popular-tier .popular-text {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .tier-box-content ul li {
+    font-size: 20px;
+    line-height: 16px;
+  }
+  .tier-box-content ul li span {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .tier-box-content ul {
+    padding: 32px 15px;
+  }
+  .tier-box-content {
+    min-height: 180px;
+  }
+  .most-popular-tier ul {
+    padding: 42px 15px 54px;
+  }
+  .most-popular-tier {
+    min-height: 269px;
+  }
+}
+/* End Trial Section */
+
+/* Price Role Section */
+.price-role-section {
+  padding-bottom: 81px;
+}
+.pricing-role-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+.pricing-role-content {
+  background-color: #232c3b;
+  border-radius: 20px;
+  padding: 25px 24px 42px;
+}
+.pricing-role-content:nth-child(1) {
+  grid-column: span 1;
+}
+.pricing-role-content:nth-child(3) {
+  grid-column: span 1;
+}
+.pricing-role-content h3 {
+  font-size: 20px;
+  line-height: 27px;
+  color: #ffffff;
+  padding-bottom: 17px;
+  font-weight: 600;
+}
+.pricing-role-content p {
+  font-size: 16px;
+  line-height: 22px;
+}
+/* Media Query */
+@media (min-width: 792px) {
+  .pricing-role-row {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 36px;
+  }
+  .pricing-role-content:nth-child(3) {
+    grid-column: span 2;
+  }
+  .pricing-role-content h3 {
+    font-size: 24px;
+    line-height: 32px;
+    padding-bottom: 21px;
+  }
+  .pricing-role-content p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .pricing-role-content {
+    background-color: #232c3b;
+    border-radius: 10px;
+    padding: 35px 34px 82px;
+  }
+}
+/* End Price Role Section */
+
+/* Monthly Billing Section */
+.monthly-billing-section {
+  padding-bottom: 80px;
+  max-width: 1520px;
+  margin: 0 auto;
+}
+.monthly-billing-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.monthly-billing-info h3 {
+  font-size: 22px;
+  line-height: 29px;
+  padding-bottom: 25px;
+  color: #ffffff;
+  font-weight: 600;
+}
+.monthly-billing-info p:not(:last-child) {
+  padding-bottom: 20px;
+}
+.monthly-billing-total {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
+  margin-top: 30px;
+}
+.monthly-billing-total li p {
+  background-color: #232c3b;
+  border-radius: 10px;
+  padding: 12px 15px;
+  color: #ffffff;
+  width: 100%;
+}
+.monthly-billing-total li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.monthly-billing-total li img {
+  width: 20px;
+}
+/* Media Query */
+@media (min-width: 992px) {
+  .monthly-billing-section {
+    padding-bottom: 108px;
+  }
+  .monthly-billing-info h3 {
+    font-size: 24px;
+    line-height: 32px;
+    padding-bottom: 33px;
+  }
+  .monthly-billing-total {
+    padding-left: 100px;
+    margin-top: 0;
+  }
+  .monthly-billing-total li p {
+    padding: 25px 91px 25px 42px;
+    width: fit-content;
+  }
+  .monthly-billing-info p:not(:last-child) {
+    padding-bottom: 92px;
+  }
+  .monthly-billing-total li:not(:last-child) {
+    margin-bottom: 22px;
+  }
+  .monthly-billing-total li img {
+    width: auto;
+  }
+}
+/* End Monthly Billing Section */
+
+/* Section Table */
+.section-tb {
+  padding-bottom: 45px;
+}
+.price-tb-wrp h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  padding-bottom: 40px;
+}
+.pricing-content-wrp {
+  background-color: #232c3b;
+  border-radius: 10px;
+  padding: 18px 0px;
+}
+.pricing-tb {
+  width: 100%;
+  text-align: left;
+  border-spacing: 0;
+  border-bottom: 0 !important;
+}
+
+.pricing-tb thead th {
+  font-size: 12px;
+  line-height: 19px;
+  color: #b3b9e2;
+  font-weight: 600;
+  background-color: #192531;
+  padding: 14px 0px !important;
+  border: 0 !important;
+}
+.pricing-tb thead th::before,
+.pricing-tb thead th::after {
+  display: none !important;
+}
+.pricing-tb thead th:first-child,
+.pricing-tb tbody td:first-child {
+  padding-left: 40px !important;
+}
+.pricing-tb tbody td {
+  font-size: 14px;
+  line-height: 14px;
+  color: #ffffff;
+  padding: 20px 0px !important;
+}
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+  left: 10px;
+}
+/* Media Query */
+@media (min-width: 992px) {
+  .pricing-content-wrp {
+    border-radius: 20px;
+    padding: 28px 0px;
+  }
+  .section-tb {
+    padding-bottom: 75px;
+  }
+  .price-tb-wrp h3 {
+    font-size: 28px;
+    line-height: 37px;
+    padding-bottom: 52px;
+  }
+
+  .pricing-tb thead th {
+    font-size: 14px;
+    padding: 27px 0px !important;
+  }
+  .pricing-tb thead th:first-child,
+  .pricing-tb tbody td:first-child {
+    padding-left: 50px !important;
+  }
+  .pricing-tb tbody td {
+    font-size: 16px;
+    padding: 28px 0px !important;
+  }
+}
+/* End Section Table */

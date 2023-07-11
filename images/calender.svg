@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+  <g id="Group_7384" data-name="Group 7384" transform="translate(-153 -83)">
+    <circle id="Ellipse_126" data-name="Ellipse 126" cx="19" cy="19" r="19" transform="translate(153 83)" fill="#181f2f"/>
+    <g id="calendar" transform="translate(164.224 93.724)">
+      <path id="Path_50" data-name="Path 50" d="M12.313,1.3h-.648V.648a.648.648,0,0,0-1.3,0V1.3H5.184V.648a.648.648,0,1,0-1.3,0V1.3H3.24A3.244,3.244,0,0,0,0,4.536v7.776a3.244,3.244,0,0,0,3.24,3.24h9.072a3.244,3.244,0,0,0,3.24-3.24V4.536A3.244,3.244,0,0,0,12.313,1.3ZM1.3,4.536A1.944,1.944,0,0,1,3.24,2.592h9.072a1.944,1.944,0,0,1,1.944,1.944v.648H1.3Zm11.017,9.72H3.24A1.944,1.944,0,0,1,1.3,12.313V6.48H14.257v5.832A1.944,1.944,0,0,1,12.313,14.257Z" fill="#fff"/>
+      <circle id="Ellipse_127" data-name="Ellipse 127" cx="0.972" cy="0.972" r="0.972" transform="translate(6.804 8.748)" fill="#fff"/>
+      <circle id="Ellipse_128" data-name="Ellipse 128" cx="0.972" cy="0.972" r="0.972" transform="translate(3.564 8.748)" fill="#fff"/>
+      <circle id="Ellipse_129" data-name="Ellipse 129" cx="0.972" cy="0.972" r="0.972" transform="translate(10.044 8.748)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
