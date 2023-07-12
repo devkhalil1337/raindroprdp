@@ -70,6 +70,9 @@
 			background-color: rgba(135, 104, 241, 0.06);
 			border-color: rgba(135, 104, 241, 0.06);
 		}
+		.hidden{
+			display: none;
+		}
 	</style>
 
 	<!--=== Windows Phone JS Code End ===-->
@@ -203,7 +206,7 @@
 										</div>
 									</button>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-										<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+										<li class="company1"><a class="dropdown-item" href="#" data-bs-toggle="modal"
 												data-bs-target=".add-company">
 												<svg xmlns="http://www.w3.org/2000/svg" width="19.52" height="19.519"
 													viewBox="0 0 19.52 19.519">
@@ -213,7 +216,7 @@
 												</svg>
 
 												Company</a></li>
-										<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+										<li class="building1"><a class="dropdown-item" href="#" data-bs-toggle="modal"
 												data-bs-target=".add-building">
 												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
 													viewBox="0 0 20 20">
@@ -223,7 +226,7 @@
 												</svg>
 
 												Building</a></li>
-										<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+										<li class="department1"><a class="dropdown-item" href="#" data-bs-toggle="modal"
 												data-bs-target=".add-department">
 												<svg xmlns="http://www.w3.org/2000/svg" width="18.36" height="18.358"
 													viewBox="0 0 18.36 18.358">
@@ -233,7 +236,7 @@
 												</svg>
 
 												Department</a></li>
-										<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+										<li class="team1"><a class="dropdown-item" href="#" data-bs-toggle="modal"
 												data-bs-target=".add-team">
 												<svg xmlns="http://www.w3.org/2000/svg" width="20.706" height="20.706"
 													viewBox="0 0 20.706 20.706">
@@ -290,7 +293,7 @@
 										</div>
 									</button>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-										<li class="" style="">
+										<!-- <li class="" style="">
 											<div class="mode" style="margin-bottom: 15px; margin-left: 20px;">
 												<a href="#" class="dark-link active" data-src="css/dark.css">
 													<svg xmlns="http://www.w3.org/2000/svg" width="9.361"
@@ -310,8 +313,8 @@
 													</svg>
 												</a>
 											</div>
-										</li>
-										<li>
+										</li> -->
+										<li class="company3">
 											<a class="dropdown-item" href="#"
 												onclick="$('#billingModal').modal('show')">
 												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -655,8 +658,8 @@
 			</div>
 
 			<div class="admin-head">
-				<div class="row">
-					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+				<div class="row ">
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 raindropsbox">
 						<div class="admin-block active table-admin" data-name="Raindrops">
 							<div class="top">
 								<span>Raindrops</span>
@@ -697,7 +700,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 pendingupgradesbox">
 						<div class="admin-block table-admin" data-name="Pending Upgrades">
 							<div id="pending_upgrades_span" style="position: absolute; top: -10px; right: -10px; background: #7DF9FF; display: flex; 
 								justify-content: center; align-items: center; width: 30px; height: 30px; font-size: 14px; border-radius: 50%;">
@@ -744,7 +747,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 team2 teamsbox">
 						<div class="admin-block table-admin" data-name="Teams">
 							<div class="top">
 								<span>TEAMS</span>
@@ -777,7 +780,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 department2 departmentsbox">
 						<div class="admin-block table-admin" data-name="Departments">
 							<div class="top">
 								<span>Departments</span>
@@ -810,9 +813,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+					<div  class="col-sm-12 col-md-4 col-lg-3 col-xl-2 building2 buildingsbox">
 						<div class="admin-block table-admin" data-name="Buildings">
-							<div class="top">
+							<div class="top"> 
 								<span>BUILDINGS</span>
 								<div class="icon">
 									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -844,7 +847,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 company2 companiesbox">
 						<div class="admin-block table-admin" data-name="Companies">
 							<div class="top">
 								<span>COMPANIES</span>
@@ -1764,10 +1767,10 @@
 												</label>
 												<select id="invite_admin_1" class="form-select form-select-lg mb-3">
 													<!-- <option>Level</option> -->
-													<option value="company" selected>Company</option>
-													<option value="building">Building</option>
-													<option value="department">Department</option>
-													<option value="team">Team</option>
+													<option value="company"  class="ct">Company</option>
+													<option value="building" class="ct">Building</option>
+													<option value="department" class="ct">Department</option>
+													<option value="team" class="ct">Team</option>
 												</select>
 											</div>
 										</div>
@@ -1812,7 +1815,7 @@
 													</button>
 													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
 														style="padding-top: 20px;">
-														<li><a class="dropdown-item" href="#">
+														<li  ><a class="dropdown-item"  href="#">
 																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
 																	height="19.519" viewBox="0 0 19.52 19.519">
 																	<path id="bank"
@@ -1822,7 +1825,7 @@
 																</svg>
 
 																Company</a></li>
-														<li><a class="dropdown-item" href="#">
+														<li class=""><a class="dropdown-item" href="#">
 																<svg xmlns="http://www.w3.org/2000/svg" width="20"
 																	height="20" viewBox="0 0 20 20">
 																	<path id="building"
@@ -1831,7 +1834,7 @@
 																</svg>
 
 																Building</a></li>
-														<li><a class="dropdown-item" href="#">
+														<li class=""><a class="dropdown-item" href="#">
 																<svg xmlns="http://www.w3.org/2000/svg" width="18.36"
 																	height="18.358" viewBox="0 0 18.36 18.358">
 																	<path id="chart-tree"
@@ -1882,7 +1885,7 @@
 													</button>
 													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
 														style="padding-top: 20px;">
-														<li><a class="dropdown-item" href="#">
+														<li ><a class="dropdown-item" href="#">
 																<svg xmlns="http://www.w3.org/2000/svg" width="19.52"
 																	height="19.519" viewBox="0 0 19.52 19.519">
 																	<path id="bank"
@@ -2044,7 +2047,7 @@
 																	</path>
 																</svg>
 
-																Company</a></li>
+																Company1</a></li>
 														<li><a class="dropdown-item" href="#">
 																<svg xmlns="http://www.w3.org/2000/svg" width="20"
 																	height="20" viewBox="0 0 20 20">

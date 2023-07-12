@@ -53,8 +53,120 @@ $(document).ready(function () {
     dataType: "text",
     data: '{"query":"getuser","email":"test04@raindroprdp.com"}',
   }).done(function (response) {
+
     userInfo = JSON.parse(response);
+    userInfo.level = 'team'
+    console.log(userInfo.level);
     console.log(userInfo);
+    if (userInfo.level == 'Company' || userInfo.level == 'company') {
+      $('.company1').hide();
+      $('.company2').hide();
+      $('.company3').hide();
+
+      $('.raindropsbox').removeClass('col-xl-2');
+      $('.raindropsbox').addClass('col-xl-3');
+
+      $('.pendingupgradesbox').removeClass('col-xl-2');
+      $('.pendingupgradesbox').addClass('col-xl-3');
+
+      $('.buildingsbox').removeClass('col-lg-3');
+      $('.buildingsbox').addClass('col-lg-12');
+
+      $('.buildingsbox').removeClass('col-md-4');
+      $('.buildingsbox').addClass('col-md-6');
+
+      $('.departmentsbox').removeClass('col-md-4');
+      $('.departmentsbox').addClass('col-md-6');
+
+
+    }
+    if (userInfo.level == 'Building' || userInfo.level == 'building') {
+      $('.raindropsbox').removeClass('col-xl-2');
+      $('.raindropsbox').addClass('col-xl-3');
+
+      $('.pendingupgradesbox').removeClass('col-xl-2');
+      $('.pendingupgradesbox').addClass('col-xl-3');
+
+      $('.teamsbox').removeClass('col-xl-2');
+      $('.teamsbox').addClass('col-xl-3');
+
+      $('.departmentsbox').removeClass('col-xl-2');
+      $('.departmentsbox').addClass('col-xl-3');
+
+      $('.departmentsbox').removeClass('col-md-3');
+      $('.departmentsbox').addClass('col-md-12');
+
+
+      $('.company1').hide();
+      $('.building1').hide();
+      $('.building2').hide();
+      $('.company2').hide();
+      $('.company3').hide();
+    }
+    if (userInfo.level == 'Department' || userInfo.level == 'department') {
+
+      $('.raindropsbox').removeClass('col-xl-2');
+      $('.raindropsbox').addClass('col-xl-4');
+
+      $('.pendingupgradesbox').removeClass('col-xl-2');
+      $('.pendingupgradesbox').addClass('col-xl-4');
+
+      $('.teamsbox').removeClass('col-xl-2');
+      $('.teamsbox').addClass('col-xl-4');
+
+      $('.teamsbox').removeClass('col-lg-3');
+      $('.teamsbox').addClass('col-lg-6');
+
+
+
+      // col-sm-12 given but not taking full width on sm screen for teams box 
+
+      $('.raindropsbox').removeClass('col-sm-12');
+      $('.raindropsbox').addClass('col-sm-12');
+
+      $('.pendingupgradesbox').removeClass('col-sm-12');
+      $('.pendingupgradesbox').addClass('col-sm-12');
+
+      $('.teamsbox').removeClass('col-sm-12');
+      $('.teamsbox').addClass('col-sm-12');
+
+
+
+      $('.department1').hide();
+      $('.department2').hide();
+      $('.company1').hide();
+      $('.building1').hide();
+      $('.building2').hide();
+      $('.company2').hide();
+      $('.company3').hide();
+    }
+    if (userInfo.level == 'Team' || userInfo.level == 'team') {
+
+      $('.raindropsbox').removeClass('col-xl-6');
+      $('.raindropsbox').addClass('col-xl-6');
+      $('.pendingupgradesbox').removeClass('col-xl-6');
+      $('.pendingupgradesbox').addClass('col-xl-6');
+
+      $('.raindropsbox').removeClass('col-lg-3');
+      $('.raindropsbox').addClass('col-lg-6');
+      $('.pendingupgradesbox').removeClass('col-lg-3');
+      $('.pendingupgradesbox').addClass('col-lg-6');
+
+      $('.raindropsbox').removeClass('col-md-4');
+      $('.raindropsbox').addClass('col-md-6');
+      $('.pendingupgradesbox').removeClass('col-md-4');
+      $('.pendingupgradesbox').addClass('col-md-6');
+
+      $('.team1').hide();
+      $('.team2').hide();
+      $('.department1').hide();
+      $('.department2').hide();
+      $('.company1').hide();
+      $('.building1').hide();
+      $('.building2').hide();
+      $('.company2').hide();
+      $('.company3').hide();
+    }
     $("#user_name").text(userInfo["first_name"] + " " + userInfo["last_name"]);
 
     //data for profile modal
@@ -74,7 +186,7 @@ $(document).ready(function () {
     }).done(function (response) {
       $("body").css("opacity", "1");
       content = JSON.parse(response);
-      console.log(content);
+      console.log(content.items);
 
       let pending_upgrades_count = 0;
       let raindrops_count = 0;
@@ -310,6 +422,7 @@ $(document).ready(function () {
       });
 
       function getCompanyKey(name) {
+        // console.log(name);
         let key = 0;
         content["items"]["companies"].forEach(function (value, index) {
           if (name == value["item_name"]) {
@@ -395,53 +508,153 @@ $(document).ready(function () {
         $(".chart-spinner").fadeOut(500);
       }, 500);
 
-      function rdModalDropdown2(picked_company) {
-        $("#rd_modal_details").html(""); // clear dropdown
-        picked_company_id = getCompanyKey(picked_company);
-        picked_company_array = content["items"]["companies"][picked_company_id];
 
-        // console.log(picked_company_array['buildings']);
 
-        picked_company_array["buildings"].forEach(function (value, index) {
-          option_formating = "";
-          option_formating = value["item_name"];
-          departmentsObj = value["departments"];
-          // console.log(departmentsObj);
+      if (userInfo.level == 'Account' || userInfo.level == 'account') {
+        function rdModalDropdown2(picked_company) {
+          $("#rd_modal_details").html(""); // clear dropdown
+          content.items?.companies.map(i => {
+            i.buildings.map(j => {
+              j.departments.map(k => {
+                k.teams.map(l => {
 
-          for (const [key0, value0] of Object.entries(departmentsObj)) {
-            // option_formating = option_formating + ' -> ' + value0['name'];
-            teamsObj = value0["teams"];
-            // console.log(teamsObj);
-
-            if (teamsObj !== undefined) {
-              for (const [key1, value1] of Object.entries(teamsObj)) {
-                // option_formating = option_formating + ' -> ' + value0['name'] + ' -> ' + value1['name'];
+                  $("#rd_modal_details").append(
+                    `<option value="${l.item_id}" data-name="${l.item_name
+                    }">${l.item_name}
+                    </option>`
+                  );
+                  // console.log(l);
+                })
+              })
+            })
+          })
+        }
+      }
+      if (userInfo.level == 'Company' || userInfo.level == 'company') {
+        function rdModalDropdown2(picked_company) {
+          $("#rd_modal_details").html(""); // clear dropdown
+          content.items?.buildings.map(i => {
+            i.departments.map(j => {
+              j.teams.map(k => {
                 $("#rd_modal_details").append(
-                  `<option value="${value1["id"]}" data-name="${
-                    value1["item_name"]
-                  }">${
-                    option_formating +
-                    " -> " +
-                    value0["item_name"] +
-                    " -> " +
-                    value1["item_name"]
-                  }</option>`
+                  `<option value="${k.item_id}" data-name="${k.item_name
+                  }">${k.item_name}
+                  </option>`
                 );
-              }
-            }
-          }
-        });
+                console.log(k.item_name);
+              })
+            })
+          })
+        }
       }
 
+      if (userInfo.level == 'Building' || userInfo.level == 'building') {
+        function rdModalDropdown2(picked_company) {
+          $("#rd_modal_details").html(""); // clear dropdown
+          content.items?.departments.map(i => {
+            i.teams.map(j => {
+              $("#rd_modal_details").append(
+                `<option value="${j.item_id}" data-name="${j.item_name
+                }">${j.item_name}
+                </option>`
+              );
+            })
+          })
+        }
+      }
+
+
+      if (userInfo.level == 'Department' || userInfo.level == 'department') {
+        function rdModalDropdown2(picked_company) {
+          $("#rd_modal_details").html(""); // clear dropdown
+
+          for (let check in content.items) {
+            if (check == 'teams') {
+              content.items?.teams.map(i => {
+                $("#rd_modal_details").append(
+                  `<option value="${i?.item_id}" data-name="${i?.item_name
+                  }">${i?.item_name}
+                  </option>`
+                );
+              })
+            }
+          }
+
+
+        }
+      }
+
+      if (userInfo.level == 'Team' || userInfo.level == 'team') {
+        function rdModalDropdown2(picked_company) {
+          $("#rd_modal_details").html(""); // clear dropdown
+          content.items?.departments.map(i => {
+            i.teams.map(j => {
+              $("#rd_modal_details").append(
+                `<option value="${j.item_id}" data-name="${j.item_name
+                }">${j.item_name}
+                </option>`
+              );
+            })
+          })
+        }
+      }
+
+
+
+
+
+
+
+
+
+      // picked_company_id = getCompanyKey(picked_company);
+      // // picked_company_id = '5'
+      // console.log(picked_company);
+      // console.log(picked_company_id);
+      // picked_company_array = content["items"]["companies"][picked_company_id];
+      // // console.log(picked_company_array['buildings']);
+      // picked_company_array["buildings"].forEach(function (value, index) {
+      //   option_formating = "";
+      //   option_formating = value["item_name"];
+      //   departmentsObj = value["departments"];
+      //   // console.log(departmentsObj);
+      //   for (const [key0, value0] of Object.entries(departmentsObj)) {
+      //     // option_formating = option_formating + ' -> ' + value0['name'];
+      //     teamsObj = value0["teams"];
+      //     if (teamsObj !== undefined) {
+      //       for (const [key1, value1] of Object.entries(teamsObj)) {
+      //         // option_formating = option_formating + ' -> ' + value0['name'] + ' -> ' + value1['name'];
+      //         $("#rd_modal_details").append(
+      //           `<option value="${value1["id"]}" data-name="${value1["item_name"]
+      //           }">${option_formating +
+      //           " -> " +
+      //           value0["item_name"] +
+      //           " -> " +
+      //           value1["item_name"]
+      //           }</option>`
+      //         );
+      //       }
+      //     }
+      //   }
+      // });
+
       // picked_company = getCompanyKey('company01');
+
       picked_company = getCompanyKey(content["items"]["companies"][index]);
       picked_company_name = content["items"]["companies"][picked_company];
       $("#dropdown_company_button").text(picked_company_name);
 
       createDropdown2(picked_company);
       rdModalDropdown2(picked_company);
-
+      company_name = $(this).data("item_name");
+      createDropdown2(company_name);
       $(".company_picker").click(function () {
+        picked_company = getCompanyKey(content["items"]["companies"][index]);
+        picked_company_name = content["items"]["companies"][picked_company];
+        $("#dropdown_company_button").text(picked_company_name);
+        console.log('asdfsdafsafasfsad');
+        createDropdown2(picked_company);
+        rdModalDropdown2(picked_company);
         company_name = $(this).data("item_name");
         createDropdown2(company_name);
         $("#dropdown_company_button").text(company_name);
@@ -449,8 +662,10 @@ $(document).ready(function () {
       });
 
       $("#rd_modal_company").change(function () {
-        // alert($(this).val())
-        rdModalDropdown2($(this).val());
+
+        rdModalDropdown2($("#rd_modal_company :selected").text());
+
+
       });
 
       $("#rd_modal_details").change(function () {
@@ -460,6 +675,7 @@ $(document).ready(function () {
         );
       });
 
+
       invite_admin_pick = "company";
       inviteAdminDrop2(invite_admin_pick);
 
@@ -467,7 +683,7 @@ $(document).ready(function () {
         // alert($(this).val())
         inviteAdminDrop2($(this).val());
       });
-
+      console.log(company_array = content["items"]["companies"][1]);
       function inviteAdminDrop2(picked) {
         $("#invite_admin_2").html("");
         company_array = content["items"]["companies"];
@@ -487,8 +703,7 @@ $(document).ready(function () {
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
               $("#invite_admin_2").append(
-                `<option value="">${
-                  option_formating + " -> " + value0["item_name"]
+                `<option value="">${option_formating + " -> " + value0["item_name"]
                 }</option>`
               );
             }
@@ -504,12 +719,11 @@ $(document).ready(function () {
               if (departmentsObj !== undefined) {
                 for (const [key1, value1] of Object.entries(departmentsObj)) {
                   $("#invite_admin_2").append(
-                    `<option value="">${
-                      option_formating +
-                      " -> " +
-                      value0["item_name"] +
-                      " -> " +
-                      value1["item_name"]
+                    `<option value="">${option_formating +
+                    " -> " +
+                    value0["item_name"] +
+                    " -> " +
+                    value1["item_name"]
                     }</option>`
                   );
                 }
@@ -531,14 +745,13 @@ $(document).ready(function () {
                     for (const [key2, value2] of Object.entries(teamsObj)) {
                       // option_formating = option_formating + ' -> ' + value0['name'] + ' -> ' + value1['name'];
                       $("#invite_admin_2").append(
-                        `<option value="">${
-                          option_formating +
-                          " -> " +
-                          value0["item_name"] +
-                          " -> " +
-                          value1["item_name"] +
-                          " -> " +
-                          value2["item_name"]
+                        `<option value="">${option_formating +
+                        " -> " +
+                        value0["item_name"] +
+                        " -> " +
+                        value1["item_name"] +
+                        " -> " +
+                        value2["item_name"]
                         }</option>`
                       );
                     }
@@ -577,8 +790,7 @@ $(document).ready(function () {
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
               $("#chart_1_2").append(
-                `<option value="">${
-                  option_formating + " -> " + value0["item_name"]
+                `<option value="">${option_formating + " -> " + value0["item_name"]
                 }</option>`
               );
             }
@@ -594,12 +806,11 @@ $(document).ready(function () {
               if (departmentsObj !== undefined) {
                 for (const [key1, value1] of Object.entries(departmentsObj)) {
                   $("#chart_1_2").append(
-                    `<option value="">${
-                      option_formating +
-                      " -> " +
-                      value0["item_name"] +
-                      " -> " +
-                      value1["item_name"]
+                    `<option value="">${option_formating +
+                    " -> " +
+                    value0["item_name"] +
+                    " -> " +
+                    value1["item_name"]
                     }</option>`
                   );
                 }
@@ -621,14 +832,13 @@ $(document).ready(function () {
                     for (const [key2, value2] of Object.entries(teamsObj)) {
                       // option_formating = option_formating + ' -> ' + value0['name'] + ' -> ' + value1['name'];
                       $("#chart_1_2").append(
-                        `<option value="">${
-                          option_formating +
-                          " -> " +
-                          value0["item_name"] +
-                          " -> " +
-                          value1["item_name"] +
-                          " -> " +
-                          value2["item_name"]
+                        `<option value="">${option_formating +
+                        " -> " +
+                        value0["item_name"] +
+                        " -> " +
+                        value1["item_name"] +
+                        " -> " +
+                        value2["item_name"]
                         }</option>`
                       );
                     }
@@ -659,8 +869,7 @@ $(document).ready(function () {
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
               $(selector_id).append(
-                `<option value="${value0["id"]}">${
-                  option_formating + " -> " + value0["item_name"]
+                `<option value="${value0["id"]}">${option_formating + " -> " + value0["item_name"]
                 }</option>`
               );
             }
@@ -676,12 +885,11 @@ $(document).ready(function () {
               if (departmentsObj !== undefined) {
                 for (const [key1, value1] of Object.entries(departmentsObj)) {
                   $(selector_id).append(
-                    `<option value="${value1["id"]}">${
-                      option_formating +
-                      " -> " +
-                      value0["item_name"] +
-                      " -> " +
-                      value1["item_name"]
+                    `<option value="${value1["id"]}">${option_formating +
+                    " -> " +
+                    value0["item_name"] +
+                    " -> " +
+                    value1["item_name"]
                     }</option>`
                   );
                 }
@@ -703,14 +911,13 @@ $(document).ready(function () {
                     for (const [key2, value2] of Object.entries(teamsObj)) {
                       // option_formating = option_formating + ' -> ' + value0['name'] + ' -> ' + value1['name'];
                       $(selector_id).append(
-                        `<option value="${value2["id"]}">${
-                          option_formating +
-                          " -> " +
-                          value0["item_name"] +
-                          " -> " +
-                          value1["item_name"] +
-                          " -> " +
-                          value2["item_name"]
+                        `<option value="${value2["id"]}">${option_formating +
+                        " -> " +
+                        value0["item_name"] +
+                        " -> " +
+                        value1["item_name"] +
+                        " -> " +
+                        value2["item_name"]
                         }</option>`
                       );
                     }
@@ -741,9 +948,8 @@ $(document).ready(function () {
       $(".create-company").click(function () {
         companyname = $("#company_name");
         company_office_schedule = $("#company_office_schedule");
-        datacompany = `{"query":"addcompany","company_name": "${companyname.val()}","account_id": "${
-          userInfo["account_id"]
-        }","office_schedule": "${company_office_schedule.val()}"}`;
+        datacompany = `{"query":"addcompany","company_name": "${companyname.val()}","account_id": "${userInfo["account_id"]
+          }","office_schedule": "${company_office_schedule.val()}"}`;
         // console.log(datacompany);
         submitbutton = $(this);
         savetext = $(this).html();
@@ -834,8 +1040,8 @@ $(document).ready(function () {
                     "department_name": "${$("#department_name").val()}",
                     "address2": "${$("#department_address").val()}",
                     "contact_first_name": "${$(
-                      "#department_fisrt_name"
-                    ).val()}",
+          "#department_fisrt_name"
+        ).val()}",
                     "contact_last_name": "${$("#department_last_name").val()}",
                     "contact_email": "${$("#department_email").val()}",
                     "contact_phone": "${$("#department_phone").val()}"
@@ -1048,9 +1254,8 @@ $(document).ready(function () {
                                     </span>
                                 </td>
                                 <td>
-                                    CPU: ${element["cpu_cores"]} Cores<br>RAM: ${
-              element["RAM"]
-            } GB<br>OS: ${element["os_type"]}
+                                    CPU: ${element["cpu_cores"]} Cores<br>RAM: ${element["RAM"]
+              } GB<br>OS: ${element["os_type"]}
                                 </td>
                                 <td>
                                     ${element["raindrop_type"]}
@@ -1097,9 +1302,8 @@ $(document).ready(function () {
                         </span>
                     </td>
                     <td>
-                        CPU: ${element["cpu_cores"]}, RAM: ${
-              element["RAM"]
-            }, OS: ${element["os"]}
+                        CPU: ${element["cpu_cores"]}, RAM: ${element["RAM"]
+              }, OS: ${element["os"]}
                     </td>
                     <td>
                         ${element["type"]}
@@ -1462,7 +1666,7 @@ $(document).ready(function () {
             'rgba(94, 135, 247, 0.7)',
             'rgba(27, 255, 225, 0.7)',
             'rgba(246, 137, 42, 0.7)',
-        ],
+          ],
           // color: ['#8768F1', '#FDB128', '#FB268A'],
 
           grid: {
@@ -1545,23 +1749,23 @@ $(document).ready(function () {
 
       // CHART 2
 
-    //   var pie_data = [
-    //     {
-    //       value:
-    //         content["environmental_detail"]["resources_preserved"]["water"],
-    //       name: "Water",
-    //     },
-    //     {
-    //       value:
-    //         content["environmental_detail"]["resources_preserved"]["metals"],
-    //       name: "Metals",
-    //     },
-    //     {
-    //       value:
-    //         content["environmental_detail"]["resources_preserved"]["plastics"],
-    //       name: "Plastics",
-    //     },
-    //   ];
+      //   var pie_data = [
+      //     {
+      //       value:
+      //         content["environmental_detail"]["resources_preserved"]["water"],
+      //       name: "Water",
+      //     },
+      //     {
+      //       value:
+      //         content["environmental_detail"]["resources_preserved"]["metals"],
+      //       name: "Metals",
+      //     },
+      //     {
+      //       value:
+      //         content["environmental_detail"]["resources_preserved"]["plastics"],
+      //       name: "Plastics",
+      //     },
+      //   ];
 
       $("#ewaste_prevented").text(
         content["environmental_detail"]["ewaste_prevented"]
@@ -1570,59 +1774,59 @@ $(document).ready(function () {
         content["environmental_detail"]["electricity_saved"]
       );
 
-    //   var dom = document.getElementById("bar-chart-container");
-    //   var myChart = echarts.init(dom, {
-    //     renderer: "canvas",
-    //     useDirtyRect: false,
-    //   });
+      //   var dom = document.getElementById("bar-chart-container");
+      //   var myChart = echarts.init(dom, {
+      //     renderer: "canvas",
+      //     useDirtyRect: false,
+      //   });
 
-    //   var app = {};
+      //   var app = {};
 
-    //   var option;
+      //   var option;
 
-    //   option = {
-    //     darkMode: true,
-    //     // backgroundColor: ['#232C3B'],
-    //     darkMode: "auto",
-    //     title: {
-    //       text: "Environmental",
-    //       // subtext: 'Carriage quitting securing be appetite it declared',
-    //       // backgroundColor:'rgba(0,0,0,0)',
-    //       // borderColor: '#ccc',
-    //       // borderWidth: '0',
-    //       textStyle: {
-    //         color: "#b3b9e2",
-    //       },
-    //     },
+      //   option = {
+      //     darkMode: true,
+      //     // backgroundColor: ['#232C3B'],
+      //     darkMode: "auto",
+      //     title: {
+      //       text: "Environmental",
+      //       // subtext: 'Carriage quitting securing be appetite it declared',
+      //       // backgroundColor:'rgba(0,0,0,0)',
+      //       // borderColor: '#ccc',
+      //       // borderWidth: '0',
+      //       textStyle: {
+      //         color: "#b3b9e2",
+      //       },
+      //     },
 
-        // color : ['#FDB128', '#8768F1', '#FB268A', '#B3B9E2', '#2D5DC9', '#FDB128', '#8768F1', '#FB268A', '#B3B9E2', '#2D5DC9', '#FDB128', '#8768F1'],
+      // color : ['#FDB128', '#8768F1', '#FB268A', '#B3B9E2', '#2D5DC9', '#FDB128', '#8768F1', '#FB268A', '#B3B9E2', '#2D5DC9', '#FDB128', '#8768F1'],
 
-    //     series: [
-    //       {
-    //         data: pie_data,
-    //         type: "pie",
-    //         barWidth: 11,
-    //         showBackground: true,
-    //         backgroundStyle: {
-    //           color: "rgba(180, 180, 180, 0.2)",
-    //         },
-    //         itemStyle: {
-    //           emphasis: {
-    //             barBorderRadius: [50, 50],
-    //           },
-    //           normal: {
-    //             barBorderRadius: [50, 50, 0, 0],
-    //           },
-    //         },
-    //       },
-    //     ],
-    //   };
+      //     series: [
+      //       {
+      //         data: pie_data,
+      //         type: "pie",
+      //         barWidth: 11,
+      //         showBackground: true,
+      //         backgroundStyle: {
+      //           color: "rgba(180, 180, 180, 0.2)",
+      //         },
+      //         itemStyle: {
+      //           emphasis: {
+      //             barBorderRadius: [50, 50],
+      //           },
+      //           normal: {
+      //             barBorderRadius: [50, 50, 0, 0],
+      //           },
+      //         },
+      //       },
+      //     ],
+      //   };
 
-    //   if (option && typeof option === "object") {
-    //     myChart.setOption(option);
-    //   }
+      //   if (option && typeof option === "object") {
+      //     myChart.setOption(option);
+      //   }
 
-    //   window.addEventListener("resize", myChart.resize);
+      //   window.addEventListener("resize", myChart.resize);
     });
   });
 
@@ -1664,38 +1868,38 @@ $(document).ready(function () {
 
 
 
-// ------------- FORM FUNCTIONALITY
+  // ------------- FORM FUNCTIONALITY
 
-$(document).ready(function(){
-  $('#add_company').on('submit', function(e){
+  $(document).ready(function () {
+    $('#add_company').on('submit', function (e) {
       e.preventDefault();
       var company_name = $('#company_name').val();
 
       $.ajax({
-          url: management_url,
-          type: 'POST',
-          headers: {
-              'Authorization': `Bearer ${access_token}`,  
-          },
-          contentType: 'application/json',
-          data: JSON.stringify({
-              "query": "addcompany",
-              "name": company_name
-          }),
-          success: function(response){
-              //Do something with the response
-              console.log(response);
-          },
-          error: function(error){
-              //Handle error
-              console.log(error);
-          }
+        url: management_url,
+        type: 'POST',
+        headers: {
+          'Authorization': `Bearer ${access_token}`,
+        },
+        contentType: 'application/json',
+        data: JSON.stringify({
+          "query": "addcompany",
+          "name": company_name
+        }),
+        success: function (response) {
+          //Do something with the response
+          console.log(response);
+        },
+        error: function (error) {
+          //Handle error
+          console.log(error);
+        }
       });
+    });
   });
-});
 
   $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    })
+    $('[data-toggle="tooltip"]').tooltip();
+  })
 
 });
