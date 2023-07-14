@@ -53,11 +53,10 @@ $(document).ready(function () {
     dataType: "text",
     data: '{"query":"getuser","email":"test04@raindroprdp.com"}',
   }).done(function (response) {
-
     userInfo = JSON.parse(response);
-    userInfo.level = 'team'
-    console.log(userInfo.level);
-    console.log(userInfo);
+    // userInfo.level = 'team'
+    // console.log(userInfo.level);
+    // console.log(userInfo);
     if (userInfo.level == 'Company' || userInfo.level == 'company') {
       $('.company1').hide();
       $('.company2').hide();
@@ -166,6 +165,9 @@ $(document).ready(function () {
       $('.building2').hide();
       $('.company2').hide();
       $('.company3').hide();
+
+      $(".rainDrop:first-child").hide();
+
     }
     $("#user_name").text(userInfo["first_name"] + " " + userInfo["last_name"]);
 
