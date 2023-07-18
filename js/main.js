@@ -54,125 +54,13 @@ $(document).ready(function () {
     data: '{"query":"getuser","email":"test04@raindroprdp.com"}',
   }).done(function (response) {
     userInfo = JSON.parse(response);
-    // userInfo.level = 'team'
+    userInfo.level = 'department'
     // console.log(userInfo.level);
-    // console.log(userInfo);
-    if (userInfo.level == 'Company' || userInfo.level == 'company') {
-      $('.company1').hide();
-      $('.company2').hide();
-      $('.company3').hide();
-
-      $('.raindropsbox').removeClass('col-xl-2');
-      $('.raindropsbox').addClass('col-xl-3');
-
-      $('.pendingupgradesbox').removeClass('col-xl-2');
-      $('.pendingupgradesbox').addClass('col-xl-3');
-
-      $('.buildingsbox').removeClass('col-lg-3');
-      $('.buildingsbox').addClass('col-lg-12');
-
-      $('.buildingsbox').removeClass('col-md-4');
-      $('.buildingsbox').addClass('col-md-6');
-
-      $('.departmentsbox').removeClass('col-md-4');
-      $('.departmentsbox').addClass('col-md-6');
+    console.log(userInfo.level);
 
 
-    }
-    if (userInfo.level == 'Building' || userInfo.level == 'building') {
-      $('.raindropsbox').removeClass('col-xl-2');
-      $('.raindropsbox').addClass('col-xl-3');
-
-      $('.pendingupgradesbox').removeClass('col-xl-2');
-      $('.pendingupgradesbox').addClass('col-xl-3');
-
-      $('.teamsbox').removeClass('col-xl-2');
-      $('.teamsbox').addClass('col-xl-3');
-
-      $('.departmentsbox').removeClass('col-xl-2');
-      $('.departmentsbox').addClass('col-xl-3');
-
-      $('.departmentsbox').removeClass('col-md-3');
-      $('.departmentsbox').addClass('col-md-12');
-
-
-      $('.company1').hide();
-      $('.building1').hide();
-      $('.building2').hide();
-      $('.company2').hide();
-      $('.company3').hide();
-    }
-    if (userInfo.level == 'Department' || userInfo.level == 'department') {
-
-      $('.raindropsbox').removeClass('col-xl-2');
-      $('.raindropsbox').addClass('col-xl-4');
-
-      $('.pendingupgradesbox').removeClass('col-xl-2');
-      $('.pendingupgradesbox').addClass('col-xl-4');
-
-      $('.teamsbox').removeClass('col-xl-2');
-      $('.teamsbox').addClass('col-xl-4');
-
-      $('.teamsbox').removeClass('col-lg-3');
-      $('.teamsbox').addClass('col-lg-6');
-
-
-
-      // col-sm-12 given but not taking full width on sm screen for teams box 
-
-      $('.raindropsbox').removeClass('col-sm-12');
-      $('.raindropsbox').addClass('col-sm-12');
-
-      $('.pendingupgradesbox').removeClass('col-sm-12');
-      $('.pendingupgradesbox').addClass('col-sm-12');
-
-      $('.teamsbox').removeClass('col-sm-12');
-      $('.teamsbox').addClass('col-sm-12');
-
-
-
-      $('.department1').hide();
-      $('.department2').hide();
-      $('.company1').hide();
-      $('.building1').hide();
-      $('.building2').hide();
-      $('.company2').hide();
-      $('.company3').hide();
-    }
-    if (userInfo.level == 'Team' || userInfo.level == 'team') {
-
-      $('.raindropsbox').removeClass('col-xl-6');
-      $('.raindropsbox').addClass('col-xl-6');
-      $('.pendingupgradesbox').removeClass('col-xl-6');
-      $('.pendingupgradesbox').addClass('col-xl-6');
-
-      $('.raindropsbox').removeClass('col-lg-3');
-      $('.raindropsbox').addClass('col-lg-6');
-      $('.pendingupgradesbox').removeClass('col-lg-3');
-      $('.pendingupgradesbox').addClass('col-lg-6');
-
-      $('.raindropsbox').removeClass('col-md-4');
-      $('.raindropsbox').addClass('col-md-6');
-      $('.pendingupgradesbox').removeClass('col-md-4');
-      $('.pendingupgradesbox').addClass('col-md-6');
-
-      $('.team1').hide();
-      $('.team2').hide();
-      $('.department1').hide();
-      $('.department2').hide();
-      $('.company1').hide();
-      $('.building1').hide();
-      $('.building2').hide();
-      $('.company2').hide();
-      $('.company3').hide();
-
-      $(".rainDrop:first-child").hide();
-
-    }
     $("#user_name").text(userInfo["first_name"] + " " + userInfo["last_name"]);
-
     //data for profile modal
-
     $("#profile_first_name").val(userInfo["first_name"]);
     $("#profile_last_name").val(userInfo["last_name"]);
     $("#profile_email").val(userInfo["email"]);
@@ -188,7 +76,145 @@ $(document).ready(function () {
     }).done(function (response) {
       $("body").css("opacity", "1");
       content = JSON.parse(response);
-      console.log(content.items);
+      console.log(content);
+
+
+      if (userInfo.level == 'Company' || userInfo.level == 'company') {
+        $('.company1').hide();
+        $('.company2').hide();
+        $('.company3').hide();
+
+        $('.raindropsbox').removeClass('col-xl-2');
+        $('.raindropsbox').addClass('col-xl-3');
+
+        $('.pendingupgradesbox').removeClass('col-xl-2');
+        $('.pendingupgradesbox').addClass('col-xl-3');
+
+        $('.buildingsbox').removeClass('col-lg-3');
+        $('.buildingsbox').addClass('col-lg-12');
+
+        $('.buildingsbox').removeClass('col-md-4');
+        $('.buildingsbox').addClass('col-md-6');
+
+        $('.departmentsbox').removeClass('col-md-4');
+        $('.departmentsbox').addClass('col-md-6');
+
+
+      }
+      if (userInfo.level == 'Building' || userInfo.level == 'building') {
+        $("#invite_admin_1 option[value='company']").remove();
+        $('.raindropsbox').removeClass('col-xl-2');
+        $('.raindropsbox').addClass('col-xl-3');
+
+        $('.pendingupgradesbox').removeClass('col-xl-2');
+        $('.pendingupgradesbox').addClass('col-xl-3');
+
+        $('.teamsbox').removeClass('col-xl-2');
+        $('.teamsbox').addClass('col-xl-3');
+
+        $('.departmentsbox').removeClass('col-xl-2');
+        $('.departmentsbox').addClass('col-xl-3');
+
+        $('.departmentsbox').removeClass('col-md-3');
+        $('.departmentsbox').addClass('col-md-12');
+
+
+        $('.company1').hide();
+        $('.building1').hide();
+        $('.building2').hide();
+        $('.company2').hide();
+        $('.company3').hide();
+      }
+      if (userInfo.level == 'Department' || userInfo.level == 'department') {
+        $("#invite_admin_1 option[value='company']").remove();
+        $("#invite_admin_1 option[value='building']").remove();
+        $('.raindropsbox').removeClass('col-xl-2');
+        $('.raindropsbox').addClass('col-xl-4');
+
+        $('.pendingupgradesbox').removeClass('col-xl-2');
+        $('.pendingupgradesbox').addClass('col-xl-4');
+
+        $('.teamsbox').removeClass('col-xl-2');
+        $('.teamsbox').addClass('col-xl-4');
+
+        $('.teamsbox').removeClass('col-lg-3');
+        $('.teamsbox').addClass('col-lg-6');
+
+
+
+        // col-sm-12 given but not taking full width on sm screen for teams box 
+
+        $('.raindropsbox').removeClass('col-sm-12');
+        $('.raindropsbox').addClass('col-sm-12');
+
+        $('.pendingupgradesbox').removeClass('col-sm-12');
+        $('.pendingupgradesbox').addClass('col-sm-12');
+
+        $('.teamsbox').removeClass('col-sm-12');
+        $('.teamsbox').addClass('col-sm-12');
+
+
+
+        $('.department1').hide();
+        $('.department2').hide();
+        $('.company1').hide();
+        $('.building1').hide();
+        $('.building2').hide();
+        $('.company2').hide();
+        $('.company3').hide();
+      }
+      if (userInfo.level == 'Team' || userInfo.level == 'team') {
+
+        $('.permissionLevelFormGroup').hide().css("visibility", "hidden");
+        $('.teamsFormGroup').removeClass('col-md-6');
+        $('.teamsFormGroup').addClass('col-md-12');
+        $('.teamsFormGroup').removeClass('col-sm-6');
+        $('.teamsFormGroup').addClass('col-sm-12');
+        $('.teamsFormGroupLabel').html("Teams")
+        content.items.companies.map(i => {
+          i.buildings.map(j => {
+            j.departments.map(k => {
+              k.teams.map(l => {
+                $("#invite_admin_2").append(
+                  `<option value="${l.item_id}" data-name="${l.item_name
+                  }">${l.item_name}
+                  </option>`
+                );
+              })
+            })
+          })
+        })
+
+
+        $('.raindropsbox').removeClass('col-xl-6');
+        $('.raindropsbox').addClass('col-xl-6');
+        $('.pendingupgradesbox').removeClass('col-xl-6');
+        $('.pendingupgradesbox').addClass('col-xl-6');
+
+        $('.raindropsbox').removeClass('col-lg-3');
+        $('.raindropsbox').addClass('col-lg-6');
+        $('.pendingupgradesbox').removeClass('col-lg-3');
+        $('.pendingupgradesbox').addClass('col-lg-6');
+
+        $('.raindropsbox').removeClass('col-md-4');
+        $('.raindropsbox').addClass('col-md-6');
+        $('.pendingupgradesbox').removeClass('col-md-4');
+        $('.pendingupgradesbox').addClass('col-md-6');
+
+        $('.team1').hide();
+        $('.team2').hide();
+        $('.department1').hide();
+        $('.department2').hide();
+        $('.company1').hide();
+        $('.building1').hide();
+        $('.building2').hide();
+        $('.company2').hide();
+        $('.company3').hide();
+
+        $(".rainDrop:first-child").hide();
+
+      }
+
 
       let pending_upgrades_count = 0;
       let raindrops_count = 0;
@@ -535,15 +561,18 @@ $(document).ready(function () {
       if (userInfo.level == 'Company' || userInfo.level == 'company') {
         function rdModalDropdown2(picked_company) {
           $("#rd_modal_details").html(""); // clear dropdown
-          content.items?.buildings.map(i => {
-            i.departments.map(j => {
-              j.teams.map(k => {
-                $("#rd_modal_details").append(
-                  `<option value="${k.item_id}" data-name="${k.item_name
-                  }">${k.item_name}
-                  </option>`
-                );
-                console.log(k.item_name);
+          content.items?.companies.map(i => {
+            i.buildings.map(j => {
+              j.departments.map(k => {
+                k.teams.map(l => {
+
+                  $("#rd_modal_details").append(
+                    `<option value="${l.item_id}" data-name="${l.item_name
+                    }">${l.item_name}
+                    </option>`
+                  );
+                  // console.log(l);
+                })
               })
             })
           })
@@ -551,15 +580,22 @@ $(document).ready(function () {
       }
 
       if (userInfo.level == 'Building' || userInfo.level == 'building') {
+
         function rdModalDropdown2(picked_company) {
           $("#rd_modal_details").html(""); // clear dropdown
-          content.items?.departments.map(i => {
-            i.teams.map(j => {
-              $("#rd_modal_details").append(
-                `<option value="${j.item_id}" data-name="${j.item_name
-                }">${j.item_name}
-                </option>`
-              );
+          content.items?.companies.map(i => {
+            i.buildings.map(j => {
+              j.departments.map(k => {
+                k.teams.map(l => {
+
+                  $("#rd_modal_details").append(
+                    `<option value="${l.item_id}" data-name="${l.item_name
+                    }">${l.item_name}
+                    </option>`
+                  );
+                  // console.log(l);
+                })
+              })
             })
           })
         }
@@ -569,33 +605,40 @@ $(document).ready(function () {
       if (userInfo.level == 'Department' || userInfo.level == 'department') {
         function rdModalDropdown2(picked_company) {
           $("#rd_modal_details").html(""); // clear dropdown
+          content.items?.companies.map(i => {
+            i.buildings.map(j => {
+              j.departments.map(k => {
+                k.teams.map(l => {
 
-          for (let check in content.items) {
-            if (check == 'teams') {
-              content.items?.teams.map(i => {
-                $("#rd_modal_details").append(
-                  `<option value="${i?.item_id}" data-name="${i?.item_name
-                  }">${i?.item_name}
-                  </option>`
-                );
+                  $("#rd_modal_details").append(
+                    `<option value="${l.item_id}" data-name="${l.item_name
+                    }">${l.item_name}
+                    </option>`
+                  );
+                  // console.log(l);
+                })
               })
-            }
-          }
-
-
+            })
+          })
         }
       }
 
       if (userInfo.level == 'Team' || userInfo.level == 'team') {
         function rdModalDropdown2(picked_company) {
           $("#rd_modal_details").html(""); // clear dropdown
-          content.items?.departments.map(i => {
-            i.teams.map(j => {
-              $("#rd_modal_details").append(
-                `<option value="${j.item_id}" data-name="${j.item_name
-                }">${j.item_name}
-                </option>`
-              );
+          content.items?.companies.map(i => {
+            i.buildings.map(j => {
+              j.departments.map(k => {
+                k.teams.map(l => {
+
+                  $("#rd_modal_details").append(
+                    `<option value="${l.item_id}" data-name="${l.item_name
+                    }">${l.item_name}
+                    </option>`
+                  );
+                  // console.log(l);
+                })
+              })
             })
           })
         }
@@ -735,33 +778,33 @@ $(document).ready(function () {
         }
 
         if (picked == "team") {
-          company_array.forEach(function (value, index) {
-            option_formating = value["item_name"];
-            buildingsObj = value["buildings"];
-            for (const [key0, value0] of Object.entries(buildingsObj)) {
-              departmentsObj = value0["departments"];
-              if (departmentsObj !== undefined) {
-                for (const [key1, value1] of Object.entries(departmentsObj)) {
-                  teamsObj = value1["teams"];
-                  if (teamsObj !== undefined) {
-                    for (const [key2, value2] of Object.entries(teamsObj)) {
-                      // option_formating = option_formating + ' -> ' + value0['name'] + ' -> ' + value1['name'];
-                      $("#invite_admin_2").append(
-                        `<option value="">${option_formating +
-                        " -> " +
-                        value0["item_name"] +
-                        " -> " +
-                        value1["item_name"] +
-                        " -> " +
-                        value2["item_name"]
-                        }</option>`
-                      );
-                    }
-                  }
-                }
-              }
-            }
-          });
+          // company_array.forEach(function (value, index) {
+          //   option_formating = value["item_name"];
+          //   buildingsObj = value["buildings"];
+          //   for (const [key0, value0] of Object.entries(buildingsObj)) {
+          //     departmentsObj = value0["departments"];
+          //     if (departmentsObj !== undefined) {
+          //       for (const [key1, value1] of Object.entries(departmentsObj)) {
+          //         teamsObj = value1["teams"];
+          //         if (teamsObj !== undefined) {
+          //           for (const [key2, value2] of Object.entries(teamsObj)) {
+          //             // option_formating = option_formating + ' -> ' + value0['name'] + ' -> ' + value1['name'];
+          //             $("#invite_admin_2").append(
+          //               `<option value="">${option_formating +
+          //               " -> " +
+          //               value0["item_name"] +
+          //               " -> " +
+          //               value1["item_name"] +
+          //               " -> " +
+          //               value2["item_name"]
+          //               }</option>`
+          //             );
+          //           }
+          //         }
+          //       }
+          //     }
+          //   }
+          // });
         }
       }
 
