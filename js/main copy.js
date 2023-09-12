@@ -759,6 +759,7 @@ function removeCompany(itemId, public_ip) {
       let teamsarray = [];
 
       function pendingUpgradesCount() {
+        company_array = content["items"]["companies"];
           company_array.forEach(function (value, index) {
             company_count++;
             option_formating = value["item_name"];
@@ -798,6 +799,8 @@ function removeCompany(itemId, public_ip) {
         });
 
           companiesarray.forEach((company) => {
+          
+
           company.buildings?.forEach((building) => {
               building.departments?.forEach((department) => {
                   department.teams?.forEach((team) => {
@@ -809,26 +812,12 @@ function removeCompany(itemId, public_ip) {
               });
           });
         });
+
       }
 
      
-      const company_array = content["items"]["companies"];
-      console.log(company_array.length)
-      function checkCompanies(company_array) {
-              if (Array.isArray(company_array) && company_array.length > 0) {
-              Swal.fire({
-                title: 'No Companies Present',
-                text: "You Currently don't have any companies to build upon, please add a company to start using RainDrop",
-                icon: 'warning',
-                confirmButtonText: 'Ok',
-              });
-              $('#addcompanyModal').modal('show');
-            }else {
-              console.log("No items in the array to iterate over.");
-          }
-      }
-      checkCompanies(company_array);
-      // pendingUpgradesCount();
+
+      pendingUpgradesCount();
       raindropsarrays = raindropsarray;
      
 
