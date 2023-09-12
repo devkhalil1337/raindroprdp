@@ -603,8 +603,8 @@ function removeCompany(itemId, public_ip) {
     }).done(function (response) {
       $("body").css("opacity", "1");
       content = JSON.parse(response);
-      console.log(content);
       if (content && Object.keys(content.items).length === 0) {
+        content.isItemsEmpty = true;
         let modalToOpen = '';
         let itemTitle = '';
         let itemType = '';
@@ -653,8 +653,10 @@ function removeCompany(itemId, public_ip) {
           }
         });
 
+      }else{
+        content.isItemsEmpty = false;
       }
-
+      console.log(content);
       if (userInfo.level == 'Company' || userInfo.level == 'company') {
         $('.company1').hide();
         $('.company2').hide();
@@ -1822,7 +1824,6 @@ function removeCompany(itemId, public_ip) {
       // });
 
       // picked_company = getCompanyKey('company01');
-      if(index && index > -1){
         picked_company = getCompanyKey(content["items"]["companies"][index]);
         picked_company_name = content["items"]["companies"][picked_company];
         $("#dropdown_company_button").text(picked_company_name);
@@ -1830,7 +1831,6 @@ function removeCompany(itemId, public_ip) {
         rdModalDropdown2(picked_company);
         company_name = $(this).data("item_name");
         createDropdown2(company_name);
-      }
 
       $(".company_picker").click(function () {
         picked_company = getCompanyKey(content["items"]["companies"][index]);
@@ -2180,20 +2180,25 @@ function removeCompany(itemId, public_ip) {
           .done(function (response) {
             result = JSON.parse(response);
             submitbutton.html(savetext).prop("disabled", false);
+            const isItemObjectEmpty = content && content.isItemsEmpty;
             Swal.fire({
               title: 'Done',
-              text: "Company " + $("#company_name").val() + " added",
+              text: `Company  ${$("#company_name").val()} added ${isItemObjectEmpty ? 'thank you, please allow 3 minutes for the changes to take effect, and login again.' : ''}`,
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading();
               },
               didClose: () => {
-                  Swal.hideLoading();
+                Swal.hideLoading();
+                if(isItemObjectEmpty) 
+                  window.location = "https://www.raindroprdp.com/index.html";
+                else
                   window.location.reload(true);
               }
-          });
+            });
+            
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
