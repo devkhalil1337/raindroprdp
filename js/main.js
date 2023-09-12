@@ -13,9 +13,9 @@ function numberWithCommas(x) {
   }
 }
 
-$.get("https://api64.ipify.org?format=json", function (data) {
-  public_ip = data.ip;
-});
+ $.get("https://api64.ipify.org?format=json", function(data) {
+                public_ip = data.ip; 
+            });
 function timeConverter(UNIX_timestamp) {
   // var a = new Date(UNIX_timestamp * 1000);
   var a = new Date(UNIX_timestamp);
@@ -52,17 +52,17 @@ let content, userInfo;
 
 let raindropsarrays = [];
 function findAndAssignData(item_id) {
-  const foundItem = raindropsarrays.find(item => item.item_id === item_id);
+    const foundItem = raindropsarrays.find(item => item.item_id === item_id);
 
-  document.getElementById('email').textContent = foundItem.user;
-  document.getElementById('specs').textContent = foundItem.cpu_cores + 'Cores ' + foundItem.RAM + 'GB';
-  document.getElementById('disk_utilization').textContent = foundItem.disk_utilization + '%';
-  document.getElementById('os_type').textContent = foundItem.os_type;
-  document.getElementById('raindrop_type').textContent = foundItem.raindrop_type;
-  document.getElementById('last_connected').textContent = new Date(foundItem.last_connected * 1000).toDateString();
-  document.getElementById('last_location').textContent = foundItem.last_location;
-  activeItem = item_id;
-  getraindropChart(userInfo.account_id);
+    document.getElementById('email').textContent = foundItem.user;
+    document.getElementById('specs').textContent = foundItem.cpu_cores + 'Cores ' + foundItem.RAM + 'GB';
+    document.getElementById('disk_utilization').textContent = foundItem.disk_utilization + '%';
+    document.getElementById('os_type').textContent = foundItem.os_type;
+    document.getElementById('raindrop_type').textContent = foundItem.raindrop_type;
+    document.getElementById('last_connected').textContent = new Date(foundItem.last_connected * 1000).toDateString();
+    document.getElementById('last_location').textContent = foundItem.last_location;
+    activeItem = item_id;
+    getraindropChart(userInfo.account_id);
 }
 
 function getraindropChart(account_id) {
@@ -98,84 +98,84 @@ function getraindropChart(account_id) {
 
 function updateChart(content, maxDays = 30) {
 
-  let create_series = [
-    {
-      data: [],
-      type: "line",
-      smooth: true,
-      areaStyle: {},
-      name: "Connections",
-    },
-    {
-      data: [],
-      type: "line",
-      smooth: true,
-      areaStyle: {},
-      name: "Upgrades",
-    },
-    {
-      data: [],
-      type: "line",
-      smooth: true,
-      areaStyle: {},
-      name: "Reboots",
-    },
-  ];
+let create_series = [
+  {
+    data: [],
+    type: "line",
+    smooth: true,
+    areaStyle: {},
+    name: "Connections",
+  },
+  {
+    data: [],
+    type: "line",
+    smooth: true,
+    areaStyle: {},
+    name: "Upgrades",
+  },
+  {
+    data: [],
+    type: "line",
+    smooth: true,
+    areaStyle: {},
+    name: "Reboots",
+  },
+];
 
-  var myChart = echarts.init(document.getElementById("chart-container-modal"), {
-    renderer: "svg",
-    useDirtyRect: false,
-  });
+var myChart = echarts.init(document.getElementById("chart-container-modal"), {
+  renderer: "svg",
+  useDirtyRect: false,
+});
 
-  var option = {
-    darkMode: true,
-    darkMode: "auto",
-    title: {
-      text: "Activity",
-      textStyle: {
-        color: "#b3b9e2",
-      },
+var option = {
+  darkMode: true,
+  darkMode: "auto",
+  title: {
+    text: "Activity",
+    textStyle: {
+      color: "#b3b9e2",
     },
-    legend: {
-      orient: "horizontal",
-      align: "right",
-      verticalAlign: "top",
-      y: 10,
-      padding: 3,
-      itemMarginTop: 5,
-      itemMarginBottom: 5,
-      itemStyle: {
-        lineHeight: "1px",
-      },
-      textStyle: {
-        color: "#b3b9e2",
-      },
+  },
+  legend: {
+    orient: "horizontal",
+    align: "right",
+    verticalAlign: "top",
+    y: 10,
+    padding: 3,
+    itemMarginTop: 5,
+    itemMarginBottom: 5,
+    itemStyle: {
+      lineHeight: "1px",
     },
-    color: [
-      'rgba(94, 135, 247, 0.7)',
-      'rgba(27, 255, 225, 0.7)',
-      'rgba(246, 137, 42, 0.7)',
-    ],
-    grid: {
-      top: "15%",
-      left: "3%",
-      right: "4%",
-      bottom: "3%",
-      containLabel: true,
+    textStyle: {
+      color: "#b3b9e2",
     },
-    xAxis: {
-      type: "category",
+  },
+  color: [
+    'rgba(94, 135, 247, 0.7)',
+    'rgba(27, 255, 225, 0.7)',
+    'rgba(246, 137, 42, 0.7)',
+  ],
+  grid: {
+    top: "15%",
+    left: "3%",
+    right: "4%",
+    bottom: "3%",
+    containLabel: true,
+  },
+  xAxis: {
+    type: "category",
+  },
+  yAxis: {
+    type: "value",
+    axisLabel: {
+      formatter: "{value}",
     },
-    yAxis: {
-      type: "value",
-      axisLabel: {
-        formatter: "{value}",
-      },
-      splitLine: { show: false },
-    },
-    series: create_series,
-  };
-  console.log(content)
+    splitLine: { show: false },
+  },
+  series: create_series,
+};
+console.log(content)
   if (content.activity.length > 0 || content.activity.connections) {
     if (content.activity.connections.length > 0) {
       let i = 0;
@@ -197,7 +197,7 @@ function updateChart(content, maxDays = 30) {
     }
     if (content.activity.reboots.length > 0) {
       i = 0;
-      content.activity.reboots.forEach((element) => {
+     content.activity.reboots.forEach((element) => {
         if (i <= maxDays) {
           create_series[2]["data"].unshift(element);
         }
@@ -205,20 +205,20 @@ function updateChart(content, maxDays = 30) {
       });
     }
   }
-
-  myChart.setOption(option);
+    
+    myChart.setOption(option);
 
 }
 
 // effected start 2
 function upgradePrice() {
-  const selectedOption = $(".specs2-select").find('option:selected[data-price]');
-  if (selectedOption.length) {
-    const price = parseInt(selectedOption.data('upprice'));
-
-    $("#monthly_upgrade_change").text(`${currency}${price}`);
-  }
-}
+        const selectedOption = $(".specs2-select").find('option:selected[data-price]');
+          if (selectedOption.length) {
+            const price = parseInt(selectedOption.data('upprice'));
+            
+            $("#monthly_upgrade_change").text(`${currency}${price}`);
+          }
+      }
 
 
 function findOsIndex(type_id) {
@@ -247,146 +247,146 @@ function findActivePrice(type_id) {
 }
 
 function upgradeSelect(type_id, activePrice) {
-  const os = findOsIndex(type_id);
-  console.log("This is Item_Id: " + activeItem);
-  let lowestUpPrice = Infinity;
-  let selectedOption = null;
+    const os = findOsIndex(type_id);
+    console.log("This is Item_Id: "+activeItem);
+    let lowestUpPrice = Infinity;
+    let selectedOption = null;
 
-  const options = content["pricing"][os].map(value => {
-    const up = value["price"] - activePrice;
+    const options = content["pricing"][os].map(value => {
+      const up = value["price"] - activePrice;
 
-    if (up > 0 && up < lowestUpPrice) {
-      lowestUpPrice = up;
-      selectedOption = value["type"];
+      if (up > 0 && up < lowestUpPrice) {
+        lowestUpPrice = up;
+        selectedOption = value["type"];
+      }
+
+      return `<option value="${value["type"]}" data-itemid="${activeItem}" data-typeid="${type_id}" data-price="${value["price"]}" data-upprice="${up}">(${value["type"]}) CPU: ${value["cpu"]}, RAM: ${value["ram"]} | Monthly Change: $${up}</option>`;
+    }).join('');
+
+    $(".specs2-select").html(options);
+
+    if (selectedOption) {
+      $(".specs2-select").val(selectedOption);
     }
 
-    return `<option value="${value["type"]}" data-itemid="${activeItem}" data-typeid="${type_id}" data-price="${value["price"]}" data-upprice="${up}">(${value["type"]}) CPU: ${value["cpu"]}, RAM: ${value["ram"]} | Monthly Change: $${up}</option>`;
-  }).join('');
-
-  $(".specs2-select").html(options);
-
-  if (selectedOption) {
-    $(".specs2-select").val(selectedOption);
+    upgradePrice();
   }
-
-  upgradePrice();
-}
 
 // effected End 2
 $(document).ready(function () {
   // $('body').css('opacity', '0.33');
-  function removeCompany(itemId, public_ip) {
-    // $("#delete_company_button").click(function(event) {
-    Swal.fire({
-      title: 'Removing Company',
-      showConfirmButton: false,
-      willOpen: () => {
-        Swal.showLoading()
-      },
-    });
-
-    event.preventDefault(); // Prevent the default link behavior  
-    // Prepare the payload
-    let delete_building_data = {
-      query: "removecompany",
-      company_id: itemId,
-      ip: public_ip,
-      email: userInfo["email"],
-      account_id: userInfo["account_id"]
-    };
-    console.log(delete_building_data)
-
-    $.ajax({
-      url: base_url + "/management",
-      type: 'POST',
-      headers: {
-        'Authorization': `Bearer ${access_token}`,
-      },
-      contentType: 'application/json',
-      data: JSON.stringify(delete_building_data),
-      success: function (response) {
-
+function removeCompany(itemId, public_ip) {
+      // $("#delete_company_button").click(function(event) {
+          Swal.fire({
+            title: 'Removing Company',
+            showConfirmButton: false,
+            willOpen: () => {
+                Swal.showLoading()
+            },
+        });
+  
+          event.preventDefault(); // Prevent the default link behavior  
+          // Prepare the payload
+          let delete_building_data = {
+              query: "removecompany",
+              company_id: itemId, 
+              ip: public_ip,
+              email: userInfo["email"],
+              account_id: userInfo["account_id"]
+          };
+        console.log(delete_building_data)
+          
+          $.ajax({
+              url: base_url + "/management", 
+              type: 'POST',
+              headers: {
+                  'Authorization': `Bearer ${access_token}`,
+              },
+              contentType: 'application/json',
+              data: JSON.stringify(delete_building_data),
+              success: function(response) {
+                  
+                  Swal.fire({
+                title: 'Done',
+                text: "Company Removed Successfully.",
+                icon: 'success',
+                timer: 3000,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading()
+                },
+                didClose: () => {
+                    Swal.hideLoading();
+                    window.location.reload(true);
+                }
+            });
+                  // Handle the success response here
+              },
+              error: function(error) {
+                  Swal.fire({
+                title: 'Error',
+                text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
+                icon: 'error',
+                confirmButtonText: 'Ok',
+            });
+              }
+          });
+      }
+      function removeRole() {
         Swal.fire({
-          title: 'Done',
-          text: "Company Removed Successfully.",
-          icon: 'success',
-          timer: 3000,
+          title: 'Removing Role',
           showConfirmButton: false,
           willOpen: () => {
             Swal.showLoading()
           },
-          didClose: () => {
-            Swal.hideLoading();
-            window.location.reload(true);
-          }
         });
-        // Handle the success response here
-      },
-      error: function (error) {
-        Swal.fire({
-          title: 'Error',
-          text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
-          icon: 'error',
-          confirmButtonText: 'Ok',
-        });
-      }
-    });
-  }
-  function removeRole() {
-    Swal.fire({
-      title: 'Removing Role',
-      showConfirmButton: false,
-      willOpen: () => {
-        Swal.showLoading()
-      },
-    });
-    event.preventDefault(); // Prevent the default link behavior
-    const itemId = activeItem;
+        event.preventDefault(); // Prevent the default link behavior
+        const itemId = activeItem;
 
-    // Prepare the payload
-    let delete_role_data = {
-      query: "removerole",
-      item_id: itemId
-    };
+        // Prepare the payload
+        let delete_role_data = {
+          query: "removerole",
+          item_id: itemId
+        };
 
-    console.log(delete_role_data)
+        console.log(delete_role_data)
 
-    $.ajax({
-      url: base_url + "/management",
-      type: 'POST',
-      headers: {
-        'Authorization': `Bearer ${access_token}`,
-      },
-      contentType: 'application/json',
-      data: JSON.stringify(delete_role_data),
-      success: function (response) {
-
-        Swal.fire({
-          title: 'Done',
-          text: "Role Removed Successfully.",
-          icon: 'success',
-          timer: 3000,
-          showConfirmButton: false,
-          willOpen: () => {
-            Swal.showLoading()
+        $.ajax({
+          url: base_url + "/management",
+          type: 'POST',
+          headers: {
+            'Authorization': `Bearer ${access_token}`,
           },
-          didClose: () => {
-            Swal.hideLoading();
-            window.location.reload(true);
+          contentType: 'application/json',
+          data: JSON.stringify(delete_role_data),
+          success: function(response) {
+
+            Swal.fire({
+              title: 'Done',
+              text: "Role Removed Successfully.",
+              icon: 'success',
+              timer: 3000,
+              showConfirmButton: false,
+              willOpen: () => {
+                Swal.showLoading()
+              },
+              didClose: () => {
+                Swal.hideLoading();
+                window.location.reload(true);
+              }
+            });
+            // Handle the success response here
+          },
+          error: function(error) {
+            Swal.fire({
+              title: 'Error',
+              text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
+              icon: 'error',
+              confirmButtonText: 'Ok',
+            });
           }
         });
-        // Handle the success response here
-      },
-      error: function (error) {
-        Swal.fire({
-          title: 'Error',
-          text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
-          icon: 'error',
-          confirmButtonText: 'Ok',
-        });
       }
-    });
-  }
 
 
   // // --------------------------
@@ -454,7 +454,7 @@ $(document).ready(function () {
   //    Remove Department
   // -------------------------
 
-  function removeDepartment(public_ip) {
+  function removeDepartment(public_ip){
     Swal.fire({
       title: 'Removing Department',
       showConfirmButton: false,
@@ -482,7 +482,7 @@ $(document).ready(function () {
       },
       contentType: 'application/json',
       data: JSON.stringify(delete_department_data),
-      success: function (response) {
+      success: function(response) {
 
         Swal.fire({
           title: 'Done',
@@ -500,7 +500,7 @@ $(document).ready(function () {
         });
         // Handle the success response here
       },
-      error: function (error) {
+      error: function(error) {
         Swal.fire({
           title: 'Error',
           text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -515,7 +515,7 @@ $(document).ready(function () {
   //    Remove Building
   // -------------------------
 
-  function removeBuilding(public_ip) {
+  function removeBuilding(public_ip){
     Swal.fire({
       title: 'Removing Building',
       showConfirmButton: false,
@@ -543,7 +543,7 @@ $(document).ready(function () {
       },
       contentType: 'application/json',
       data: JSON.stringify(delete_building_data),
-      success: function (response) {
+      success: function(response) {
 
         Swal.fire({
           title: 'Done',
@@ -561,7 +561,7 @@ $(document).ready(function () {
         });
         // Handle the success response here
       },
-      error: function (error) {
+      error: function(error) {
         Swal.fire({
           title: 'Error',
           text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -604,7 +604,6 @@ $(document).ready(function () {
       $("body").css("opacity", "1");
       content = JSON.parse(response);
       console.log(content);
-
       if (content && Object.keys(content.items).length === 0) {
         let modalToOpen = '';
         let itemTitle = '';
@@ -655,6 +654,7 @@ $(document).ready(function () {
         });
 
       }
+
       if (userInfo.level == 'Company' || userInfo.level == 'company') {
         $('.company1').hide();
         $('.company2').hide();
@@ -808,77 +808,78 @@ $(document).ready(function () {
       let teamsarray = [];
 
       function pendingUpgradesCount() {
-        company_array.forEach(function (value, index) {
-          company_count++;
-          option_formating = value["item_name"];
-          buildingsObj = value["buildings"];
-          companiesarray.push(value);
-          for (const [key0, value0] of Object.entries(buildingsObj)) {
-            buildings_count++;
-            buildingsarray.push(value0);
-            departmentsObj = value0["departments"];
-            if (departmentsObj !== undefined) {
-              for (const [key1, value1] of Object.entries(departmentsObj)) {
-                departments_count++;
-                departmentsarray.push(value1);
-                teamsObj = value1["teams"];
-                if (teamsObj !== undefined) {
-                  for (const [key2, value2] of Object.entries(teamsObj)) {
-                    teams_count++;
-                    teamsarray.push(value2);
-                    raindropsObj = value2["raindrops"];
-                    if (raindropsObj !== undefined) {
-                      for (const [key3, value3] of Object.entries(
-                        raindropsObj
-                      )) {
-                        raindropsarray.push(value3);
-                        raindrops_count++;
-                        if (value3["upgrade_requested"] == "true") {
-                          pending_upgrades_count++;
-                          pendingupgradearray.push(value3);
+          company_array?.forEach(function (value, index) {
+            company_count++;
+            option_formating = value["item_name"];
+            buildingsObj = value["buildings"];
+            companiesarray.push(value);
+            for (const [key0, value0] of Object.entries(buildingsObj)) {
+              buildings_count++;
+              buildingsarray.push(value0);
+              departmentsObj = value0["departments"];
+              if (departmentsObj !== undefined) {
+                for (const [key1, value1] of Object.entries(departmentsObj)) {
+                  departments_count++;
+                  departmentsarray.push(value1);
+                  teamsObj = value1["teams"];
+                  if (teamsObj !== undefined) {
+                    for (const [key2, value2] of Object.entries(teamsObj)) {
+                      teams_count++;
+                      teamsarray.push(value2);
+                      raindropsObj = value2["raindrops"];
+                      if (raindropsObj !== undefined) {
+                        for (const [key3, value3] of Object.entries(
+                          raindropsObj
+                        )) {
+                          raindropsarray.push(value3);
+                          raindrops_count++;
+                          if (value3["upgrade_requested"] == "true") {
+                            pending_upgrades_count++;
+                            pendingupgradearray.push(value3);
+                          }
                         }
                       }
                     }
-                  }
-                };
+                  };
               }
             }
           }
         });
 
-        companiesarray.forEach((company) => {
+          companiesarray.forEach((company) => {
           company.buildings?.forEach((building) => {
-            building.departments?.forEach((department) => {
-              department.teams?.forEach((team) => {
-                team.raindrops?.forEach((raindrop) => {
-                  console.log(raindrop.role);
-                  roles_count++;
-                });
+              building.departments?.forEach((department) => {
+                  department.teams?.forEach((team) => {
+                      team.raindrops?.forEach((raindrop) => {                          
+                         console.log(raindrop.role);
+                         roles_count++;
+                      });
+                  });
               });
-            });
           });
         });
       }
 
-
-      const company_array = content["items"]["companies"];
+     
+      let company_array = content["items"]["companies"];
+      console.log(company_array?.length)
       function checkCompanies(company_array) {
-        if (Array.isArray(company_array) && company_array.length > 0) {
-          Swal.fire({
-            title: 'No Companies Present',
-            text: "You Currently don't have any companies to build upon, please add a company to start using RainDrop",
-            icon: 'warning',
-            confirmButtonText: 'Ok',
-          });
-          $('#addcompanyModal').modal('show');
-        } else {
-          console.log("No items in the array to iterate over.");
-        }
+              if (Array.isArray(company_array) && company_array?.length > 0) {
+              Swal.fire({
+                title: 'No Companies Present',
+                text: "You Currently don't have any companies to build upon, please add a company to start using RainDrop",
+                icon: 'warning',
+                confirmButtonText: 'Ok',
+              });
+              $('#addcompanyModal').modal('show');
+            }else {
+              console.log("No items in the array to iterate over.");
+          }
       }
       checkCompanies(company_array);
       // pendingUpgradesCount();
       raindropsarrays = raindropsarray;
-
+     
 
       $("#electricity_count").text(
         numberWithCommas(content["environmental_detail"]["electricity_saved"])
@@ -933,13 +934,13 @@ $(document).ready(function () {
       //    Invite Admin
       // ---------------------
 
-      $("#inviteAdminLink").click(function (event) {
-        Swal.fire({
-          title: 'Setting Up Admin',
-          showConfirmButton: false,
-          willOpen: () => {
-            Swal.showLoading()
-          },
+      $("#inviteAdminLink").click(function(event) {
+          Swal.fire({
+            title: 'Setting Up Admin',
+            showConfirmButton: false,
+            willOpen: () => {
+                Swal.showLoading()
+            },
         });
         event.preventDefault(); // Prevent the default link behavior
         // Get input values
@@ -949,199 +950,199 @@ $(document).ready(function () {
         let firstName = $("#invite_first_name").val();
         let lastName = $("#invite_last_name").val();
         let email = $("#invite_email").val();
-
+        
         // Construct invite_admin_data
         let invite_admin_data = {
-          query: "inviteadmin",
-          item_id: item_id,
-          account_id: userInfo["account_id"],
-          email: email,
-          first_name: firstName,
-          last_name: lastName
+            query: "inviteadmin",
+            item_id: item_id, 
+            account_id: userInfo["account_id"],
+            email: email,
+            first_name: firstName,
+            last_name: lastName
         };
-
+        
         $.ajax({
-          url: base_url + "/management",
-          type: 'POST',
-          headers: {
-            'Authorization': `Bearer ${access_token}`,
-          },
-          contentType: 'application/json',
-          data: JSON.stringify(invite_admin_data),
-          success: function (response) {
-            Swal.fire({
-              title: 'Done',
-              text: email + " invited to the " + permissionLevel + " " + item_name,
-              icon: 'success',
-              timer: 3000,
-              showConfirmButton: false,
-              willOpen: () => {
-                Swal.showLoading()
-              },
-              didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
-              }
+            url: base_url + "/management", 
+            type: 'POST',
+            headers: {
+                'Authorization': `Bearer ${access_token}`,
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(invite_admin_data),
+            success: function(response) {
+              Swal.fire({
+                title: 'Done',
+                text: email + " invited to the " + permissionLevel + " " + item_name,
+                icon: 'success',
+                timer: 3000,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading()
+                },
+                didClose: () => {
+                    Swal.hideLoading();
+                    window.location.reload(true);
+                }
             });
-          },
-          error: function (error) {
-            Swal.fire({
-              title: 'Error',
-              text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
-              icon: 'error',
-              confirmButtonText: 'Ok',
+            },
+            error: function(error) {
+              Swal.fire({
+                title: 'Error',
+                text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
+                icon: 'error',
+                confirmButtonText: 'Ok',
             });
-          }
+            }
         });
-      });
-
-      // ---------------------------------
+    });
+    
+    // ---------------------------------
       //    Main Table Functions
       // --------------------------------
 
-      // --------------------------
+        // --------------------------
       //    Remove Role
       // -------------------------
 
 
-      // --------------------------
+     // --------------------------
       //    Remove account
       // -------------------------
 
-      $("#delete_account_button").click(function (event) {
+      $("#delete_account_button").click(function(event) {
         Swal.fire({
           title: 'Removing Your Account',
           showConfirmButton: false,
           willOpen: () => {
-            Swal.showLoading()
+              Swal.showLoading()
           },
-        });
+      });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
-
+  
         // Prepare the payload
         let delete_building_data = {
-          query: "removeaccount",
-          ip: public_ip,
-          email: userInfo["email"],
-          account_id: userInfo["account_id"]
+            query: "removeaccount",
+            ip: public_ip,
+            email: userInfo["email"],
+            account_id: userInfo["account_id"]
         };
-
+        
         $.ajax({
-          url: base_url + "/management",
-          type: 'POST',
-          headers: {
-            'Authorization': `Bearer ${access_token}`,
-          },
-          contentType: 'application/json',
-          data: JSON.stringify(delete_building_data),
-          success: function (response) {
-
-            Swal.fire({
+            url: base_url + "/management", 
+            type: 'POST',
+            headers: {
+                'Authorization': `Bearer ${access_token}`,
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(delete_building_data),
+            success: function(response) {
+                
+                Swal.fire({
               title: 'Done',
               text: "Account Removed Successfully.",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.href = "https://www.raindroprdp.com";
+                  Swal.hideLoading();
+                  window.location.href = "https://www.raindroprdp.com";
               }
-            });
-            // Handle the success response here
-          },
-          error: function (error) {
-            Swal.fire({
+          });
+                // Handle the success response here
+            },
+            error: function(error) {
+                Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
-          }
+          });
+            }
         });
-      });
+    });
 
-      // ---------------------------------
+    // ---------------------------------
       //    RainDrop Detail Modal Functions
       // --------------------------------
 
 
-      // ---------------------
+    // ---------------------
       //    Create role
       // ---------------------
 
-      $("#converttorole_button").click(function (event) {
+      $("#converttorole_button").click(function(event) {
         Swal.fire({
           title: 'Converting your RainDrop to a Role',
           showConfirmButton: false,
           willOpen: () => {
-            Swal.showLoading()
+              Swal.showLoading()
           },
-        });
+      });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
         let name = $("#converttorole_name").val();
         // Construct invite_admin_data
         let invite_admin_data = {
-          query: "createrole",
-          instance_id: itemId,
-          name: name,
-          account_id: userInfo["account_id"],
-          email: userInfo["email"]
+            query: "createrole",
+            instance_id: itemId,
+            name: name,
+            account_id: userInfo["account_id"],
+            email: userInfo["email"]
         };
-
+        
         $.ajax({
-          url: base_url + "/management",
-          type: 'POST',
-          headers: {
-            'Authorization': `Bearer ${access_token}`,
-          },
-          contentType: 'application/json',
-          data: JSON.stringify(invite_admin_data),
-          success: function (response) {
-
-            Swal.fire({
+            url: base_url + "/management", 
+            type: 'POST',
+            headers: {
+                'Authorization': `Bearer ${access_token}`,
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(invite_admin_data),
+            success: function(response) {
+                
+                Swal.fire({
               title: 'Done',
               text: "Converted this RainDrop to a Role",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
-            // Handle the success response here
-          },
-          error: function (error) {
-            Swal.fire({
+          });
+                // Handle the success response here
+            },
+            error: function(error) {
+                Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
-          }
+          });
+            }
         });
-      });
+    });
 
-      // ---------------------
+    // ---------------------
       //    Upgrade Now
       // ---------------------
 
-      $("#upgrade_button").click(function (event) {
+      $("#upgrade_button").click(function(event) {
         Swal.fire({
           title: 'Upgrading your RainDrop',
           showConfirmButton: false,
           willOpen: () => {
-            Swal.showLoading()
+              Swal.showLoading()
           },
-        });
+      });
         event.preventDefault(); // Prevent the default link behavior
         const selectedOption = $('.specs2-select').find('option:selected');
         const option = $('.specs2-select').find('option:selected').text();
@@ -1150,63 +1151,63 @@ $(document).ready(function () {
         console.log(option);
         // Construct invite_admin_data
         let invite_admin_data = {
-          query: "upgradenow",
-          item_id: itemId,
-          type_id: typeId,
-          ip: public_ip,
-          account_id: userInfo["account_id"],
-          email: userInfo["email"]
+            query: "upgradenow",
+            item_id: itemId, 
+            type_id: typeId, 
+            ip: public_ip, 
+            account_id: userInfo["account_id"],
+            email: userInfo["email"]
         };
-
+        
         $.ajax({
-          url: base_url + "/management",
-          type: 'POST',
-          headers: {
-            'Authorization': `Bearer ${access_token}`,
-          },
-          contentType: 'application/json',
-          data: JSON.stringify(invite_admin_data),
-          success: function (response) {
-
-            Swal.fire({
+            url: base_url + "/management", 
+            type: 'POST',
+            headers: {
+                'Authorization': `Bearer ${access_token}`,
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(invite_admin_data),
+            success: function(response) {
+                
+                Swal.fire({
               title: 'Done',
               text: "Package Upgraded To" + option,
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
-            // Handle the success response here
-          },
-          error: function (error) {
-            Swal.fire({
+          });
+                // Handle the success response here
+            },
+            error: function(error) {
+                Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
-          }
+          });
+            }
         });
-      });
+    });
 
-      // --------------------------
+    // --------------------------
       //    Update RainDrop Email
       // -------------------------
 
-      $("#updateraindropemail_button").click(function (event) {
+      $("#updateraindropemail_button").click(function(event) {
         Swal.fire({
           title: "Updating this RainDrop's user",
           showConfirmButton: false,
           willOpen: () => {
-            Swal.showLoading()
+              Swal.showLoading()
           },
-        });
+      });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
         let new_email = $("#updateraindropemail_email").val();
@@ -1214,179 +1215,179 @@ $(document).ready(function () {
         let lastName = $("#updateraindropemail_last_name").val();
         // Prepare the payload
         let updateraindropemail_data = {
-          query: "updateraindropemail",
-          item_id: itemId,
-          new_email: new_email,
-          ip: public_ip,
-          first_name: firstName,
-          last_name: lastName,
-          email: userInfo["email"],
-          account_id: userInfo["account_id"]
+            query: "updateraindropemail",
+            item_id: itemId, 
+            new_email: new_email, 
+            ip: public_ip,
+            first_name: firstName,
+            last_name: lastName,
+            email: userInfo["email"],
+            account_id: userInfo["account_id"]
         };
-
+        
         $.ajax({
-          url: base_url + "/management",
-          type: 'POST',
-          headers: {
-            'Authorization': `Bearer ${access_token}`,
-          },
-          contentType: 'application/json',
-          data: JSON.stringify(updateraindropemail_data),
-          success: function (response) {
-
-            Swal.fire({
+            url: base_url + "/management", 
+            type: 'POST',
+            headers: {
+                'Authorization': `Bearer ${access_token}`,
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(updateraindropemail_data),
+            success: function(response) {
+                
+                Swal.fire({
               title: 'Done',
               text: "Invited " + new_email + " to this RainDrop",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
-            // Handle the success response here
-          },
-          error: function (error) {
-            Swal.fire({
+          });
+                // Handle the success response here
+            },
+            error: function(error) {
+                Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
-          }
+          });
+            }
         });
-      });
+    });
 
-      // --------------------------
+    // --------------------------
       //    Reboot
       // -------------------------
 
-      $("#reboot_button").click(function (event) {
+      $("#reboot_button").click(function(event) {
         Swal.fire({
           title: 'Rebooting this RainDrop',
           showConfirmButton: false,
           willOpen: () => {
-            Swal.showLoading()
+              Swal.showLoading()
           },
-        });
+      });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
         let new_email = $("#updateuser_email").val();
         // Prepare the payload
         let reboot_raindrop_data = {
-          query: "rebootmachine",
-          instance_id: itemId,
-          ip: public_ip,
-          email: userInfo["email"],
-          account_id: userInfo["account_id"]
+            query: "rebootmachine",
+            instance_id: itemId, 
+            ip: public_ip,
+            email: userInfo["email"],
+            account_id: userInfo["account_id"]
         };
-
+        
         $.ajax({
-          url: base_url + "/management",
-          type: 'POST',
-          headers: {
-            'Authorization': `Bearer ${access_token}`,
-          },
-          contentType: 'application/json',
-          data: JSON.stringify(reboot_raindrop_data),
-          success: function (response) {
-
-            Swal.fire({
+            url: base_url + "/management", 
+            type: 'POST',
+            headers: {
+                'Authorization': `Bearer ${access_token}`,
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(reboot_raindrop_data),
+            success: function(response) {
+                
+                Swal.fire({
               title: 'Done',
               text: "RainDrop Rebooted Successfully, please wait 3 minutes before connecting to it again.",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
-            // Handle the success response here
-          },
-          error: function (error) {
-            Swal.fire({
+          });
+                // Handle the success response here
+            },
+            error: function(error) {
+                Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
-          }
+          });
+            }
         });
-      });
+    });
 
-
-      // --------------------------
+    
+    // --------------------------
       //    Remove RainDrop
       // -------------------------
 
-      $("#delete_raindrop_button").click(function (event) {
+      $("#delete_raindrop_button").click(function(event) {
         Swal.fire({
           title: 'Removing this RainDrop',
           showConfirmButton: false,
           willOpen: () => {
-            Swal.showLoading()
+              Swal.showLoading()
           },
-        });
+      });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
         // Prepare the payload
         let reboot_raindrop_data = {
-          query: "removeraindrop",
-          instance_id: itemId,
-          ip: public_ip,
-          email: userInfo["email"],
-          account_id: userInfo["account_id"]
+            query: "removeraindrop",
+            instance_id: itemId, 
+            ip: public_ip,
+            email: userInfo["email"],
+            account_id: userInfo["account_id"]
         };
-
+        
         $.ajax({
-          url: base_url + "/management",
-          type: 'POST',
-          headers: {
-            'Authorization': `Bearer ${access_token}`,
-          },
-          contentType: 'application/json',
-          data: JSON.stringify(reboot_raindrop_data),
-          success: function (response) {
-
-            Swal.fire({
+            url: base_url + "/management", 
+            type: 'POST',
+            headers: {
+                'Authorization': `Bearer ${access_token}`,
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(reboot_raindrop_data),
+            success: function(response) {
+                
+                Swal.fire({
               title: 'Done',
               text: "RainDrop Removed Successfully",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
-            // Handle the success response here
-          },
-          error: function (error) {
-            Swal.fire({
+          });
+                // Handle the success response here
+            },
+            error: function(error) {
+                Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
-          }
+          });
+            }
         });
-      });
-
+    });
+      
 
       function pricechange() {
         let totalPrice = 0;
-        $('.specs-select').each(function () {
+        $('.specs-select').each(function() {
           const selectedOption = $(this).find('option:selected[data-price]');
           if (selectedOption.length) {
             const price = parseInt(selectedOption.data('price'));
@@ -1398,12 +1399,12 @@ $(document).ready(function () {
         // $("#monthly_upgrade_change").text(`${currency}${triggerPrice}`);
       }
 
-
+      
 
       $(document).on("click", ".action .delete a", function (e) {
         $(this).parents('.member-block').remove();
         pricechange();
-      });
+    });
       // function upgradepricechange() {
       //   upgrademonthlychange = 0;
       //   $(".specs-select").each(function () {
@@ -1413,7 +1414,7 @@ $(document).ready(function () {
       //   $("#monthly_upgrade_change").text(`${currency}${upgrademonthlychange}`);
       // }
 
-
+      
 
       $(".add-member").click(function () {
         optionhtml = ``;
@@ -1424,12 +1425,12 @@ $(document).ready(function () {
         oshtml = ``;
 
         try {
-          let unique_os_types = new Set();
-          content["default_roles"].forEach(function (value, index) {
-            if (!unique_os_types.has(value["os_type"])) {
-              oshtml += `<option value="${value["os_type"]}" data-id="${value["id"]}">Default [${value["os_type"]}]</option>`;
-              unique_os_types.add(value["os_type"]);
-            }
+          let unique_os_types = new Set();  
+          content["default_roles"].forEach(function (value, index) {  
+              if (!unique_os_types.has(value["os_type"])) {
+                oshtml += `<option value="${value["os_type"]}" data-id="${value["id"]}">Default [${value["os_type"]}]</option>`;
+                unique_os_types.add(value["os_type"]);  
+              }
           });
         } catch (error) {
           console.log(error);
@@ -1544,11 +1545,11 @@ $(document).ready(function () {
         pricechange();
       });
 
-
+     
       $(document).on("change", ".specs2-select", function () {
         upgradePrice();
       });
-
+      
 
       $(".member-list").on("DOMSubtreeModified", function () {
         // console.log('changed');
@@ -1562,17 +1563,17 @@ $(document).ready(function () {
           if (name == value["item_name"]) {
             // console.log(index);
             key = index;
-          }
-        });
-        return key;
-      }
-      function getCompanyRoles(item_id) {
-        // console.log(name); 
-        let key = "";
-        content["items"]["companies"]?.forEach(function (value, index) {
-          if (item_id == value["item_id"]) {
-            key = value["roles"];
-          }
+          } 
+        }); 
+        return key; 
+        } 
+        function getCompanyRoles(item_id) { 
+          // console.log(name); 
+          let key = ""; 
+          content["items"]["companies"]?.forEach(function (value, index) { 
+            if (item_id == value["item_id"]) {  
+              key = value["roles"];
+            }
         });
 
         return key;
@@ -1657,23 +1658,23 @@ $(document).ready(function () {
       if (userInfo.level == 'Account' || userInfo.level == 'account') {
 
         function rdModalDropdown2(picked_company) {
-          $("#rd_modal_details").html(""); // clear dropdown
-
-          const selectedCompany = content.items?.companies.find(company => company.item_id === picked_company);
-
-          if (selectedCompany) {
-            selectedCompany.buildings?.forEach(building => {
-              building.departments?.forEach(department => {
-                department.teams?.forEach(team => {
-                  const optionText = `${building.item_name} -> ${department.item_name} -> ${team.item_name}`;
-                  $("#rd_modal_details").append(
-                    `<option value="${team.item_id}" data-name="${team.item_name}">${optionText}</option>`
-                  );
-                });
+        $("#rd_modal_details").html(""); // clear dropdown
+        
+        const selectedCompany = content.items?.companies.find(company => company.item_id === picked_company);
+        
+        if (selectedCompany) {
+          selectedCompany.buildings?.forEach(building => {
+            building.departments?.forEach(department => {
+              department.teams?.forEach(team => {
+                const optionText = `${building.item_name} -> ${department.item_name} -> ${team.item_name}`;
+                $("#rd_modal_details").append(
+                  `<option value="${team.item_id}" data-name="${team.item_name}">${optionText}</option>`
+                );
               });
             });
-          }
+          });
         }
+      }
 
 
         function rdModalDropdown2(picked_company) {
@@ -1821,15 +1822,16 @@ $(document).ready(function () {
       // });
 
       // picked_company = getCompanyKey('company01');
+      if(index && index > -1){
+        picked_company = getCompanyKey(content["items"]["companies"][index]);
+        picked_company_name = content["items"]["companies"][picked_company];
+        $("#dropdown_company_button").text(picked_company_name);
+        createDropdown2(picked_company);
+        rdModalDropdown2(picked_company);
+        company_name = $(this).data("item_name");
+        createDropdown2(company_name);
+      }
 
-      picked_company = getCompanyKey(content["items"]["companies"][index]);
-      picked_company_name = content["items"]["companies"][picked_company];
-      $("#dropdown_company_button").text(picked_company_name);
-
-      createDropdown2(picked_company);
-      rdModalDropdown2(picked_company);
-      company_name = $(this).data("item_name");
-      createDropdown2(company_name);
       $(".company_picker").click(function () {
         picked_company = getCompanyKey(content["items"]["companies"][index]);
         picked_company_name = content["items"]["companies"][picked_company];
@@ -1849,18 +1851,18 @@ $(document).ready(function () {
         // extra
         $(".os-select").empty();
         let unique_os_types = new Set();
-        content["default_roles"].forEach(function (value, index) {
-          if (!unique_os_types.has(value["role_name"])) {
-            $(".os-select").append(`<option value="${value["os_type"]}" data-id="${value["id"]}">Default [${value["os_type"]}]</option>`);
-            unique_os_types.add(value["role_name"]);
-          }
-        });
+          content["default_roles"].forEach(function (value, index) {
+              if (!unique_os_types.has(value["role_name"])) {
+                  $(".os-select").append( `<option value="${value["os_type"]}" data-id="${value["id"]}">Default [${value["os_type"]}]</option>`);
+                  unique_os_types.add(value["role_name"]);
+              }
+          });
         let item_id = $(this).find(":selected").val();
         let companies_roles = getCompanyRoles(item_id);
         let unique_role_name = new Set();
         companies_roles.forEach(function (value, index) {
           if (!unique_role_name.has(value["role_name"])) {
-            $(".os-select").append(`<option value="${value["os_type"]}" data-id="${value["id"]}">${value["role_name"]} [${value["os_type"]}]</option>`);
+                $(".os-select").append(`<option value="${value["os_type"]}" data-id="${value["id"]}">${value["role_name"]} [${value["os_type"]}]</option>`);
             unique_role_name.add(value["role_name"]);
           }
         });
@@ -1882,9 +1884,8 @@ $(document).ready(function () {
         // alert($(this).val())
         inviteAdminDrop2($(this).val());
       });
-      console.log(company_array = content["items"]["companies"][1]);
-      function capitalize(str) {
-        return str.toLowerCase().replace(/(?<= )[^\s]|^./g, a => a.toUpperCase());
+      function capitalize(str){
+          return str.toLowerCase().replace(/(?<= )[^\s]|^./g, a => a.toUpperCase());
       }
       function inviteAdminDrop2(picked) {
         $(".adminlbl").html(capitalize(picked));
@@ -1892,7 +1893,7 @@ $(document).ready(function () {
         company_array = content["items"]["companies"];
 
         if (picked == "company") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             // option_formating = value['name'];
             $("#invite_admin_2").append(
               `<option value="${value["item_id"]}">${value["item_name"]}</option>`
@@ -1901,7 +1902,7 @@ $(document).ready(function () {
         }
 
         if (picked == "building") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -1914,7 +1915,7 @@ $(document).ready(function () {
         }
 
         if (picked == "department") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -1936,7 +1937,7 @@ $(document).ready(function () {
         }
 
         if (picked == "team") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -1979,7 +1980,7 @@ $(document).ready(function () {
         company_array = content["items"]["companies"];
 
         if (picked == "company") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             // option_formating = value['name'];
             $("#chart_1_2").append(
               `<option value="">${value["item_name"]}</option>`
@@ -1988,7 +1989,7 @@ $(document).ready(function () {
         }
 
         if (picked == "building") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -2001,7 +2002,7 @@ $(document).ready(function () {
         }
 
         if (picked == "department") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -2023,7 +2024,7 @@ $(document).ready(function () {
         }
 
         if (picked == "team") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -2058,7 +2059,7 @@ $(document).ready(function () {
         company_array = content["items"]["companies"];
 
         if (picked == "company") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             // option_formating = value['name'];
             $(selector_id).append(
               `<option value="${value["item_id"]}">${value["item_name"]}</option>`
@@ -2067,7 +2068,7 @@ $(document).ready(function () {
         }
 
         if (picked == "building") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -2080,7 +2081,7 @@ $(document).ready(function () {
         }
 
         if (picked == "department") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -2102,7 +2103,7 @@ $(document).ready(function () {
         }
 
         if (picked == "team") {
-          company_array.forEach(function (value, index) {
+          company_array?.forEach(function (value, index) {
             option_formating = value["item_name"];
             buildingsObj = value["buildings"];
             for (const [key0, value0] of Object.entries(buildingsObj)) {
@@ -2171,7 +2172,7 @@ $(document).ready(function () {
           url: base_url + "/management",
           type: "POST",
           headers: {
-            'Authorization': `Bearer ${access_token}`,
+              'Authorization': `Bearer ${access_token}`,  
           },
           dataType: "text",
           data: add_company_data,
@@ -2186,13 +2187,13 @@ $(document).ready(function () {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
+          });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2201,7 +2202,7 @@ $(document).ready(function () {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
+          });
           });
       });
 
@@ -2235,7 +2236,7 @@ $(document).ready(function () {
           url: base_url + "/management",
           type: "POST",
           headers: {
-            'Authorization': `Bearer ${access_token}`,
+              'Authorization': `Bearer ${access_token}`,  
           },
           dataType: "text",
           data: add_building_data,
@@ -2250,13 +2251,13 @@ $(document).ready(function () {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
+          });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2265,7 +2266,7 @@ $(document).ready(function () {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
+          });
           });
       });
 
@@ -2298,7 +2299,7 @@ $(document).ready(function () {
           url: base_url + "/management",
           type: "POST",
           headers: {
-            'Authorization': `Bearer ${access_token}`,
+              'Authorization': `Bearer ${access_token}`,  
           },
           dataType: "text",
           data: add_department_data,
@@ -2313,13 +2314,13 @@ $(document).ready(function () {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
+          });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2328,7 +2329,7 @@ $(document).ready(function () {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
+          });
           });
       });
 
@@ -2354,7 +2355,7 @@ $(document).ready(function () {
           url: base_url + "/management",
           type: "POST",
           headers: {
-            'Authorization': `Bearer ${access_token}`,
+              'Authorization': `Bearer ${access_token}`,  
           },
           dataType: "text",
           data: add_team_data,
@@ -2369,13 +2370,13 @@ $(document).ready(function () {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
+          });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2384,7 +2385,7 @@ $(document).ready(function () {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
+          });
           });
       });
 
@@ -2397,15 +2398,15 @@ $(document).ready(function () {
           title: "Adding RainDrops",
           showConfirmButton: false,
           willOpen: () => {
-            Swal.showLoading()
+              Swal.showLoading()
           },
-        });
+      });
         addraindrops = [];
         $(".member-block").each(function () {
           addraindrops.push({
             type_id: $(this).find(".specs-select").val(),
-            role_id: $(this).find('.os-select option:selected').data('id'),
-            role_name: $(this).find(".os-select").val(),
+            role_id: $(this).find('.os-select option:selected').data('id'), 
+            role_name: $(this).find(".os-select").val(),  
             role_company_id: $(this).find('.os-select option:selected').data('parent_id'),
             template_id: $(this).find(".os-select").val(),
             email: $(this).find(".rd-email").val(),
@@ -2435,7 +2436,7 @@ $(document).ready(function () {
           url: base_url + "/management",
           type: "POST",
           headers: {
-            'Authorization': `Bearer ${access_token}`,
+              'Authorization': `Bearer ${access_token}`,  
           },
           dataType: "text",
           data: add_raindrops_data,
@@ -2450,13 +2451,13 @@ $(document).ready(function () {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                Swal.showLoading()
+                  Swal.showLoading()
               },
               didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
+                  Swal.hideLoading();
+                  window.location.reload(true);
               }
-            });
+          });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2465,7 +2466,7 @@ $(document).ready(function () {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-            });
+          });
           });
       });
 
@@ -2584,7 +2585,7 @@ $(document).ready(function () {
                         <th>Last Connection</th>
                     </tr> `);
           pendingupgradearray.forEach((element) => {
-            console.log(element)
+                        console.log(element)
 
             $("#raindrops_table_body").append(`
             <tr>
@@ -2621,36 +2622,36 @@ $(document).ready(function () {
 
         if (name == "Roles") {
 
-          $("#raindrops_table_head").html(`<tr>
+        $("#raindrops_table_head").html(`<tr>
             <th>Company</th>
             <th>Name</th>
             <th>Remove</th>
         </tr> `);
 
-          companiesarray.forEach((company) => {
+        companiesarray.forEach((company) => {
             let roles = "";
             let buildingg = "";
             let departmentt = "";
             let teamm = "";
 
             company.buildings?.forEach((building) => {
-              building.departments?.forEach((department) => {
-                department.teams?.forEach((team) => {
-                  team.raindrops?.forEach((raindrop) => {
-
-                    buildingg += building.item_name;
-                    departmentt += department.item_name;
-                    teamm += team.item_name;
-                    roles += raindrop.role;
-                  });
+                building.departments?.forEach((department) => {
+                    department.teams?.forEach((team) => {
+                        team.raindrops?.forEach((raindrop) => {
+                            
+                            buildingg += building.item_name;
+                            departmentt += department.item_name;
+                            teamm += team.item_name;
+                            roles += raindrop.role;
+                        });
+                    });
                 });
-              });
             });
 
-
+            
             // Only append the row if there are roles
             if (roles) {
-              $("#raindrops_table_body").append(`
+                $("#raindrops_table_body").append(`
                     <tr>
                         
                         <td>
@@ -2731,10 +2732,10 @@ $(document).ready(function () {
                     </tr>
                 `);
             }
-          });
+        });
 
         }
-
+        
         if (name == "Departments") {
           $("#raindrops_table_head").html(`<tr>
                 <th>Name</th>
@@ -3011,7 +3012,7 @@ $(document).ready(function () {
                         <th>Remove</th>
                     </tr>`);
           companiesarray.forEach((element) => {
-            console.log(element)
+                        console.log(element)
 
             $("#raindrops_table_body").append(`
             <tr>
@@ -3339,7 +3340,7 @@ $(document).ready(function () {
         createCharts($(this).val());
       });
 
-      $("#upgrade_chart").change(function () {
+       $("#upgrade_chart").change(function () {
         updateChart(rainDropChart, $(this).val());
 
       });
@@ -3356,7 +3357,7 @@ $(document).ready(function () {
     });
   });
 
-
+  
 
 
   // ------------- FORM FUNCTIONALITY
@@ -3393,13 +3394,13 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   })
 
-  // invite admin
-  $(".invite-admin").click(function () {
-    // item_id = $("#item_name").val();
-    // email = $("#invite_email");
-    // first_name = $("#invite_first_name");
-    // last_name = $("#invite_last_name");
-    invite_admin_data = `{
+// invite admin
+$(".invite-admin").click(function () {
+  // item_id = $("#item_name").val();
+  // email = $("#invite_email");
+  // first_name = $("#invite_first_name");
+  // last_name = $("#invite_last_name");
+  invite_admin_data = `{
     "query":"inviteadmin",
     "item_id": "${("#invite_admin_item").val()}",
     "account_id": "${userInfo["account_id"]}",
@@ -3407,52 +3408,52 @@ $(document).ready(function () {
     "first_name": "${("#invite_first_name")}",
     "last_name": "${("#invite_last_name")}",
   }`;
-    // console.log(datacompany);
-    submitbutton = $(this);
-    savetext = $(this).html();
-    $(this)
-      .prop("disabled", true)
-      .html(
-        `<div class= "spinner-border text-light" role = "status" > <span class="visually-hidden">Loading...</span></div > `
-      );
+  // console.log(datacompany);
+  submitbutton = $(this);
+  savetext = $(this).html();
+  $(this)
+    .prop("disabled", true)
+    .html(
+      `<div class= "spinner-border text-light" role = "status" > <span class="visually-hidden">Loading...</span></div > `
+    );
 
-    $.ajax({
-      url: base_url + "/management",
-      type: "POST",
-      headers: {
-        'Authorization': `Bearer ${access_token}`,
-      },
-      dataType: "text",
-      data: invite_admin_data,
-    })
-      .done(function (response) {
-        result = JSON.parse(response);
-        submitbutton.html(savetext).prop("disabled", false);
-        Swal.fire({
-          title: 'Done',
-          text: "Admin " + $("#invite_email") + " invited",
-          icon: 'success',
-          timer: 3000,
-          showConfirmButton: false,
-          willOpen: () => {
+  $.ajax({
+    url: base_url + "/management",
+    type: "POST",
+    headers: {
+        'Authorization': `Bearer ${access_token}`,  
+    },
+    dataType: "text",
+    data: invite_admin_data,
+  })
+    .done(function (response) {
+      result = JSON.parse(response);
+      submitbutton.html(savetext).prop("disabled", false);
+      Swal.fire({
+        title: 'Done',
+        text: "Admin " + $("#invite_email") + " invited",
+        icon: 'success',
+        timer: 3000,
+        showConfirmButton: false,
+        willOpen: () => {
             Swal.showLoading()
-          },
-          didClose: () => {
+        },
+        didClose: () => {
             Swal.hideLoading();
             window.location.reload(true);
-          }
-        });
-      })
-      .fail(function () {
-        submitbutton.html(savetext).prop("disabled", false);
-        Swal.fire({
-          title: 'Error',
-          text: "Error adding, please try again",
-          icon: 'error',
-          confirmButtonText: 'Ok',
-        });
-      });
-  });
+        }
+    });
+    })
+    .fail(function () {
+      submitbutton.html(savetext).prop("disabled", false);
+      Swal.fire({
+        title: 'Error',
+        text: "Error adding, please try again",
+        icon: 'error',
+        confirmButtonText: 'Ok',
+    });
+    });
+});
 
 
 });
