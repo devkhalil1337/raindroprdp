@@ -878,7 +878,7 @@ function removeCompany(itemId, public_ip) {
               console.log("No items in the array to iterate over.");
           }
       }
-      checkCompanies(company_array);
+     // checkCompanies(company_array);
       // pendingUpgradesCount();
       raindropsarrays = raindropsarray;
      
