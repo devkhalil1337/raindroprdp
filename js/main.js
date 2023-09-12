@@ -879,7 +879,7 @@ function removeCompany(itemId, public_ip) {
           }
       }
      // checkCompanies(company_array);
-      // pendingUpgradesCount();
+      pendingUpgradesCount();
       raindropsarrays = raindropsarray;
      
 
