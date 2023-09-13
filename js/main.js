@@ -603,6 +603,7 @@ function removeCompany(itemId, public_ip) {
     }).done(function (response) {
       $("body").css("opacity", "1");
       content = JSON.parse(response);
+      console.log(content);
       if (content && Object.keys(content.items).length === 0) {
         content.isItemsEmpty = true;
         let modalToOpen = '';
@@ -656,7 +657,6 @@ function removeCompany(itemId, public_ip) {
       }else{
         content.isItemsEmpty = false;
       }
-      console.log(content);
       if (userInfo.level == 'Company' || userInfo.level == 'company') {
         $('.company1').hide();
         $('.company2').hide();
@@ -1824,13 +1824,15 @@ function removeCompany(itemId, public_ip) {
       // });
 
       // picked_company = getCompanyKey('company01');
-        picked_company = getCompanyKey(content["items"]["companies"][index]);
-        picked_company_name = content["items"]["companies"][picked_company];
-        $("#dropdown_company_button").text(picked_company_name);
-        createDropdown2(picked_company);
-        rdModalDropdown2(picked_company);
-        company_name = $(this).data("item_name");
-        createDropdown2(company_name);
+        if(content && Object.keys(content.items).length > 0){
+          picked_company = getCompanyKey(content["items"]["companies"][index]);
+          picked_company_name = content["items"]["companies"][picked_company];
+          $("#dropdown_company_button").text(picked_company_name);
+          createDropdown2(picked_company);
+          rdModalDropdown2(picked_company);
+          company_name = $(this).data("item_name");
+          createDropdown2(company_name);
+        }
 
       $(".company_picker").click(function () {
         picked_company = getCompanyKey(content["items"]["companies"][index]);
