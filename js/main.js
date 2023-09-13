@@ -607,33 +607,33 @@ function removeCompany(itemId, public_ip) {
       if (content && Object.keys(content.items).length === 0) {
         content.isItemsEmpty = true;
         let modalToOpen = '';
-        let itemTitle = '';
-        let itemType = '';
+        let itemPlural = '';
+        let itemSingle = '';
         switch (userInfo.level.toLowerCase()) {
           case 'account':
             modalToOpen = '#addcompanyModal';
-            itemType = 'company';
-            itemTitle = 'Companies';
+            itemSingle = 'company';
+            itemPlural = 'Companies';
             break;
           case 'company':
             modalToOpen = '#addbuildingModal';
-            itemTitle = 'Buildings';
-            itemType = 'building'
+            itemPlural = 'Buildings';
+            itemSingle = 'building'
             break;
           case 'building':
             modalToOpen = '#adddepartmentModal';
-            itemTitle = 'Departments';
-            itemType = 'department'
+            itemPlural = 'Departments';
+            itemSingle = 'department'
             break;
           case 'department':
             modalToOpen = '#addteamModal';
-            itemTitle = 'Teams';
-            itemType = 'team'
+            itemPlural = 'Teams';
+            itemSingle = 'team'
             break;
           case 'team':
             modalToOpen = '#exampleModal'; //raindrop
-            itemTitle = 'Raindrop';
-            itemType = 'raindrop'
+            itemPlural = 'Raindrop';
+            itemSingle = 'raindrop'
 
             break;
           default:
@@ -642,8 +642,8 @@ function removeCompany(itemId, public_ip) {
         }
 
         Swal.fire({
-          title: `No ${itemTitle} Present`,
-          text: `You currently don't have any ${itemTitle.toLowerCase()} to build upon, please add a ${itemType} to start using RainDrop`,
+          title: `No ${itemPlural} Present`,
+          text: `You currently don't have any ${itemPlural.toLowerCase()} to build upon, please add a ${itemSingle} to start using RainDrop`,
           icon: 'warning',
           showCancelButton: true, // Display the "Cancel" button
           cancelButtonText: 'Cancel',
