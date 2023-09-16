@@ -13,9 +13,9 @@ function numberWithCommas(x) {
   }
 }
 
- $.get("https://api64.ipify.org?format=json", function(data) {
-                public_ip = data.ip; 
-            });
+$.get("https://api64.ipify.org?format=json", function(data) {
+  public_ip = data.ip;
+});
 function timeConverter(UNIX_timestamp) {
   // var a = new Date(UNIX_timestamp * 1000);
   var a = new Date(UNIX_timestamp);
@@ -52,17 +52,17 @@ let content, userInfo;
 
 let raindropsarrays = [];
 function findAndAssignData(item_id) {
-    const foundItem = raindropsarrays.find(item => item.item_id === item_id);
+  const foundItem = raindropsarrays.find(item => item.item_id === item_id);
 
-    document.getElementById('email').textContent = foundItem.user;
-    document.getElementById('specs').textContent = foundItem.cpu_cores + 'Cores ' + foundItem.RAM + 'GB';
-    document.getElementById('disk_utilization').textContent = foundItem.disk_utilization + '%';
-    document.getElementById('os_type').textContent = foundItem.os_type;
-    document.getElementById('raindrop_type').textContent = foundItem.raindrop_type;
-    document.getElementById('last_connected').textContent = new Date(foundItem.last_connected * 1000).toDateString();
-    document.getElementById('last_location').textContent = foundItem.last_location;
-    activeItem = item_id;
-    getraindropChart(userInfo.account_id);
+  document.getElementById('email').textContent = foundItem.user;
+  document.getElementById('specs').textContent = foundItem.cpu_cores + 'Cores ' + foundItem.RAM + 'GB';
+  document.getElementById('disk_utilization').textContent = foundItem.disk_utilization + '%';
+  document.getElementById('os_type').textContent = foundItem.os_type;
+  document.getElementById('raindrop_type').textContent = foundItem.raindrop_type;
+  document.getElementById('last_connected').textContent = new Date(foundItem.last_connected * 1000).toDateString();
+  document.getElementById('last_location').textContent = foundItem.last_location;
+  activeItem = item_id;
+  getraindropChart(userInfo.account_id);
 }
 
 function getraindropChart(account_id) {
@@ -98,84 +98,84 @@ function getraindropChart(account_id) {
 
 function updateChart(content, maxDays = 30) {
 
-let create_series = [
-  {
-    data: [],
-    type: "line",
-    smooth: true,
-    areaStyle: {},
-    name: "Connections",
-  },
-  {
-    data: [],
-    type: "line",
-    smooth: true,
-    areaStyle: {},
-    name: "Upgrades",
-  },
-  {
-    data: [],
-    type: "line",
-    smooth: true,
-    areaStyle: {},
-    name: "Reboots",
-  },
-];
+  let create_series = [
+    {
+      data: [],
+      type: "line",
+      smooth: true,
+      areaStyle: {},
+      name: "Connections",
+    },
+    {
+      data: [],
+      type: "line",
+      smooth: true,
+      areaStyle: {},
+      name: "Upgrades",
+    },
+    {
+      data: [],
+      type: "line",
+      smooth: true,
+      areaStyle: {},
+      name: "Reboots",
+    },
+  ];
 
-var myChart = echarts.init(document.getElementById("chart-container-modal"), {
-  renderer: "svg",
-  useDirtyRect: false,
-});
+  var myChart = echarts.init(document.getElementById("chart-container-modal"), {
+    renderer: "svg",
+    useDirtyRect: false,
+  });
 
-var option = {
-  darkMode: true,
-  darkMode: "auto",
-  title: {
-    text: "Activity",
-    textStyle: {
-      color: "#b3b9e2",
+  var option = {
+    darkMode: true,
+    darkMode: "auto",
+    title: {
+      text: "Activity",
+      textStyle: {
+        color: "#b3b9e2",
+      },
     },
-  },
-  legend: {
-    orient: "horizontal",
-    align: "right",
-    verticalAlign: "top",
-    y: 10,
-    padding: 3,
-    itemMarginTop: 5,
-    itemMarginBottom: 5,
-    itemStyle: {
-      lineHeight: "1px",
+    legend: {
+      orient: "horizontal",
+      align: "right",
+      verticalAlign: "top",
+      y: 10,
+      padding: 3,
+      itemMarginTop: 5,
+      itemMarginBottom: 5,
+      itemStyle: {
+        lineHeight: "1px",
+      },
+      textStyle: {
+        color: "#b3b9e2",
+      },
     },
-    textStyle: {
-      color: "#b3b9e2",
+    color: [
+      'rgba(94, 135, 247, 0.7)',
+      'rgba(27, 255, 225, 0.7)',
+      'rgba(246, 137, 42, 0.7)',
+    ],
+    grid: {
+      top: "15%",
+      left: "3%",
+      right: "4%",
+      bottom: "3%",
+      containLabel: true,
     },
-  },
-  color: [
-    'rgba(94, 135, 247, 0.7)',
-    'rgba(27, 255, 225, 0.7)',
-    'rgba(246, 137, 42, 0.7)',
-  ],
-  grid: {
-    top: "15%",
-    left: "3%",
-    right: "4%",
-    bottom: "3%",
-    containLabel: true,
-  },
-  xAxis: {
-    type: "category",
-  },
-  yAxis: {
-    type: "value",
-    axisLabel: {
-      formatter: "{value}",
+    xAxis: {
+      type: "category",
     },
-    splitLine: { show: false },
-  },
-  series: create_series,
-};
-console.log(content)
+    yAxis: {
+      type: "value",
+      axisLabel: {
+        formatter: "{value}",
+      },
+      splitLine: { show: false },
+    },
+    series: create_series,
+  };
+  console.log(content)
   if (content.activity.length > 0 || content.activity.connections) {
     if (content.activity.connections.length > 0) {
       let i = 0;
@@ -197,7 +197,7 @@ console.log(content)
     }
     if (content.activity.reboots.length > 0) {
       i = 0;
-     content.activity.reboots.forEach((element) => {
+      content.activity.reboots.forEach((element) => {
         if (i <= maxDays) {
           create_series[2]["data"].unshift(element);
         }
@@ -205,20 +205,20 @@ console.log(content)
       });
     }
   }
-    
-    myChart.setOption(option);
+
+  myChart.setOption(option);
 
 }
 
 // effected start 2
 function upgradePrice() {
-        const selectedOption = $(".specs2-select").find('option:selected[data-price]');
-          if (selectedOption.length) {
-            const price = parseInt(selectedOption.data('upprice'));
-            
-            $("#monthly_upgrade_change").text(`${currency}${price}`);
-          }
-      }
+  const selectedOption = $(".specs2-select").find('option:selected[data-price]');
+  if (selectedOption.length) {
+    const price = parseInt(selectedOption.data('upprice'));
+
+    $("#monthly_upgrade_change").text(`${currency}${price}`);
+  }
+}
 
 
 function findOsIndex(type_id) {
@@ -247,146 +247,146 @@ function findActivePrice(type_id) {
 }
 
 function upgradeSelect(type_id, activePrice) {
-    const os = findOsIndex(type_id);
-    console.log("This is Item_Id: "+activeItem);
-    let lowestUpPrice = Infinity;
-    let selectedOption = null;
+  const os = findOsIndex(type_id);
+  console.log("This is Item_Id: "+activeItem);
+  let lowestUpPrice = Infinity;
+  let selectedOption = null;
 
-    const options = content["pricing"][os].map(value => {
-      const up = value["price"] - activePrice;
+  const options = content["pricing"][os].map(value => {
+    const up = value["price"] - activePrice;
 
-      if (up > 0 && up < lowestUpPrice) {
-        lowestUpPrice = up;
-        selectedOption = value["type"];
-      }
-
-      return `<option value="${value["type"]}" data-itemid="${activeItem}" data-typeid="${type_id}" data-price="${value["price"]}" data-upprice="${up}">(${value["type"]}) CPU: ${value["cpu"]}, RAM: ${value["ram"]} | Monthly Change: $${up}</option>`;
-    }).join('');
-
-    $(".specs2-select").html(options);
-
-    if (selectedOption) {
-      $(".specs2-select").val(selectedOption);
+    if (up > 0 && up < lowestUpPrice) {
+      lowestUpPrice = up;
+      selectedOption = value["type"];
     }
 
-    upgradePrice();
+    return `<option value="${value["type"]}" data-itemid="${activeItem}" data-typeid="${type_id}" data-price="${value["price"]}" data-upprice="${up}">(${value["type"]}) CPU: ${value["cpu"]}, RAM: ${value["ram"]} | Monthly Change: $${up}</option>`;
+  }).join('');
+
+  $(".specs2-select").html(options);
+
+  if (selectedOption) {
+    $(".specs2-select").val(selectedOption);
   }
+
+  upgradePrice();
+}
 
 // effected End 2
 $(document).ready(function () {
   // $('body').css('opacity', '0.33');
-function removeCompany(itemId, public_ip) {
-      // $("#delete_company_button").click(function(event) {
-          Swal.fire({
-            title: 'Removing Company',
-            showConfirmButton: false,
-            willOpen: () => {
-                Swal.showLoading()
-            },
-        });
-  
-          event.preventDefault(); // Prevent the default link behavior  
-          // Prepare the payload
-          let delete_building_data = {
-              query: "removecompany",
-              company_id: itemId, 
-              ip: public_ip,
-              email: userInfo["email"],
-              account_id: userInfo["account_id"]
-          };
-        console.log(delete_building_data)
-          
-          $.ajax({
-              url: base_url + "/management", 
-              type: 'POST',
-              headers: {
-                  'Authorization': `Bearer ${access_token}`,
-              },
-              contentType: 'application/json',
-              data: JSON.stringify(delete_building_data),
-              success: function(response) {
-                  
-                  Swal.fire({
-                title: 'Done',
-                text: "Company Removed Successfully.",
-                icon: 'success',
-                timer: 3000,
-                showConfirmButton: false,
-                willOpen: () => {
-                    Swal.showLoading()
-                },
-                didClose: () => {
-                    Swal.hideLoading();
-                    window.location.reload(true);
-                }
-            });
-                  // Handle the success response here
-              },
-              error: function(error) {
-                  Swal.fire({
-                title: 'Error',
-                text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
-                icon: 'error',
-                confirmButtonText: 'Ok',
-            });
-              }
-          });
-      }
-      function removeRole() {
+  function removeCompany(itemId, public_ip) {
+    // $("#delete_company_button").click(function(event) {
+    Swal.fire({
+      title: 'Removing Company',
+      showConfirmButton: false,
+      willOpen: () => {
+        Swal.showLoading()
+      },
+    });
+
+    event.preventDefault(); // Prevent the default link behavior  
+    // Prepare the payload
+    let delete_building_data = {
+      query: "removecompany",
+      company_id: itemId,
+      ip: public_ip,
+      email: userInfo["email"],
+      account_id: userInfo["account_id"]
+    };
+    console.log(delete_building_data)
+
+    $.ajax({
+      url: base_url + "/management",
+      type: 'POST',
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+      },
+      contentType: 'application/json',
+      data: JSON.stringify(delete_building_data),
+      success: function(response) {
+
         Swal.fire({
-          title: 'Removing Role',
+          title: 'Done',
+          text: "Company Removed Successfully.",
+          icon: 'success',
+          timer: 3000,
           showConfirmButton: false,
           willOpen: () => {
             Swal.showLoading()
           },
-        });
-        event.preventDefault(); // Prevent the default link behavior
-        const itemId = activeItem;
-
-        // Prepare the payload
-        let delete_role_data = {
-          query: "removerole",
-          item_id: itemId
-        };
-
-        console.log(delete_role_data)
-
-        $.ajax({
-          url: base_url + "/management",
-          type: 'POST',
-          headers: {
-            'Authorization': `Bearer ${access_token}`,
-          },
-          contentType: 'application/json',
-          data: JSON.stringify(delete_role_data),
-          success: function(response) {
-
-            Swal.fire({
-              title: 'Done',
-              text: "Role Removed Successfully.",
-              icon: 'success',
-              timer: 3000,
-              showConfirmButton: false,
-              willOpen: () => {
-                Swal.showLoading()
-              },
-              didClose: () => {
-                Swal.hideLoading();
-                window.location.reload(true);
-              }
-            });
-            // Handle the success response here
-          },
-          error: function(error) {
-            Swal.fire({
-              title: 'Error',
-              text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
-              icon: 'error',
-              confirmButtonText: 'Ok',
-            });
+          didClose: () => {
+            Swal.hideLoading();
+            window.location.reload(true);
           }
         });
+        // Handle the success response here
+      },
+      error: function(error) {
+        Swal.fire({
+          title: 'Error',
+          text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
       }
+    });
+  }
+  function removeRole() {
+    Swal.fire({
+      title: 'Removing Role',
+      showConfirmButton: false,
+      willOpen: () => {
+        Swal.showLoading()
+      },
+    });
+    event.preventDefault(); // Prevent the default link behavior
+    const itemId = activeItem;
+
+    // Prepare the payload
+    let delete_role_data = {
+      query: "removerole",
+      item_id: itemId
+    };
+
+    console.log(delete_role_data)
+
+    $.ajax({
+      url: base_url + "/management",
+      type: 'POST',
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+      },
+      contentType: 'application/json',
+      data: JSON.stringify(delete_role_data),
+      success: function(response) {
+
+        Swal.fire({
+          title: 'Done',
+          text: "Role Removed Successfully.",
+          icon: 'success',
+          timer: 3000,
+          showConfirmButton: false,
+          willOpen: () => {
+            Swal.showLoading()
+          },
+          didClose: () => {
+            Swal.hideLoading();
+            window.location.reload(true);
+          }
+        });
+        // Handle the success response here
+      },
+      error: function(error) {
+        Swal.fire({
+          title: 'Error',
+          text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
+      }
+    });
+  }
 
 
   // // --------------------------
@@ -809,78 +809,99 @@ function removeCompany(itemId, public_ip) {
       let teamsarray = [];
 
       function pendingUpgradesCount() {
-          company_array?.forEach(function (value, index) {
+        if (company_array) {
+          company_count = 0;
+          buildings_count = 0;
+          departments_count = 0;
+          teams_count = 0;
+          raindrops_count = 0;
+          pending_upgrades_count = 0;
+          companiesarray = [];
+          buildingsarray = [];
+          departmentsarray = [];
+          teamsarray = [];
+          raindropsarray = [];
+          pendingupgradearray = [];
+
+          for (let i = 0; i < company_array.length; i++) {
+            const company = company_array[i];
             company_count++;
-            option_formating = value["item_name"];
-            buildingsObj = value["buildings"];
-            companiesarray.push(value);
-            for (const [key0, value0] of Object.entries(buildingsObj)) {
-              buildings_count++;
-              buildingsarray.push(value0);
-              departmentsObj = value0["departments"];
-              if (departmentsObj !== undefined) {
-                for (const [key1, value1] of Object.entries(departmentsObj)) {
-                  departments_count++;
-                  departmentsarray.push(value1);
-                  teamsObj = value1["teams"];
-                  if (teamsObj !== undefined) {
-                    for (const [key2, value2] of Object.entries(teamsObj)) {
-                      teams_count++;
-                      teamsarray.push(value2);
-                      raindropsObj = value2["raindrops"];
-                      if (raindropsObj !== undefined) {
-                        for (const [key3, value3] of Object.entries(
-                          raindropsObj
-                        )) {
-                          raindropsarray.push(value3);
-                          raindrops_count++;
-                          if (value3["upgrade_requested"] == "true") {
-                            pending_upgrades_count++;
-                            pendingupgradearray.push(value3);
+            option_formating = company["item_name"];
+            companiesarray.push(company);
+
+            if (company.buildings) {
+              for (let j = 0; j < company.buildings.length; j++) {
+                const building = company.buildings[j];
+                buildings_count++;
+                buildingsarray.push(building);
+                departmentsObj = building["departments"];
+
+                if (departmentsObj !== undefined) {
+                  for (const key1 in departmentsObj) {
+                    if (departmentsObj.hasOwnProperty(key1)) {
+                      const department = departmentsObj[key1];
+                      departments_count++;
+                      departmentsarray.push(department);
+                      teamsObj = department["teams"];
+
+                      if (teamsObj !== undefined) {
+                        for (const key2 in teamsObj) {
+                          if (teamsObj.hasOwnProperty(key2)) {
+                            const team = teamsObj[key2];
+                            teams_count++;
+                            teamsarray.push(team);
+                            raindropsObj = team["raindrops"];
+
+                            if (raindropsObj !== undefined) {
+                              for (const key3 in raindropsObj) {
+                                if (raindropsObj.hasOwnProperty(key3)) {
+                                  const raindrop = raindropsObj[key3];
+                                  raindropsarray.push(raindrop);
+                                  raindrops_count++;
+
+                                  if (raindrop["upgrade_requested"] == "true") {
+                                    pending_upgrades_count++;
+                                    pendingupgradearray.push(raindrop);
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
                     }
-                  };
+                  }
+                }
               }
             }
           }
-        });
 
-          companiesarray.forEach((company) => {
-          company.buildings?.forEach((building) => {
-              building.departments?.forEach((department) => {
-                  department.teams?.forEach((team) => {
-                      team.raindrops?.forEach((raindrop) => {                          
-                         console.log(raindrop.role);
-                         roles_count++;
-                      });
-                  });
-              });
-          });
-        });
+          const companies = content['level'] == 'account' ? companiesarray : [companiesarray[0]];
+          roles_count = companies.reduce((acc, obj) => acc + obj.role_list.length, 0);
+        }
       }
 
-     
+
+
       let company_array = content["items"]["companies"];
       console.log(company_array?.length)
       function checkCompanies(company_array) {
-              if (Array.isArray(company_array) && company_array?.length > 0) {
-              Swal.fire({
-                title: 'No Companies Present',
-                text: "You Currently don't have any companies to build upon, please add a company to start using RainDrop",
-                icon: 'warning',
-                confirmButtonText: 'Ok',
-              });
-              $('#addcompanyModal').modal('show');
-            }else {
-              console.log("No items in the array to iterate over.");
-          }
+        if (Array.isArray(company_array) && company_array?.length > 0) {
+          Swal.fire({
+            title: 'No Companies Present',
+            text: "You Currently don't have any companies to build upon, please add a company to start using RainDrop",
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+          });
+          $('#addcompanyModal').modal('show');
+        } else {
+          console.log("No items in the array to iterate over.");
+        }
       }
-     // checkCompanies(company_array);
+      // checkCompanies(company_array);
       pendingUpgradesCount();
       raindropsarrays = raindropsarray;
-     
+
 
       $("#electricity_count").text(
         numberWithCommas(content["environmental_detail"]["electricity_saved"])
@@ -936,12 +957,12 @@ function removeCompany(itemId, public_ip) {
       // ---------------------
 
       $("#inviteAdminLink").click(function(event) {
-          Swal.fire({
-            title: 'Setting Up Admin',
-            showConfirmButton: false,
-            willOpen: () => {
-                Swal.showLoading()
-            },
+        Swal.fire({
+          title: 'Setting Up Admin',
+          showConfirmButton: false,
+          willOpen: () => {
+            Swal.showLoading()
+          },
         });
         event.preventDefault(); // Prevent the default link behavior
         // Get input values
@@ -951,62 +972,62 @@ function removeCompany(itemId, public_ip) {
         let firstName = $("#invite_first_name").val();
         let lastName = $("#invite_last_name").val();
         let email = $("#invite_email").val();
-        
+
         // Construct invite_admin_data
         let invite_admin_data = {
-            query: "inviteadmin",
-            item_id: item_id, 
-            account_id: userInfo["account_id"],
-            email: email,
-            first_name: firstName,
-            last_name: lastName
+          query: "inviteadmin",
+          item_id: item_id,
+          account_id: userInfo["account_id"],
+          email: email,
+          first_name: firstName,
+          last_name: lastName
         };
-        
+
         $.ajax({
-            url: base_url + "/management", 
-            type: 'POST',
-            headers: {
-                'Authorization': `Bearer ${access_token}`,
-            },
-            contentType: 'application/json',
-            data: JSON.stringify(invite_admin_data),
-            success: function(response) {
-              Swal.fire({
-                title: 'Done',
-                text: email + " invited to the " + permissionLevel + " " + item_name,
-                icon: 'success',
-                timer: 3000,
-                showConfirmButton: false,
-                willOpen: () => {
-                    Swal.showLoading()
-                },
-                didClose: () => {
-                    Swal.hideLoading();
-                    window.location.reload(true);
-                }
+          url: base_url + "/management",
+          type: 'POST',
+          headers: {
+            'Authorization': `Bearer ${access_token}`,
+          },
+          contentType: 'application/json',
+          data: JSON.stringify(invite_admin_data),
+          success: function(response) {
+            Swal.fire({
+              title: 'Done',
+              text: email + " invited to the " + permissionLevel + " " + item_name,
+              icon: 'success',
+              timer: 3000,
+              showConfirmButton: false,
+              willOpen: () => {
+                Swal.showLoading()
+              },
+              didClose: () => {
+                Swal.hideLoading();
+                window.location.reload(true);
+              }
             });
-            },
-            error: function(error) {
-              Swal.fire({
-                title: 'Error',
-                text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
-                icon: 'error',
-                confirmButtonText: 'Ok',
+          },
+          error: function(error) {
+            Swal.fire({
+              title: 'Error',
+              text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
+              icon: 'error',
+              confirmButtonText: 'Ok',
             });
-            }
+          }
         });
-    });
-    
-    // ---------------------------------
+      });
+
+      // ---------------------------------
       //    Main Table Functions
       // --------------------------------
 
-        // --------------------------
+      // --------------------------
       //    Remove Role
       // -------------------------
 
 
-     // --------------------------
+      // --------------------------
       //    Remove account
       // -------------------------
 
@@ -1015,63 +1036,63 @@ function removeCompany(itemId, public_ip) {
           title: 'Removing Your Account',
           showConfirmButton: false,
           willOpen: () => {
-              Swal.showLoading()
+            Swal.showLoading()
           },
-      });
+        });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
-  
+
         // Prepare the payload
         let delete_building_data = {
-            query: "removeaccount",
-            ip: public_ip,
-            email: userInfo["email"],
-            account_id: userInfo["account_id"]
+          query: "removeaccount",
+          ip: public_ip,
+          email: userInfo["email"],
+          account_id: userInfo["account_id"]
         };
-        
+
         $.ajax({
-            url: base_url + "/management", 
-            type: 'POST',
-            headers: {
-                'Authorization': `Bearer ${access_token}`,
-            },
-            contentType: 'application/json',
-            data: JSON.stringify(delete_building_data),
-            success: function(response) {
-                
-                Swal.fire({
+          url: base_url + "/management",
+          type: 'POST',
+          headers: {
+            'Authorization': `Bearer ${access_token}`,
+          },
+          contentType: 'application/json',
+          data: JSON.stringify(delete_building_data),
+          success: function(response) {
+
+            Swal.fire({
               title: 'Done',
               text: "Account Removed Successfully.",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.href = "https://www.raindroprdp.com";
+                Swal.hideLoading();
+                window.location.href = "https://www.raindroprdp.com";
               }
-          });
-                // Handle the success response here
-            },
-            error: function(error) {
-                Swal.fire({
+            });
+            // Handle the success response here
+          },
+          error: function(error) {
+            Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
-            }
+            });
+          }
         });
-    });
+      });
 
-    // ---------------------------------
+      // ---------------------------------
       //    RainDrop Detail Modal Functions
       // --------------------------------
 
 
-    // ---------------------
+      // ---------------------
       //    Create role
       // ---------------------
 
@@ -1080,59 +1101,59 @@ function removeCompany(itemId, public_ip) {
           title: 'Converting your RainDrop to a Role',
           showConfirmButton: false,
           willOpen: () => {
-              Swal.showLoading()
+            Swal.showLoading()
           },
-      });
+        });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
         let name = $("#converttorole_name").val();
         // Construct invite_admin_data
         let invite_admin_data = {
-            query: "createrole",
-            instance_id: itemId,
-            name: name,
-            account_id: userInfo["account_id"],
-            email: userInfo["email"]
+          query: "createrole",
+          instance_id: itemId,
+          name: name,
+          account_id: userInfo["account_id"],
+          email: userInfo["email"]
         };
-        
+
         $.ajax({
-            url: base_url + "/management", 
-            type: 'POST',
-            headers: {
-                'Authorization': `Bearer ${access_token}`,
-            },
-            contentType: 'application/json',
-            data: JSON.stringify(invite_admin_data),
-            success: function(response) {
-                
-                Swal.fire({
+          url: base_url + "/management",
+          type: 'POST',
+          headers: {
+            'Authorization': `Bearer ${access_token}`,
+          },
+          contentType: 'application/json',
+          data: JSON.stringify(invite_admin_data),
+          success: function(response) {
+
+            Swal.fire({
               title: 'Done',
               text: "Converted this RainDrop to a Role",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
-                // Handle the success response here
-            },
-            error: function(error) {
-                Swal.fire({
+            });
+            // Handle the success response here
+          },
+          error: function(error) {
+            Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
-            }
+            });
+          }
         });
-    });
+      });
 
-    // ---------------------
+      // ---------------------
       //    Upgrade Now
       // ---------------------
 
@@ -1141,9 +1162,9 @@ function removeCompany(itemId, public_ip) {
           title: 'Upgrading your RainDrop',
           showConfirmButton: false,
           willOpen: () => {
-              Swal.showLoading()
+            Swal.showLoading()
           },
-      });
+        });
         event.preventDefault(); // Prevent the default link behavior
         const selectedOption = $('.specs2-select').find('option:selected');
         const option = $('.specs2-select').find('option:selected').text();
@@ -1152,52 +1173,52 @@ function removeCompany(itemId, public_ip) {
         console.log(option);
         // Construct invite_admin_data
         let invite_admin_data = {
-            query: "upgradenow",
-            item_id: itemId, 
-            type_id: typeId, 
-            ip: public_ip, 
-            account_id: userInfo["account_id"],
-            email: userInfo["email"]
+          query: "upgradenow",
+          item_id: itemId,
+          type_id: typeId,
+          ip: public_ip,
+          account_id: userInfo["account_id"],
+          email: userInfo["email"]
         };
-        
+
         $.ajax({
-            url: base_url + "/management", 
-            type: 'POST',
-            headers: {
-                'Authorization': `Bearer ${access_token}`,
-            },
-            contentType: 'application/json',
-            data: JSON.stringify(invite_admin_data),
-            success: function(response) {
-                
-                Swal.fire({
+          url: base_url + "/management",
+          type: 'POST',
+          headers: {
+            'Authorization': `Bearer ${access_token}`,
+          },
+          contentType: 'application/json',
+          data: JSON.stringify(invite_admin_data),
+          success: function(response) {
+
+            Swal.fire({
               title: 'Done',
               text: "Package Upgraded To" + option,
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
-                // Handle the success response here
-            },
-            error: function(error) {
-                Swal.fire({
+            });
+            // Handle the success response here
+          },
+          error: function(error) {
+            Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
-            }
+            });
+          }
         });
-    });
+      });
 
-    // --------------------------
+      // --------------------------
       //    Update RainDrop Email
       // -------------------------
 
@@ -1206,9 +1227,9 @@ function removeCompany(itemId, public_ip) {
           title: "Updating this RainDrop's user",
           showConfirmButton: false,
           willOpen: () => {
-              Swal.showLoading()
+            Swal.showLoading()
           },
-      });
+        });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
         let new_email = $("#updateraindropemail_email").val();
@@ -1216,54 +1237,54 @@ function removeCompany(itemId, public_ip) {
         let lastName = $("#updateraindropemail_last_name").val();
         // Prepare the payload
         let updateraindropemail_data = {
-            query: "updateraindropemail",
-            item_id: itemId, 
-            new_email: new_email, 
-            ip: public_ip,
-            first_name: firstName,
-            last_name: lastName,
-            email: userInfo["email"],
-            account_id: userInfo["account_id"]
+          query: "updateraindropemail",
+          item_id: itemId,
+          new_email: new_email,
+          ip: public_ip,
+          first_name: firstName,
+          last_name: lastName,
+          email: userInfo["email"],
+          account_id: userInfo["account_id"]
         };
-        
+
         $.ajax({
-            url: base_url + "/management", 
-            type: 'POST',
-            headers: {
-                'Authorization': `Bearer ${access_token}`,
-            },
-            contentType: 'application/json',
-            data: JSON.stringify(updateraindropemail_data),
-            success: function(response) {
-                
-                Swal.fire({
+          url: base_url + "/management",
+          type: 'POST',
+          headers: {
+            'Authorization': `Bearer ${access_token}`,
+          },
+          contentType: 'application/json',
+          data: JSON.stringify(updateraindropemail_data),
+          success: function(response) {
+
+            Swal.fire({
               title: 'Done',
               text: "Invited " + new_email + " to this RainDrop",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
-                // Handle the success response here
-            },
-            error: function(error) {
-                Swal.fire({
+            });
+            // Handle the success response here
+          },
+          error: function(error) {
+            Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
-            }
+            });
+          }
         });
-    });
+      });
 
-    // --------------------------
+      // --------------------------
       //    Reboot
       // -------------------------
 
@@ -1272,60 +1293,60 @@ function removeCompany(itemId, public_ip) {
           title: 'Rebooting this RainDrop',
           showConfirmButton: false,
           willOpen: () => {
-              Swal.showLoading()
+            Swal.showLoading()
           },
-      });
+        });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
         let new_email = $("#updateuser_email").val();
         // Prepare the payload
         let reboot_raindrop_data = {
-            query: "rebootmachine",
-            instance_id: itemId, 
-            ip: public_ip,
-            email: userInfo["email"],
-            account_id: userInfo["account_id"]
+          query: "rebootmachine",
+          instance_id: itemId,
+          ip: public_ip,
+          email: userInfo["email"],
+          account_id: userInfo["account_id"]
         };
-        
+
         $.ajax({
-            url: base_url + "/management", 
-            type: 'POST',
-            headers: {
-                'Authorization': `Bearer ${access_token}`,
-            },
-            contentType: 'application/json',
-            data: JSON.stringify(reboot_raindrop_data),
-            success: function(response) {
-                
-                Swal.fire({
+          url: base_url + "/management",
+          type: 'POST',
+          headers: {
+            'Authorization': `Bearer ${access_token}`,
+          },
+          contentType: 'application/json',
+          data: JSON.stringify(reboot_raindrop_data),
+          success: function(response) {
+
+            Swal.fire({
               title: 'Done',
               text: "RainDrop Rebooted Successfully, please wait 3 minutes before connecting to it again.",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
-                // Handle the success response here
-            },
-            error: function(error) {
-                Swal.fire({
+            });
+            // Handle the success response here
+          },
+          error: function(error) {
+            Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
-            }
+            });
+          }
         });
-    });
+      });
 
-    
-    // --------------------------
+
+      // --------------------------
       //    Remove RainDrop
       // -------------------------
 
@@ -1334,57 +1355,57 @@ function removeCompany(itemId, public_ip) {
           title: 'Removing this RainDrop',
           showConfirmButton: false,
           willOpen: () => {
-              Swal.showLoading()
+            Swal.showLoading()
           },
-      });
+        });
         event.preventDefault(); // Prevent the default link behavior
         const itemId = activeItem;
         // Prepare the payload
         let reboot_raindrop_data = {
-            query: "removeraindrop",
-            instance_id: itemId, 
-            ip: public_ip,
-            email: userInfo["email"],
-            account_id: userInfo["account_id"]
+          query: "removeraindrop",
+          instance_id: itemId,
+          ip: public_ip,
+          email: userInfo["email"],
+          account_id: userInfo["account_id"]
         };
-        
+
         $.ajax({
-            url: base_url + "/management", 
-            type: 'POST',
-            headers: {
-                'Authorization': `Bearer ${access_token}`,
-            },
-            contentType: 'application/json',
-            data: JSON.stringify(reboot_raindrop_data),
-            success: function(response) {
-                
-                Swal.fire({
+          url: base_url + "/management",
+          type: 'POST',
+          headers: {
+            'Authorization': `Bearer ${access_token}`,
+          },
+          contentType: 'application/json',
+          data: JSON.stringify(reboot_raindrop_data),
+          success: function(response) {
+
+            Swal.fire({
               title: 'Done',
               text: "RainDrop Removed Successfully",
               icon: 'success',
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
-                // Handle the success response here
-            },
-            error: function(error) {
-                Swal.fire({
+            });
+            // Handle the success response here
+          },
+          error: function(error) {
+            Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
-            }
+            });
+          }
         });
-    });
-      
+      });
+
 
       function pricechange() {
         let totalPrice = 0;
@@ -1400,12 +1421,12 @@ function removeCompany(itemId, public_ip) {
         // $("#monthly_upgrade_change").text(`${currency}${triggerPrice}`);
       }
 
-      
+
 
       $(document).on("click", ".action .delete a", function (e) {
         $(this).parents('.member-block').remove();
         pricechange();
-    });
+      });
       // function upgradepricechange() {
       //   upgrademonthlychange = 0;
       //   $(".specs-select").each(function () {
@@ -1415,7 +1436,7 @@ function removeCompany(itemId, public_ip) {
       //   $("#monthly_upgrade_change").text(`${currency}${upgrademonthlychange}`);
       // }
 
-      
+
 
       $(".add-member").click(function() {
         optionhtml = ``;
@@ -1440,19 +1461,19 @@ function removeCompany(itemId, public_ip) {
             // Access the content.items.companies object
             var companies = content.items?.companies;
             // Loop through the companies
-            for(var i = 0; i < companies.length; i++) {
+            for (var i = 0; i < companies.length; i++) {
               var company = companies[i];
               // Loop through the buildings
-              for(var j = 0; j < company.buildings.length; j++) {
+              for (var j = 0; j < company.buildings.length; j++) {
                 var building = company.buildings[j];
                 // Loop through the departments
-                for(var k = 0; k < building.departments.length; k++) {
+                for (var k = 0; k < building.departments.length; k++) {
                   var department = building.departments[k];
                   // Loop through the teams
-                  for(var l = 0; l < department.teams.length; l++) {
+                  for (var l = 0; l < department.teams.length; l++) {
                     var team = department.teams[l];
                     // Check if the team's item_id matches the selectedValue
-                    if(team.item_id === selectedValue) {
+                    if (team.item_id === selectedValue) {
                       // Found the matching team, you can now work with it
                       console.log("Selected Team:", team);
                       team["role_list"].forEach(function(value, index) {
@@ -1580,11 +1601,11 @@ function removeCompany(itemId, public_ip) {
         pricechange();
       });
 
-     
+
       $(document).on("change", ".specs2-select", function () {
         upgradePrice();
       });
-      
+
 
       $(".member-list").on("DOMSubtreeModified", function () {
         // console.log('changed');
@@ -1598,17 +1619,17 @@ function removeCompany(itemId, public_ip) {
           if (name == value["item_name"]) {
             // console.log(index);
             key = index;
-          } 
-        }); 
-        return key; 
-        } 
-        function getCompanyRoles(item_id) { 
-          // console.log(name); 
-          let key = ""; 
-          content["items"]["companies"]?.forEach(function (value, index) { 
-            if (item_id == value["item_id"]) {  
-              key = value["roles"];
-            }
+          }
+        });
+        return key;
+      }
+      function getCompanyRoles(item_id) {
+        // console.log(name); 
+        let key = "";
+        content["items"]["companies"]?.forEach(function (value, index) {
+          if (item_id == value["item_id"]) {
+            key = value["roles"];
+          }
         });
 
         return key;
@@ -1693,23 +1714,23 @@ function removeCompany(itemId, public_ip) {
       if (userInfo.level == 'Account' || userInfo.level == 'account') {
 
         function rdModalDropdown2(picked_company) {
-        $("#rd_modal_details").html(""); // clear dropdown
-        
-        const selectedCompany = content.items?.companies.find(company => company.item_id === picked_company);
-        
-        if (selectedCompany) {
-          selectedCompany.buildings?.forEach(building => {
-            building.departments?.forEach(department => {
-              department.teams?.forEach(team => {
-                const optionText = `${building.item_name} -> ${department.item_name} -> ${team.item_name}`;
-                $("#rd_modal_details").append(
-                  `<option value="${team.item_id}" data-name="${team.item_name}">${optionText}</option>`
-                );
+          $("#rd_modal_details").html(""); // clear dropdown
+
+          const selectedCompany = content.items?.companies.find(company => company.item_id === picked_company);
+
+          if (selectedCompany) {
+            selectedCompany.buildings?.forEach(building => {
+              building.departments?.forEach(department => {
+                department.teams?.forEach(team => {
+                  const optionText = `${building.item_name} -> ${department.item_name} -> ${team.item_name}`;
+                  $("#rd_modal_details").append(
+                    `<option value="${team.item_id}" data-name="${team.item_name}">${optionText}</option>`
+                  );
+                });
               });
             });
-          });
+          }
         }
-      }
 
 
         function rdModalDropdown2(picked_company) {
@@ -1856,15 +1877,15 @@ function removeCompany(itemId, public_ip) {
       // });
 
       // picked_company = getCompanyKey('company01');
-        if(content && Object.keys(content.items).length > 0){
-          picked_company = getCompanyKey(content["items"]["companies"][index]);
-          picked_company_name = content["items"]["companies"][picked_company];
-          $("#dropdown_company_button").text(picked_company_name);
-          createDropdown2(picked_company);
-          rdModalDropdown2(picked_company);
-          company_name = $(this).data("item_name");
-          createDropdown2(company_name);
-        }
+      if(content && Object.keys(content.items).length > 0){
+        picked_company = getCompanyKey(content["items"]["companies"][index]);
+        picked_company_name = content["items"]["companies"][picked_company];
+        $("#dropdown_company_button").text(picked_company_name);
+        createDropdown2(picked_company);
+        rdModalDropdown2(picked_company);
+        company_name = $(this).data("item_name");
+        createDropdown2(company_name);
+      }
 
       $(".company_picker").click(function () {
         picked_company = getCompanyKey(content["items"]["companies"][index]);
@@ -1885,18 +1906,18 @@ function removeCompany(itemId, public_ip) {
         // extra
         $(".os-select").empty();
         let unique_os_types = new Set();
-          content["default_roles"].forEach(function (value, index) {
-              if (!unique_os_types.has(value["role_name"])) {
-                  $(".os-select").append( `<option value="${value["os_type"]}" data-id="${value["id"]}">Default [${value["os_type"]}]</option>`);
-                  unique_os_types.add(value["role_name"]);
-              }
-          });
+        content["default_roles"].forEach(function (value, index) {
+          if (!unique_os_types.has(value["role_name"])) {
+            $(".os-select").append(`<option value="${value["os_type"]}" data-id="${value["id"]}">Default [${value["os_type"]}]</option>`);
+            unique_os_types.add(value["role_name"]);
+          }
+        });
         let item_id = $(this).find(":selected").val();
         let companies_roles = getCompanyRoles(item_id);
         let unique_role_name = new Set();
         companies_roles.forEach(function (value, index) {
           if (!unique_role_name.has(value["role_name"])) {
-                $(".os-select").append(`<option value="${value["os_type"]}" data-id="${value["id"]}">${value["role_name"]} [${value["os_type"]}]</option>`);
+            $(".os-select").append(`<option value="${value["os_type"]}" data-id="${value["id"]}">${value["role_name"]} [${value["os_type"]}]</option>`);
             unique_role_name.add(value["role_name"]);
           }
         });
@@ -1919,7 +1940,7 @@ function removeCompany(itemId, public_ip) {
         inviteAdminDrop2($(this).val());
       });
       function capitalize(str){
-          return str.toLowerCase().replace(/(?<= )[^\s]|^./g, a => a.toUpperCase());
+        return str.toLowerCase().replace(/(?<= )[^\s]|^./g, a => a.toUpperCase());
       }
       function inviteAdminDrop2(picked) {
         $(".adminlbl").html(capitalize(picked));
@@ -2206,7 +2227,7 @@ function removeCompany(itemId, public_ip) {
           url: base_url + "/management",
           type: "POST",
           headers: {
-              'Authorization': `Bearer ${access_token}`,  
+            'Authorization': `Bearer ${access_token}`,
           },
           dataType: "text",
           data: add_company_data,
@@ -2226,13 +2247,13 @@ function removeCompany(itemId, public_ip) {
               },
               didClose: () => {
                 Swal.hideLoading();
-                if(isItemObjectEmpty) 
+                if(isItemObjectEmpty)
                   window.location = "https://www.raindroprdp.com/index.html";
                 else
                   window.location.reload(true);
               }
             });
-            
+
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2241,7 +2262,7 @@ function removeCompany(itemId, public_ip) {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
+            });
           });
       });
 
@@ -2275,7 +2296,7 @@ function removeCompany(itemId, public_ip) {
           url: base_url + "/management",
           type: "POST",
           headers: {
-              'Authorization': `Bearer ${access_token}`,  
+            'Authorization': `Bearer ${access_token}`,
           },
           dataType: "text",
           data: add_building_data,
@@ -2290,13 +2311,13 @@ function removeCompany(itemId, public_ip) {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
+            });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2305,7 +2326,7 @@ function removeCompany(itemId, public_ip) {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
+            });
           });
       });
 
@@ -2338,7 +2359,7 @@ function removeCompany(itemId, public_ip) {
           url: base_url + "/management",
           type: "POST",
           headers: {
-              'Authorization': `Bearer ${access_token}`,  
+            'Authorization': `Bearer ${access_token}`,
           },
           dataType: "text",
           data: add_department_data,
@@ -2353,13 +2374,13 @@ function removeCompany(itemId, public_ip) {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
+            });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2368,7 +2389,7 @@ function removeCompany(itemId, public_ip) {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
+            });
           });
       });
 
@@ -2394,7 +2415,7 @@ function removeCompany(itemId, public_ip) {
           url: base_url + "/management",
           type: "POST",
           headers: {
-              'Authorization': `Bearer ${access_token}`,  
+            'Authorization': `Bearer ${access_token}`,
           },
           dataType: "text",
           data: add_team_data,
@@ -2409,13 +2430,13 @@ function removeCompany(itemId, public_ip) {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
+            });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2424,7 +2445,7 @@ function removeCompany(itemId, public_ip) {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
+            });
           });
       });
 
@@ -2437,15 +2458,15 @@ function removeCompany(itemId, public_ip) {
           title: "Adding RainDrops",
           showConfirmButton: false,
           willOpen: () => {
-              Swal.showLoading()
+            Swal.showLoading()
           },
-      });
+        });
         addraindrops = [];
         $(".member-block").each(function () {
           addraindrops.push({
             type_id: $(this).find(".specs-select").val(),
-            role_id: $(this).find('.os-select option:selected').data('id'), 
-            role_name: $(this).find(".os-select").val(),  
+            role_id: $(this).find('.os-select option:selected').data('id'),
+            role_name: $(this).find(".os-select").val(),
             role_company_id: $(this).find('.os-select option:selected').data('parent_id'),
             template_id: $(this).find(".os-select").val(),
             email: $(this).find(".rd-email").val(),
@@ -2475,7 +2496,7 @@ function removeCompany(itemId, public_ip) {
           url: base_url + "/management",
           type: "POST",
           headers: {
-              'Authorization': `Bearer ${access_token}`,  
+            'Authorization': `Bearer ${access_token}`,
           },
           dataType: "text",
           data: add_raindrops_data,
@@ -2490,13 +2511,13 @@ function removeCompany(itemId, public_ip) {
               timer: 3000,
               showConfirmButton: false,
               willOpen: () => {
-                  Swal.showLoading()
+                Swal.showLoading()
               },
               didClose: () => {
-                  Swal.hideLoading();
-                  window.location.reload(true);
+                Swal.hideLoading();
+                window.location.reload(true);
               }
-          });
+            });
           })
           .fail(function () {
             submitbutton.html(savetext).prop("disabled", false);
@@ -2505,7 +2526,7 @@ function removeCompany(itemId, public_ip) {
               text: "Error adding, please try again",
               icon: 'error',
               confirmButtonText: 'Ok',
-          });
+            });
           });
       });
 
@@ -2624,7 +2645,7 @@ function removeCompany(itemId, public_ip) {
                         <th>Last Connection</th>
                     </tr> `);
           pendingupgradearray.forEach((element) => {
-                        console.log(element)
+            console.log(element)
 
             $("#raindrops_table_body").append(`
             <tr>
@@ -2661,120 +2682,108 @@ function removeCompany(itemId, public_ip) {
 
         if (name == "Roles") {
 
-        $("#raindrops_table_head").html(`<tr>
+          $("#raindrops_table_head").html(`<tr>
             <th>Company</th>
             <th>Name</th>
             <th>Remove</th>
         </tr> `);
-
-        companiesarray.forEach((company) => {
+  
+          const companies = content['level'] == 'account' ? companiesarray : [companiesarray[0]];
+          companies.forEach((company) => {
             let roles = "";
             let buildingg = "";
             let departmentt = "";
             let teamm = "";
-
-            company.buildings?.forEach((building) => {
-                building.departments?.forEach((department) => {
-                    department.teams?.forEach((team) => {
-                        team.raindrops?.forEach((raindrop) => {
-                            
-                            buildingg += building.item_name;
-                            departmentt += department.item_name;
-                            teamm += team.item_name;
-                            roles += raindrop.role;
-                        });
-                    });
-                });
-            });
-
-            
-            // Only append the row if there are roles
-            if (roles) {
+            company.role_list.forEach(comp => {
+              console.log({ comp })
+              // Only append the row if there are roles
+              if (comp) {
                 $("#raindrops_table_body").append(`
                     <tr>
-                        
-                        <td>
-                            
-                            <span class="e-name">
-                            ${company.item_name}
-                            </span>
-                        </td>
-                        
-                        <td>
-                            ${roles}
-                        </td>
-                        <td>
-                            <div class="delete" style="margin-left: unset;" onclick="$('#removeroleModal${company.item_name}').modal('show')">
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="35"
-                                                height="35" viewBox="0 0 35 35">
-                                                <g id="Group_7038" data-name="Group 7038"
-                                                    transform="translate(-1670 -949)">
-                                                    <g id="Path_2516" data-name="Path 2516"
-                                                        transform="translate(1670 949)"
-                                                        fill="rgba(253,177,40,0.06)">
-                                                        <path
-                                                            d="M 30 34.5 L 5 34.5 C 2.51869010925293 34.5 0.5 32.4813117980957 0.5 30 L 0.5 5 C 0.5 2.51869010925293 2.51869010925293 0.5 5 0.5 L 30 0.5 C 32.4813117980957 0.5 34.5 2.51869010925293 34.5 5 L 34.5 30 C 34.5 32.4813117980957 32.4813117980957 34.5 30 34.5 Z"
-                                                            stroke="none" />
-                                                        <path
-                                                            d="M 5 1 C 2.794391632080078 1 1 2.794391632080078 1 5 L 1 30 C 1 32.20560836791992 2.794391632080078 34 5 34 L 30 34 C 32.20560836791992 34 34 32.20560836791992 34 30 L 34 5 C 34 2.794391632080078 32.20560836791992 1 30 1 L 5 1 M 5 0 L 30 0 C 32.76142120361328 0 35 2.238571166992188 35 5 L 35 30 C 35 32.76142120361328 32.76142120361328 35 30 35 L 5 35 C 2.238571166992188 35 0 32.76142120361328 0 30 L 0 5 C 0 2.238571166992188 2.238571166992188 0 5 0 Z"
-                                                            stroke="none" fill="#fdb128" />
-                                                    </g>
-                                                    <g id="trash_1_" data-name="trash (1)"
-                                                        transform="translate(1678.213 957.756)">
-                                                        <path id="Path_2516-2" data-name="Path 2516"
-                                                            d="M15.845,2.915H13.586A3.65,3.65,0,0,0,10.015,0H8.558A3.65,3.65,0,0,0,4.988,2.915H2.729a.729.729,0,1,0,0,1.457h.729v9.473A3.648,3.648,0,0,0,7.1,17.488h4.372a3.648,3.648,0,0,0,3.643-3.643V4.372h.729a.729.729,0,1,0,0-1.457ZM8.558,1.457h1.457a2.19,2.19,0,0,1,2.061,1.457H6.5A2.19,2.19,0,0,1,8.558,1.457Zm5.1,12.388a2.186,2.186,0,0,1-2.186,2.186H7.1a2.186,2.186,0,0,1-2.186-2.186V4.372h8.744Z"
-                                                            fill="#fdb128" />
-                                                        <path id="Path_2517" data-name="Path 2517"
-                                                            d="M9.729,15.829a.729.729,0,0,0,.729-.729V10.729a.729.729,0,0,0-1.457,0V15.1A.729.729,0,0,0,9.729,15.829Z"
-                                                            transform="translate(-1.899 -2.713)"
-                                                            fill="#fdb128" />
-                                                        <path id="Path_2518" data-name="Path 2518"
-                                                            d="M13.729,15.829a.729.729,0,0,0,.729-.729V10.729a.729.729,0,1,0-1.457,0V15.1A.729.729,0,0,0,13.729,15.829Z"
-                                                            transform="translate(-2.985 -2.713)"
-                                                            fill="#fdb128" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                    <div class="modal fade" id="removeroleModal${company.item_name}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" style="width: 50%;">
-				<div class="modal-content">
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185" viewBox="0 0 18.185 18.185">
-							<g id="Group_7174" data-name="Group 7174" transform="translate(-616.575 426.915) rotate(-45)">
-								<path id="Path_32" data-name="Path 32" d="M18,7.5V27.217" transform="translate(719.859 129.61)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-								<path id="Path_33" data-name="Path 33" d="M7.5,18H27.217" transform="translate(720.5 128.969)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-							</g>
-						</svg>
-					</button>
-					<div class="modal-body">
-						<h2 style="color: #fff;">Are you sure?</h2>
-						<div class="tab-content" id="myTabContent" style="margin-top: 50px;">
-						<h2 style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
-							NOTE: After removing this role, it will no longer be available to replicate.  Existing RainDrops which have been created with this role will remain unchanged.
-						</h2>
-						<br>
-					</div>
-						<br>
-						<div style="display: flex; align-items: center; justify-content: flex-end; padding-left: 15px;">
-							<div class="form-group">
-								<button id="${company.item_name}" class="btn btn-delete delete_company_button" onclick="removeRole();">DELETE ROLE</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-                        </td>
+                      <td>
+                        <span class="e-name">
+                        ${company.item_name}
+                        </span>
+                      </td>
+                      <td>
+                        ${comp.item_name}
+                      </td>
+                      <td>
+                        <div class="delete" style="margin-left: unset;" onclick="$('#removeroleModal${comp.item_name}').modal('show')">
+                          <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35"
+                              height="35" viewBox="0 0 35 35">
+                              <g id="Group_7038" data-name="Group 7038"
+                                transform="translate(-1670 -949)">
+                                <g id="Path_2516" data-name="Path 2516"
+                                  transform="translate(1670 949)"
+                                  fill="rgba(253,177,40,0.06)">
+                                  <path
+                                    d="M 30 34.5 L 5 34.5 C 2.51869010925293 34.5 0.5 32.4813117980957 0.5 30 L 0.5 5 C 0.5 2.51869010925293 2.51869010925293 0.5 5 0.5 L 30 0.5 C 32.4813117980957 0.5 34.5 2.51869010925293 34.5 5 L 34.5 30 C 34.5 32.4813117980957 32.4813117980957 34.5 30 34.5 Z"
+                                    stroke="none" />
+                                  <path
+                                    d="M 5 1 C 2.794391632080078 1 1 2.794391632080078 1 5 L 1 30 C 1 32.20560836791992 2.794391632080078 34 5 34 L 30 34 C 32.20560836791992 34 34 32.20560836791992 34 30 L 34 5 C 34 2.794391632080078 32.20560836791992 1 30 1 L 5 1 M 5 0 L 30 0 C 32.76142120361328 0 35 2.238571166992188 35 5 L 35 30 C 35 32.76142120361328 32.76142120361328 35 30 35 L 5 35 C 2.238571166992188 35 0 32.76142120361328 0 30 L 0 5 C 0 2.238571166992188 2.238571166992188 0 5 0 Z"
+                                    stroke="none" fill="#fdb128" />
+                                </g>
+                                <g id="trash_1_" data-name="trash (1)"
+                                  transform="translate(1678.213 957.756)">
+                                  <path id="Path_2516-2" data-name="Path 2516"
+                                    d="M15.845,2.915H13.586A3.65,3.65,0,0,0,10.015,0H8.558A3.65,3.65,0,0,0,4.988,2.915H2.729a.729.729,0,1,0,0,1.457h.729v9.473A3.648,3.648,0,0,0,7.1,17.488h4.372a3.648,3.648,0,0,0,3.643-3.643V4.372h.729a.729.729,0,1,0,0-1.457ZM8.558,1.457h1.457a2.19,2.19,0,0,1,2.061,1.457H6.5A2.19,2.19,0,0,1,8.558,1.457Zm5.1,12.388a2.186,2.186,0,0,1-2.186,2.186H7.1a2.186,2.186,0,0,1-2.186-2.186V4.372h8.744Z"
+                                    fill="#fdb128" />
+                                  <path id="Path_2517" data-name="Path 2517"
+                                    d="M9.729,15.829a.729.729,0,0,0,.729-.729V10.729a.729.729,0,0,0-1.457,0V15.1A.729.729,0,0,0,9.729,15.829Z"
+                                    transform="translate(-1.899 -2.713)"
+                                    fill="#fdb128" />
+                                  <path id="Path_2518" data-name="Path 2518"
+                                    d="M13.729,15.829a.729.729,0,0,0,.729-.729V10.729a.729.729,0,1,0-1.457,0V15.1A.729.729,0,0,0,13.729,15.829Z"
+                                    transform="translate(-2.985 -2.713)"
+                                    fill="#fdb128" />
+                                </g>
+                              </g>
+                            </svg>
+                          </a>
+                        </div>
+                        <div class="modal fade" id="removeroleModal${comp.item_name}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" style="width: 50%;">
+                            <div class="modal-content">
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185" viewBox="0 0 18.185 18.185">
+                                  <g id="Group_7174" data-name="Group 7174" transform="translate(-616.575 426.915) rotate(-45)">
+                                    <path id="Path_32" data-name="Path 32" d="M18,7.5V27.217" transform="translate(719.859 129.61)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+                                    <path id="Path_33" data-name="Path 33" d="M7.5,18H27.217" transform="translate(720.5 128.969)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+                                  </g>
+                                </svg>
+                              </button>
+                              <div class="modal-body">
+                                <h2 style="color: #fff;">Are you sure?</h2>
+                                <div class="tab-content" id="myTabContent" style="margin-top: 50px;">
+                                  <h2 style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
+                                    NOTE: After removing this role, it will no longer be available to replicate.  Existing RainDrops which have been created with this role will remain unchanged.
+                                  </h2>
+                                  <br>
+                                </div>
+                                <br>
+                                <div style="display: flex; align-items: center; justify-content: flex-end; padding-left: 15px;">
+                                  <div class="form-group">
+                                    <button id="${comp.item_name}" class="btn btn-delete delete_company_button" onclick="removeRole();">DELETE ROLE</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
-                `);
-            }
-        });
+                    `);
+              }
+            })
+
+
+
+          });
 
         }
-        
+
         if (name == "Departments") {
           $("#raindrops_table_head").html(`<tr>
                 <th>Name</th>
@@ -3051,7 +3060,7 @@ function removeCompany(itemId, public_ip) {
                         <th>Remove</th>
                     </tr>`);
           companiesarray.forEach((element) => {
-                        console.log(element)
+            console.log(element)
 
             $("#raindrops_table_body").append(`
             <tr>
@@ -3379,7 +3388,7 @@ function removeCompany(itemId, public_ip) {
         createCharts($(this).val());
       });
 
-       $("#upgrade_chart").change(function () {
+      $("#upgrade_chart").change(function () {
         updateChart(rainDropChart, $(this).val());
 
       });
@@ -3396,7 +3405,7 @@ function removeCompany(itemId, public_ip) {
     });
   });
 
-  
+
 
 
   // ------------- FORM FUNCTIONALITY
@@ -3433,13 +3442,13 @@ function removeCompany(itemId, public_ip) {
     $('[data-toggle="tooltip"]').tooltip();
   })
 
-// invite admin
-$(".invite-admin").click(function () {
-  // item_id = $("#item_name").val();
-  // email = $("#invite_email");
-  // first_name = $("#invite_first_name");
-  // last_name = $("#invite_last_name");
-  invite_admin_data = `{
+  // invite admin
+  $(".invite-admin").click(function () {
+    // item_id = $("#item_name").val();
+    // email = $("#invite_email");
+    // first_name = $("#invite_first_name");
+    // last_name = $("#invite_last_name");
+    invite_admin_data = `{
     "query":"inviteadmin",
     "item_id": "${("#invite_admin_item").val()}",
     "account_id": "${userInfo["account_id"]}",
@@ -3447,52 +3456,52 @@ $(".invite-admin").click(function () {
     "first_name": "${("#invite_first_name")}",
     "last_name": "${("#invite_last_name")}",
   }`;
-  // console.log(datacompany);
-  submitbutton = $(this);
-  savetext = $(this).html();
-  $(this)
-    .prop("disabled", true)
-    .html(
-      `<div class= "spinner-border text-light" role = "status" > <span class="visually-hidden">Loading...</span></div > `
-    );
+    // console.log(datacompany);
+    submitbutton = $(this);
+    savetext = $(this).html();
+    $(this)
+      .prop("disabled", true)
+      .html(
+        `<div class= "spinner-border text-light" role = "status" > <span class="visually-hidden">Loading...</span></div > `
+      );
 
-  $.ajax({
-    url: base_url + "/management",
-    type: "POST",
-    headers: {
-        'Authorization': `Bearer ${access_token}`,  
-    },
-    dataType: "text",
-    data: invite_admin_data,
-  })
-    .done(function (response) {
-      result = JSON.parse(response);
-      submitbutton.html(savetext).prop("disabled", false);
-      Swal.fire({
-        title: 'Done',
-        text: "Admin " + $("#invite_email") + " invited",
-        icon: 'success',
-        timer: 3000,
-        showConfirmButton: false,
-        willOpen: () => {
+    $.ajax({
+      url: base_url + "/management",
+      type: "POST",
+      headers: {
+        'Authorization': `Bearer ${access_token}`,
+      },
+      dataType: "text",
+      data: invite_admin_data,
+    })
+      .done(function (response) {
+        result = JSON.parse(response);
+        submitbutton.html(savetext).prop("disabled", false);
+        Swal.fire({
+          title: 'Done',
+          text: "Admin " + $("#invite_email") + " invited",
+          icon: 'success',
+          timer: 3000,
+          showConfirmButton: false,
+          willOpen: () => {
             Swal.showLoading()
-        },
-        didClose: () => {
+          },
+          didClose: () => {
             Swal.hideLoading();
             window.location.reload(true);
-        }
-    });
-    })
-    .fail(function () {
-      submitbutton.html(savetext).prop("disabled", false);
-      Swal.fire({
-        title: 'Error',
-        text: "Error adding, please try again",
-        icon: 'error',
-        confirmButtonText: 'Ok',
-    });
-    });
-});
+          }
+        });
+      })
+      .fail(function () {
+        submitbutton.html(savetext).prop("disabled", false);
+        Swal.fire({
+          title: 'Error',
+          text: "Error adding, please try again",
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
+      });
+  });
 
 
 });
