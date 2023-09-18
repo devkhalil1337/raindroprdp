@@ -1106,3 +1106,17 @@ table.dataTable.no-footer {
 .text-color {
 	color: #333;
 }
+
+@media(max-width:767px){
+	.member-block .action{
+		transform: translateY(50%) !important
+	}
+	
+	}
+	
+	@media(min-width:767px){
+		.member-block .action{
+			transform: translateY(-50%) !important
+		}
+		
+		}

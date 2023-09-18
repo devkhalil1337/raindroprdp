@@ -13,7 +13,7 @@ function numberWithCommas(x) {
   }
 }
 
-$.get("https://api64.ipify.org?format=json", function(data) {
+$.get("https://api64.ipify.org?format=json", function (data) {
   public_ip = data.ip;
 });
 function timeConverter(UNIX_timestamp) {
@@ -248,7 +248,7 @@ function findActivePrice(type_id) {
 
 function upgradeSelect(type_id, activePrice) {
   const os = findOsIndex(type_id);
-  console.log("This is Item_Id: "+activeItem);
+  console.log("This is Item_Id: " + activeItem);
   let lowestUpPrice = Infinity;
   let selectedOption = null;
 
@@ -304,7 +304,7 @@ $(document).ready(function () {
       },
       contentType: 'application/json',
       data: JSON.stringify(delete_building_data),
-      success: function(response) {
+      success: function (response) {
 
         Swal.fire({
           title: 'Done',
@@ -322,7 +322,7 @@ $(document).ready(function () {
         });
         // Handle the success response here
       },
-      error: function(error) {
+      error: function (error) {
         Swal.fire({
           title: 'Error',
           text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -359,7 +359,7 @@ $(document).ready(function () {
       },
       contentType: 'application/json',
       data: JSON.stringify(delete_role_data),
-      success: function(response) {
+      success: function (response) {
 
         Swal.fire({
           title: 'Done',
@@ -377,7 +377,7 @@ $(document).ready(function () {
         });
         // Handle the success response here
       },
-      error: function(error) {
+      error: function (error) {
         Swal.fire({
           title: 'Error',
           text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -454,7 +454,7 @@ $(document).ready(function () {
   //    Remove Department
   // -------------------------
 
-  function removeDepartment(public_ip){
+  function removeDepartment(public_ip) {
     Swal.fire({
       title: 'Removing Department',
       showConfirmButton: false,
@@ -482,7 +482,7 @@ $(document).ready(function () {
       },
       contentType: 'application/json',
       data: JSON.stringify(delete_department_data),
-      success: function(response) {
+      success: function (response) {
 
         Swal.fire({
           title: 'Done',
@@ -500,7 +500,7 @@ $(document).ready(function () {
         });
         // Handle the success response here
       },
-      error: function(error) {
+      error: function (error) {
         Swal.fire({
           title: 'Error',
           text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -515,7 +515,7 @@ $(document).ready(function () {
   //    Remove Building
   // -------------------------
 
-  function removeBuilding(public_ip){
+  function removeBuilding(public_ip) {
     Swal.fire({
       title: 'Removing Building',
       showConfirmButton: false,
@@ -543,7 +543,7 @@ $(document).ready(function () {
       },
       contentType: 'application/json',
       data: JSON.stringify(delete_building_data),
-      success: function(response) {
+      success: function (response) {
 
         Swal.fire({
           title: 'Done',
@@ -561,7 +561,7 @@ $(document).ready(function () {
         });
         // Handle the success response here
       },
-      error: function(error) {
+      error: function (error) {
         Swal.fire({
           title: 'Error',
           text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -653,7 +653,7 @@ $(document).ready(function () {
           }
         });
 
-      }else{
+      } else {
         content.isItemsEmpty = false;
       }
       if (userInfo.level == 'Company' || userInfo.level == 'company') {
@@ -956,7 +956,7 @@ $(document).ready(function () {
       //    Invite Admin
       // ---------------------
 
-      $("#inviteAdminLink").click(function(event) {
+      $("#inviteAdminLink").click(function (event) {
         Swal.fire({
           title: 'Setting Up Admin',
           showConfirmButton: false,
@@ -991,7 +991,7 @@ $(document).ready(function () {
           },
           contentType: 'application/json',
           data: JSON.stringify(invite_admin_data),
-          success: function(response) {
+          success: function (response) {
             Swal.fire({
               title: 'Done',
               text: email + " invited to the " + permissionLevel + " " + item_name,
@@ -1007,7 +1007,7 @@ $(document).ready(function () {
               }
             });
           },
-          error: function(error) {
+          error: function (error) {
             Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -1031,7 +1031,7 @@ $(document).ready(function () {
       //    Remove account
       // -------------------------
 
-      $("#delete_account_button").click(function(event) {
+      $("#delete_account_button").click(function (event) {
         Swal.fire({
           title: 'Removing Your Account',
           showConfirmButton: false,
@@ -1058,7 +1058,7 @@ $(document).ready(function () {
           },
           contentType: 'application/json',
           data: JSON.stringify(delete_building_data),
-          success: function(response) {
+          success: function (response) {
 
             Swal.fire({
               title: 'Done',
@@ -1076,7 +1076,7 @@ $(document).ready(function () {
             });
             // Handle the success response here
           },
-          error: function(error) {
+          error: function (error) {
             Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -1096,7 +1096,7 @@ $(document).ready(function () {
       //    Create role
       // ---------------------
 
-      $("#converttorole_button").click(function(event) {
+      $("#converttorole_button").click(function (event) {
         Swal.fire({
           title: 'Converting your RainDrop to a Role',
           showConfirmButton: false,
@@ -1124,7 +1124,7 @@ $(document).ready(function () {
           },
           contentType: 'application/json',
           data: JSON.stringify(invite_admin_data),
-          success: function(response) {
+          success: function (response) {
 
             Swal.fire({
               title: 'Done',
@@ -1142,7 +1142,7 @@ $(document).ready(function () {
             });
             // Handle the success response here
           },
-          error: function(error) {
+          error: function (error) {
             Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -1157,7 +1157,7 @@ $(document).ready(function () {
       //    Upgrade Now
       // ---------------------
 
-      $("#upgrade_button").click(function(event) {
+      $("#upgrade_button").click(function (event) {
         Swal.fire({
           title: 'Upgrading your RainDrop',
           showConfirmButton: false,
@@ -1189,7 +1189,7 @@ $(document).ready(function () {
           },
           contentType: 'application/json',
           data: JSON.stringify(invite_admin_data),
-          success: function(response) {
+          success: function (response) {
 
             Swal.fire({
               title: 'Done',
@@ -1207,7 +1207,7 @@ $(document).ready(function () {
             });
             // Handle the success response here
           },
-          error: function(error) {
+          error: function (error) {
             Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -1222,7 +1222,7 @@ $(document).ready(function () {
       //    Update RainDrop Email
       // -------------------------
 
-      $("#updateraindropemail_button").click(function(event) {
+      $("#updateraindropemail_button").click(function (event) {
         Swal.fire({
           title: "Updating this RainDrop's user",
           showConfirmButton: false,
@@ -1255,7 +1255,7 @@ $(document).ready(function () {
           },
           contentType: 'application/json',
           data: JSON.stringify(updateraindropemail_data),
-          success: function(response) {
+          success: function (response) {
 
             Swal.fire({
               title: 'Done',
@@ -1273,7 +1273,7 @@ $(document).ready(function () {
             });
             // Handle the success response here
           },
-          error: function(error) {
+          error: function (error) {
             Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -1288,7 +1288,7 @@ $(document).ready(function () {
       //    Reboot
       // -------------------------
 
-      $("#reboot_button").click(function(event) {
+      $("#reboot_button").click(function (event) {
         Swal.fire({
           title: 'Rebooting this RainDrop',
           showConfirmButton: false,
@@ -1316,7 +1316,7 @@ $(document).ready(function () {
           },
           contentType: 'application/json',
           data: JSON.stringify(reboot_raindrop_data),
-          success: function(response) {
+          success: function (response) {
 
             Swal.fire({
               title: 'Done',
@@ -1334,7 +1334,7 @@ $(document).ready(function () {
             });
             // Handle the success response here
           },
-          error: function(error) {
+          error: function (error) {
             Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -1350,7 +1350,7 @@ $(document).ready(function () {
       //    Remove RainDrop
       // -------------------------
 
-      $("#delete_raindrop_button").click(function(event) {
+      $("#delete_raindrop_button").click(function (event) {
         Swal.fire({
           title: 'Removing this RainDrop',
           showConfirmButton: false,
@@ -1377,7 +1377,7 @@ $(document).ready(function () {
           },
           contentType: 'application/json',
           data: JSON.stringify(reboot_raindrop_data),
-          success: function(response) {
+          success: function (response) {
 
             Swal.fire({
               title: 'Done',
@@ -1395,7 +1395,7 @@ $(document).ready(function () {
             });
             // Handle the success response here
           },
-          error: function(error) {
+          error: function (error) {
             Swal.fire({
               title: 'Error',
               text: "The submission was not successful.  Please Try again.  If the problem persists, please visit our support site: https://www.raindroprdp.com/support.html",
@@ -1409,7 +1409,7 @@ $(document).ready(function () {
 
       function pricechange() {
         let totalPrice = 0;
-        $('.specs-select').each(function() {
+        $('.specs-select').each(function () {
           const selectedOption = $(this).find('option:selected[data-price]');
           if (selectedOption.length) {
             const price = parseInt(selectedOption.data('price'));
@@ -1438,17 +1438,17 @@ $(document).ready(function () {
 
 
 
-      $(".add-member").click(function() {
+      $(".add-member").click(function () {
         optionhtml = ``;
         osbydefault = "windows"; // or linux
-        content["pricing"][osbydefault].forEach(function(value, index) {
+        content["pricing"][osbydefault].forEach(function (value, index) {
           optionhtml += `<option value="${value["type_id"]}" data-price="${value["price"]}">(${value["type"]}) CPU: ${value["cpu"]}, RAM: ${value["ram"]}. ${value["price"]}${currency}</option>`;
         });
         oshtml = ``;
         try {
           let unique_os_types = new Set();
-          content["default_roles"].forEach(function(value, index) {
-            if(!unique_os_types.has(value["os_type"])) {
+          content["default_roles"].forEach(function (value, index) {
+            if (!unique_os_types.has(value["os_type"])) {
               oshtml += `<option value="${value["os_type"]}" data-id="${value["id"]}">Default [${value["os_type"]}]</option>`;
               unique_os_types.add(value["os_type"]);
             }
@@ -1476,7 +1476,7 @@ $(document).ready(function () {
                     if (team.item_id === selectedValue) {
                       // Found the matching team, you can now work with it
                       console.log("Selected Team:", team);
-                      team["role_list"].forEach(function(value, index) {
+                      team["role_list"].forEach(function (value, index) {
                         //#operatingSystem select
                         $("#operatingSystem").append(`<option value="${value["os_type"]}" data-id="${value["id"]}">${value["item_name"]} [${value["os_type"]}]</option>`)
                       });
@@ -1489,7 +1489,7 @@ $(document).ready(function () {
             // Handle the case where no matching team was found
             console.log("No matching team found for the selected value:", selectedValue);
           }, 0)
-        } catch(error) {
+        } catch (error) {
           console.log(error);
         }
         let memberblock = `<div class="member-block" style="display: flex; flex-direction: column; align-items: center; position: relative;">
@@ -1538,8 +1538,8 @@ $(document).ready(function () {
                                   <!-- Thin White Line -->
                                   <div style="height: 1px; background-color: white; margin-top: 10px; width: 100%;"></div>
                               
-                                  <!-- Delete SVG Icon -->
-                                  <div class="action" style="display: flex; justify-content: center; position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
+                                  <!-- Delete SVG Icon-->
+                                  <div class="action" id="dIcon" style="display: flex; justify-content: center; position: absolute; right: 0; top: 50%; ">
                                       <div class="delete" style="margin-left: unset;">
                                           <a href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="35"
@@ -1877,7 +1877,7 @@ $(document).ready(function () {
       // });
 
       // picked_company = getCompanyKey('company01');
-      if(content && Object.keys(content.items).length > 0){
+      if (content && Object.keys(content.items).length > 0) {
         picked_company = getCompanyKey(content["items"]["companies"][index]);
         picked_company_name = content["items"]["companies"][picked_company];
         $("#dropdown_company_button").text(picked_company_name);
@@ -1939,7 +1939,7 @@ $(document).ready(function () {
         // alert($(this).val())
         inviteAdminDrop2($(this).val());
       });
-      function capitalize(str){
+      function capitalize(str) {
         return str.toLowerCase().replace(/(?<= )[^\s]|^./g, a => a.toUpperCase());
       }
       function inviteAdminDrop2(picked) {
@@ -2247,7 +2247,7 @@ $(document).ready(function () {
               },
               didClose: () => {
                 Swal.hideLoading();
-                if(isItemObjectEmpty)
+                if (isItemObjectEmpty)
                   window.location = "https://www.raindroprdp.com/index.html";
                 else
                   window.location.reload(true);
@@ -2687,7 +2687,7 @@ $(document).ready(function () {
             <th>Name</th>
             <th>Remove</th>
         </tr> `);
-  
+
           const companies = content['level'] == 'account' ? companiesarray : [companiesarray[0]];
           companies.forEach((company) => {
             let roles = "";

@@ -736,7 +736,10 @@
 
     .member-block .action .delete {
         margin-left: 10px;
+
     }
+
+
 
     .search .form-control {
         height: 40px;
@@ -811,3 +814,20 @@
 @media (min-width: 240px) and (max-width: 575px){
 }
 /*---------- Large Desktop , Large Screen End ----------*/
+
+
+
+
+@media(max-width:767px){
+	.member-block .action{
+		transform: translateY(50%) !important
+	}
+	
+	}
+	
+	@media(min-width:767px){
+		.member-block .action{
+			transform: translateY(-50%) !important
+		}
+		
+		}

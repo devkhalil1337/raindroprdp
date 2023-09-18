@@ -866,6 +866,7 @@ table.dataTable.no-footer {
 .member-block .action {
 	display: flex;
 	justify-content: flex-end;
+
 }
 
 .add-member .add-btn a svg {
@@ -1058,3 +1059,18 @@ table.dataTable.no-footer {
 .text-color {
 	color: #b3b9e2;
 }
+
+
+@media(max-width:767px){
+.member-block .action{
+	transform: translateY(50%) !important
+}
+
+}
+
+@media(min-width:767px){
+	.member-block .action{
+		transform: translateY(-50%) !important
+	}
+	
+	}
