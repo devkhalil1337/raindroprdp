@@ -815,7 +815,22 @@
 }
 /*---------- Large Desktop , Large Screen End ----------*/
 
-
+@media(max-width:767px){
+	.cust{
+		margin-bottom:10px !important
+	}
+	
+	}
+	
+	@media(min-width:767px){
+		.cust{
+			position: absolute;
+            
+            right: 90px;
+            top:300px
+		}
+		
+		}
 
 
 @media(max-width:767px){
