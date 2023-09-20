@@ -2695,8 +2695,8 @@ $(document).ready(function () {
             let buildingg = "";
             let departmentt = "";
             let teamm = "";
-            company.role_list.forEach(comp => {
-              console.log({ comp })
+          if (Array.isArray(company?.role_list)) 
+            company?.role_list?.forEach(comp => {
               // Only append the row if there are roles
               if (comp) {
                 $("#raindrops_table_body").append(`
