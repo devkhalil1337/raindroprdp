@@ -1521,7 +1521,7 @@ $(document).ready(function () {
                     <input type="text" class="form-control rd-first_name" placeholder="user's first name" required>
                 </div>
             </div>
-            <div class="action col-6 col-sm-6 col-md-2" style="">
+            <div class="action col-3 col-sm-6 col-md-2" style="">
             <div class="delete " style="margin-left: unset;">
                 <a href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" width="35"
@@ -1563,7 +1563,7 @@ $(document).ready(function () {
                 </div>
             </div>
             <!-- Last Name -->
-            <div class="col-6 col-sm-6 col-md-2">
+            <div class="col-8 col-sm-6 col-md-2">
                 <div class="form-group">
                     <input type="text" class="form-control rd-last_name" placeholder="user's last name" required>
                 </div>
