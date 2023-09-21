@@ -1521,26 +1521,8 @@ $(document).ready(function () {
                     <input type="text" class="form-control rd-first_name" placeholder="user's first name" required>
                 </div>
             </div>
-            <!-- Last Name -->
-            <div class="col-12 col-sm-6 col-md-2">
-                <div class="form-group">
-                    <input type="text" class="form-control rd-last_name" placeholder="user's last name" required>
-                </div>
-            </div>
-            <!-- Email -->
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="form-group">
-                    <input type="email" class="form-control rd-email" placeholder="user's email" required>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Thin White Line -->
-        <div style="height: 1px; background-color: white; margin-top: 10px; width: 100%;"></div>
-    
-        <!-- Delete SVG Icon -->
-        <div class="action" style="display: flex; justify-content: center; position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
-            <div class="delete" style="margin-left: unset;">
+            <div class="action col-6 col-sm-6 col-md-2" style="">
+            <div class="delete " style="margin-left: unset;">
                 <a href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" width="35"
                     height="35" viewBox="0 0 35 35">
@@ -1575,6 +1557,28 @@ $(document).ready(function () {
                 </a>
             </div>
         </div>
+        <div class="col-12 col-sm-6 col-md-4">
+                <div class="form-group">
+                    <input type="email" class="form-control rd-email" placeholder="user's email" required>
+                </div>
+            </div>
+            <!-- Last Name -->
+            <div class="col-6 col-sm-6 col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control rd-last_name" placeholder="user's last name" required>
+                </div>
+            </div>
+           
+            <!-- Email -->
+            
+        </div>
+        
+    
+        <!-- Thin White Line -->
+        <div style="height: 1px; background-color: white; margin-top: 10px; width: 100%;"></div>
+    
+        <!-- Delete SVG Icon -->
+       
     </div>`;
 
         $(".member-list").append(memberblock);
@@ -2694,11 +2698,11 @@ $(document).ready(function () {
             let buildingg = "";
             let departmentt = "";
             let teamm = "";
-          if (Array.isArray(company?.role_list)) 
-            company?.role_list?.forEach(comp => {
-              // Only append the row if there are roles
-              if (comp) {
-                $("#raindrops_table_body").append(`
+            if (Array.isArray(company?.role_list))
+              company?.role_list?.forEach(comp => {
+                // Only append the row if there are roles
+                if (comp) {
+                  $("#raindrops_table_body").append(`
                     <tr>
                       <td>
                         <span class="e-name">
@@ -2744,7 +2748,7 @@ $(document).ready(function () {
                           </a>
                         </div>
                         <div class="modal fade" id="removeroleModal${comp.item_name}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered" style="width: 50%;">
+                          <div class="modal-dialog modal-dialog-centered" >
                             <div class="modal-content">
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185" viewBox="0 0 18.185 18.185">
@@ -2775,8 +2779,8 @@ $(document).ready(function () {
                       </td>
                     </tr>
                     `);
-              }
-            })
+                }
+              })
 
 
 
@@ -2839,7 +2843,7 @@ $(document).ready(function () {
                                         </a>
                                     </div>
                                     <div class="modal fade" id="removedepartmentModal${element["item_id"]}" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" style="width: 50%;">
+			<div class="modal-dialog modal-dialog-centered" >
 				<div class="modal-content">
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185" viewBox="0 0 18.185 18.185">
@@ -2927,7 +2931,7 @@ $(document).ready(function () {
                                         </a>
                                     </div>
                                     <div class="modal fade" id="removeteamModal${element["item_id"]}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" style="width: 50%;">
+			<div class="modal-dialog modal-dialog-centered" >
 				<div class="modal-content">
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185" viewBox="0 0 18.185 18.185">
@@ -3019,7 +3023,7 @@ $(document).ready(function () {
                                         </a>
                                     </div>
                                     <div class="modal fade" id="removebuildingModal${element["item_id"]}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" style="width: 50%;">
+			<div class="modal-dialog modal-dialog-centered" >
 				<div class="modal-content">
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 						<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185" viewBox="0 0 18.185 18.185">
@@ -3114,7 +3118,7 @@ $(document).ready(function () {
                                     </div>
 
                                     <div class="modal fade" id="removecompanyModal${element["item_id"]}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" style="width: 50%;">
+                                    <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185" viewBox="0 0 18.185 18.185">

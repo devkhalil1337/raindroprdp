@@ -667,16 +667,3 @@ table.dataTable.no-footer {
 
 
 
-@media(max-width:767px){
-	.member-block .action{
-		transform: translateY(50%) !important
-	}
-	
-	}
-	
-	@media(min-width:767px){
-		.member-block .action{
-			transform: translateY(-50%) !important
-		}
-		
-		}

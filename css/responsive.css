@@ -727,7 +727,7 @@
         order: 0;
     }
     .member-block [class*=col-]:nth-child(4) {
-        order: 3;
+        /* order: 3; */
     }
 
     .member-block .form-group {
@@ -842,14 +842,22 @@
 
 @media(max-width:767px){
 	.member-block .action{
-		transform: translateY(50%) !important
+		align-items: center;
+        display: flex; justify-content: center;
+        transform: translateY(-25%) !important
+        
+        
 	}
 	
 	}
 	
 	@media(min-width:767px){
 		.member-block .action{
-			transform: translateY(-50%) !important
+			transform: translateY(-50%) !important;
+            display: flex; justify-content: center; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
 		}
 		
 		}
+
+
+        
