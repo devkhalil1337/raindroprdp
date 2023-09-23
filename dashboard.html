@@ -1248,8 +1248,8 @@
 						<div id="email"
 							style="color: #fff; margin-bottom: 15px; font-size: 30px; height: 100%; display: flex; align-items: center;">
 						</div>
-						<div class="row row-cols-3 g-4">
-							<div class="col">
+						<div class="row g-4">
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 								<div class="admin-block">
 									<div class="top">
 										<span>Last Location</span>
@@ -1273,7 +1273,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 								<div class="admin-block">
 									<div class="top">
 										<span>Specs</span>
@@ -1295,7 +1295,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 								<div class="admin-block">
 									<div class="top">
 										<span>Disk Space Used</span>
@@ -1317,7 +1317,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 								<div class="admin-block">
 									<div class="top">
 										<span>Operating System</span>
@@ -1339,7 +1339,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 								<div class="admin-block">
 									<div class="top">
 										<span>Raindrop Type</span>
@@ -1383,7 +1383,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 								<div class="admin-block">
 									<div class="top">
 										<span>Last Connected</span>
@@ -1430,169 +1430,151 @@
 							</div>
 						</div>
 
-						<div class="d-flex flex-row mt-4">
-							<div class="d-flex flex-column w-25">
-								<!-- <div class="mt-4 pe-3">
-								<div class="admin-block">
-									<div class="top">
-										<span>Upgrade Requested</span>
-										<div class="icon">
-										</div>
-									</div>
-									<div class="count">
-										<h2 id="detail2">
-											<div class="btn-group btn-group-sm">
-												<button type="button" class="btn btn-primary">Yes</button>
-												<button type="button" class="btn btn-primary">No</button>
+						<div class="container mt-4">
+							<div class="row">
+								<!-- First Column -->
+								<div class="col-md-6 col-lg-3">
+									<div class="mt-4">
+										<div class="admin-block" onclick="$('#converttoroleModal').modal('show');">
+											<div class="top">
+												<span style="visibility: hidden;">None</span>
+												<!-- This makes sure the alignment remains consistent -->
+												<div class="icon"></div>
 											</div>
-										</h2>
-										<div class="icon">
-											<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297" viewBox="0 0 22.419 22.297">
-												<g id="Icon_upgrade" data-name="Icon upgrade">
-													<path d="M11.209,0L0,11.209h6.315v11.088h9.789V11.209h6.315Z" fill="#b3b9e2" opacity="0.5" />
-												</g>
-											</svg>											
-										</div>
-									</div>
-								</div>
-							</div> -->
-								<div class="mt-4 pe-3">
-									<div class="admin-block" onclick="$('#converttoroleModal').modal('show');">
-										<div class="top">
-											<span style="visibility: hidden;">None</span>
-											<!-- This makes sure the alignment remains consistent -->
-											<div class="icon"></div>
-										</div>
-										<div class="count">
-											<h2 id="detail1"
-												style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
-												Convert to Role
-											</h2>
-											<div class="icon">
-												<svg xmlns="http://www.w3.org/2000/svg" width="18.185" height="18.185"
-													viewBox="0 0 18.185 18.185">
-													<g id="Group_7174" data-name="Group 7174"
-														transform="translate(-0.5 -0.5)">
-														<rect id="Rectangle_1" data-name="Rectangle 1" width="12"
-															height="16" rx="2" transform="translate(3 1)" fill="none"
-															stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
-															stroke-width="2" />
-														<rect id="Rectangle_2" data-name="Rectangle 2" width="12"
-															height="16" rx="2" transform="translate(1 3)" fill="none"
-															stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
-															stroke-width="2" />
-													</g>
-												</svg>
+											<div class="count">
+												<h2 id="detail1"
+													style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
+													Convert to Role
+												</h2>
+												<div class="icon">
+													<svg xmlns="http://www.w3.org/2000/svg" width="18.185"
+														height="18.185" viewBox="0 0 18.185 18.185">
+														<g id="Group_7174" data-name="Group 7174"
+															transform="translate(-0.5 -0.5)">
+															<rect id="Rectangle_1" data-name="Rectangle 1" width="12"
+																height="16" rx="2" transform="translate(3 1)"
+																fill="none" stroke="#fff" stroke-linecap="round"
+																stroke-linejoin="round" stroke-width="2" />
+															<rect id="Rectangle_2" data-name="Rectangle 2" width="12"
+																height="16" rx="2" transform="translate(1 3)"
+																fill="none" stroke="#fff" stroke-linecap="round"
+																stroke-linejoin="round" stroke-width="2" />
+														</g>
+													</svg>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="mt-4 pe-3">
-									<div class="admin-block" onclick="$('#rebootModal').modal('show');">
-										<div class="top">
-											<span style="visibility: hidden;">None</span>
-											<!-- This makes sure the alignment remains consistent -->
-											<div class="icon"></div>
-										</div>
-										<div class="count">
-											<h2 id="detail1"
-												style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
-												Reboot
-											</h2>
-											<div class="icon">
-												<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
-													viewBox="0 0 22.419 22.297">
-													<!-- Circle with arrow -->
-													<circle cx="11.21" cy="11.149" r="10" stroke="#b3b9e2"
-														stroke-width="1" fill="none" />
-													<!-- Arrow: Clockwise -->
-													<path fill="#b3b9e2"
-														d="M19.6,12.65l2.82-2.5l-6.64-0.14l-0.1,6.81l2.57-2.28c-1.07,2.25-3.35,3.82-5.9,3.82 c-3.46,0-6.29-2.82-6.29-6.29s2.82-6.29,6.29-6.29c1.71,0,3.25,0.68,4.39,1.78l1.46-1.46C15.68,2.36,13.52,1.36,11.1,1.36 c-4.89,0-8.88,4-8.88,8.88s4,8.88,8.88,8.88c2.43,0,4.6-0.97,6.18-2.5c1.58-1.54,2.57-3.6,2.57-5.97H19.6z" />
-												</svg>
+									<div class="mt-4">
+										<div class="admin-block" onclick="$('#rebootModal').modal('show');">
+											<div class="top">
+												<span style="visibility: hidden;">None</span>
+												<!-- This makes sure the alignment remains consistent -->
+												<div class="icon"></div>
+											</div>
+											<div class="count">
+												<h2 id="detail1"
+													style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
+													Reboot
+												</h2>
+												<div class="icon">
+													<svg xmlns="http://www.w3.org/2000/svg" width="22.419"
+														height="22.297" viewBox="0 0 22.419 22.297">
+														<!-- Circle with arrow -->
+														<circle cx="11.21" cy="11.149" r="10" stroke="#b3b9e2"
+															stroke-width="1" fill="none" />
+														<!-- Arrow: Clockwise -->
+														<path fill="#b3b9e2"
+															d="M19.6,12.65l2.82-2.5l-6.64-0.14l-0.1,6.81l2.57-2.28c-1.07,2.25-3.35,3.82-5.9,3.82 c-3.46,0-6.29-2.82-6.29-6.29s2.82-6.29,6.29-6.29c1.71,0,3.25,0.68,4.39,1.78l1.46-1.46C15.68,2.36,13.52,1.36,11.1,1.36 c-4.89,0-8.88,4-8.88,8.88s4,8.88,8.88,8.88c2.43,0,4.6-0.97,6.18-2.5c1.58-1.54,2.57-3.6,2.57-5.97H19.6z" />
+													</svg>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="mt-4 pe-3">
-									<div class="admin-block" onclick="$('#upgradeModal').modal('show');">
-										<div class="top">
-											<span style="visibility: hidden;">None</span>
-											<div class="icon">
+									<div class="mt-4">
+										<div class="admin-block" onclick="$('#upgradeModal').modal('show');">
+											<div class="top">
+												<span style="visibility: hidden;">None</span>
+												<div class="icon">
+												</div>
+											</div>
+											<div class="count">
+												<h2 id="detail2"
+													style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
+													Upgrade
+												</h2>
+												<div class="icon">
+													<svg xmlns="http://www.w3.org/2000/svg" width="22.419"
+														height="22.297" viewBox="0 0 22.419 22.297">
+														<g id="Icon_upgrade" data-name="Icon upgrade">
+															<path
+																d="M11.209,0L0,11.209h6.315v11.088h9.789V11.209h6.315Z"
+																fill="#b3b9e2" opacity="0.5" />
+														</g>
+													</svg>
+												</div>
 											</div>
 										</div>
-										<div class="count">
-											<h2 id="detail2"
-												style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
-												Upgrade
-											</h2>
-											<div class="icon">
-												<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
-													viewBox="0 0 22.419 22.297">
-													<g id="Icon_upgrade" data-name="Icon upgrade">
-														<path d="M11.209,0L0,11.209h6.315v11.088h9.789V11.209h6.315Z"
+									</div>
+									<div class="mt-4">
+										<div class="admin-block" onclick="$('#updateuserModal').modal('show');">
+											<div class="top">
+												<span style="visibility: hidden;">None</span>
+												<div class="icon">
+												</div>
+											</div>
+											<div class="count">
+												<h2 id="detail2"
+													style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
+													Update User
+												</h2>
+												<div class="icon">
+													<svg xmlns="http://www.w3.org/2000/svg" width="22.419"
+														height="22.297" viewBox="0 0 22.419 22.297">
+														<path id="Icon_awesome-arrow-left"
+															data-name="Icon awesome-arrow-left"
+															d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
+															transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
 															fill="#b3b9e2" opacity="0.5" />
-													</g>
-												</svg>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="mt-4 pe-3">
-									<div class="admin-block" onclick="$('#updateuserModal').modal('show');">
-										<div class="top">
-											<span style="visibility: hidden;">None</span>
-											<div class="icon">
-											</div>
-										</div>
-										<div class="count">
-											<h2 id="detail2"
-												style="font-weight: 100; color: #0dcaf0; font-size: 150%; border: none;">
-												Update User
-											</h2>
-											<div class="icon">
-												<svg xmlns="http://www.w3.org/2000/svg" width="22.419" height="22.297"
-													viewBox="0 0 22.419 22.297">
-													<path id="Icon_awesome-arrow-left"
-														data-name="Icon awesome-arrow-left"
-														d="M9.41,14.887,8.6,15.7a.873.873,0,0,1-1.239,0L.258,8.6a.873.873,0,0,1,0-1.239l7.1-7.1A.873.873,0,0,1,8.6.258l.811.811A.878.878,0,0,1,9.4,2.322l-4.4,4.194h10.5a.875.875,0,0,1,.877.877V8.562a.875.875,0,0,1-.877.877H4.993l4.4,4.194A.872.872,0,0,1,9.41,14.887Z"
-														transform="matrix(-0.839, 0.545, -0.545, -0.839, 22.419, 13.381)"
-														fill="#b3b9e2" opacity="0.5" />
-												</svg>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="d-flex flex-column w-75">
-								<div style="background-color: #232c3b; border-radius: 8px; margin-bottom: -10px;">
-									<div class="dropdown" style="padding: 0 20px; padding-top: 14px;">
-										<div class="row">
-											<div class="col-sm-12 col-md-4">
-												<div class="form-group">
-													<select id="details_chart" class="form-select form-select-lg mb-3">
-														<option value="30" selected="">Last 30 days</option>
-														<option value="14">Last 14 days</option>
-														<option value="7">Last 7 days</option>
-													</select>
+													</svg>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="tab-content w-100" id="myTabContent">
-									<div class="tab-pane fade show active" role="tabpanel" aria-labelledby="admin-tab"
-										style="padding: 5px;">
-										<div class="d-flex justify-content-center">
-											<div id="chart-container-modal" class="chart-container"
-												style="height: 330px; width: 800px;"></div>
+
+								<!-- Second Column -->
+								<div class="col-md-6 col-lg-9">
+									<div style="background-color: #232c3b; border-radius: 8px; margin-bottom: -10px;">
+										<div class="dropdown" style="padding: 0 20px; padding-top: 14px;">
+											<div class="row">
+												<div class="col-sm-12 col-md-4">
+													<div class="form-group">
+														<select id="details_chart"
+															class="form-select form-select-lg mb-3">
+															<option value="30" selected="">Last 30 days</option>
+															<option value="14">Last 14 days</option>
+															<option value="7">Last 7 days</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tab-content w-100" id="myTabContent">
+										<div class="tab-pane fade show active" role="tabpanel"
+											aria-labelledby="admin-tab" style="padding: 5px;">
+											<div class="d-flex justify-content-center">
+												<div id="chart-container-modal" class="chart-container"
+													style="height: 330px;width: 800px;"></div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						</br>
-						<div style="display: flex; align-items: center; justify-content: flex-end; padding-left: 15px;">
+						<div class="delete-rain-drop">
 							<div class="form-group">
 								<button class="btn btn-delete" onclick="$('#removeraindropModal').modal('show');">DELETE
 									RAINDROP</button>

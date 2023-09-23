@@ -1,34 +1,47 @@
-/*////////////////////////////////////////////////////// Responsive CSS Structure //////////////////////////////////////////////////////*/
-@media (min-width: 1200px) and (max-width: 1920px){
+.delete-rain-drop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 15px;
 }
-@media (min-width: 1600px) and (max-width: 1699px){
+
+
+/*////////////////////////////////////////////////////// Responsive CSS Structure //////////////////////////////////////////////////////*/
+@media (min-width: 1200px) and (max-width: 1920px) {}
+
+@media (min-width: 1600px) and (max-width: 1699px) {
     .container {
         max-width: 1570px;
     }
+
     .employee-table #example1 tbody tr td {
         padding: 15px 25px;
     }
 }
-@media (min-width: 1500px) and (max-width: 1599px){
+
+@media (min-width: 1500px) and (max-width: 1599px) {
     .container {
         max-width: 1470px;
     }
+
     .employee-table #example1 tbody tr td {
         padding: 15px 25px;
     }
+
     .action-btn .btn-primary {
         margin-right: 7px;
     }
 }
 
-@media (min-width: 1400px) and (max-width: 1499px){
+@media (min-width: 1400px) and (max-width: 1499px) {
     .h-block .icon {
         margin-right: 14px;
     }
+
     .container {
         max-width: 1370px;
     }
-   
+
 
     .admin-block span {
         font-size: 12px;
@@ -46,10 +59,11 @@
 }
 
 
-@media (min-width: 1300px) and (max-width: 1399px){
+@media (min-width: 1300px) and (max-width: 1399px) {
     .h-block .icon {
         margin-right: 14px;
     }
+
     .container {
         max-width: 1270px;
     }
@@ -63,6 +77,7 @@
         display: block;
         margin-top: 15px;
     }
+
     .admin-block {
         padding: 15px 15px;
     }
@@ -70,6 +85,7 @@
     .employee-table #example1 tbody tr td {
         padding: 10px;
     }
+
     .action-btn .btn-primary {
         padding: 6px 9px;
         margin-right: 4px;
@@ -81,15 +97,17 @@
 }
 
 
-@media (min-width: 1200px) and (max-width: 1299px){
+@media (min-width: 1200px) and (max-width: 1299px) {
     .h-left .h-block {
         margin-bottom: 15px;
     }
+
     .h-block {
         padding: 10px;
         border-radius: 6px;
         padding-right: 14px;
     }
+
     .admin-block h2 {
         font-weight: 600;
         font-size: 16px;
@@ -102,9 +120,11 @@
         font-size: 10px;
         color: #b3b9e2;
     }
+
     .admin-block {
         padding: 12px 13px;
     }
+
     .employee-table #example1 tbody tr td {
         padding: 10px;
         font-size: 12px;
@@ -112,11 +132,13 @@
     }
 
     .action-btn .btn-primary svg {
-        margin-right:5px;
+        margin-right: 5px;
     }
+
     .action-btn .btn-primary {
         padding: 6px;
-        margin-right: 4px;    font-size: 11px;
+        margin-right: 4px;
+        font-size: 11px;
         line-height: 11px;
     }
 
@@ -139,7 +161,7 @@
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px){
+@media (min-width: 992px) and (max-width: 1199px) {
 
     .employee-table table tbody tr td:first-child,
     .employee-table table thead th:first-child {
@@ -149,6 +171,7 @@
     .h-block {
         margin-bottom: 15px;
     }
+
     .admin-block {
         margin-bottom: 15px;
     }
@@ -171,11 +194,13 @@
     }
 
     .action-btn .btn-primary svg {
-        margin-right:5px;
+        margin-right: 5px;
     }
+
     .action-btn .btn-primary {
         padding: 6px;
-        margin-right: 4px;    font-size: 11px;
+        margin-right: 4px;
+        font-size: 11px;
         line-height: 11px;
     }
 
@@ -184,7 +209,8 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px){
+@media (min-width: 768px) and (max-width: 991px) {
+
     .employee-table table tbody tr td:first-child,
     .employee-table table thead th:first-child {
         padding-left: 40px;
@@ -193,11 +219,13 @@
     .h-left .h-block {
         margin-bottom: 15px;
     }
+
     .h-block {
         padding: 10px;
         border-radius: 6px;
         padding-right: 14px;
     }
+
     .admin-block h2 {
         font-weight: 600;
         font-size: 16px;
@@ -210,21 +238,26 @@
         font-size: 10px;
         color: #b3b9e2;
     }
+
     .admin-block {
         padding: 12px 13px;
     }
+
     .h-block {
         margin-bottom: 15px;
     }
+
     .admin-block {
         margin-bottom: 15px;
     }
+
     .employee-table table tbody tr td {
         vertical-align: middle;
         font-size: 12px;
         line-height: 12px;
         padding: 7px 10px;
     }
+
     .employee-table table tbody tr td .u-image {
         width: 25px;
         height: 25px;
@@ -248,22 +281,23 @@
     }
 
     .action-btn .btn-primary svg {
-        margin-right:5px;
+        margin-right: 5px;
     }
+
     .action-btn .btn-primary {
         padding: 6px;
-        margin-right: 4px;    font-size: 11px;
+        margin-right: 4px;
+        font-size: 11px;
         line-height: 11px;
     }
 
     .employee-table table tbody tr td:last-child {
         /* width: 33%; */
     }
-    
+
 }
 
-@media (min-width: 768px) {
-}
+@media (min-width: 768px) {}
 
 @media (max-width: 767px) {
 
@@ -341,14 +375,15 @@
     }
 
 
-    
 
 
 
 
-    .navbar-toggler.open .navbar-toggler-icon .toggle-bar{
+
+    .navbar-toggler.open .navbar-toggler-icon .toggle-bar {
         /* background: #fff; */
     }
+
     .navbar-toggler.open .navbar-toggler-icon .toggle-bar:first-child {
         top: 7px;
         transform: rotate(45deg);
@@ -375,6 +410,7 @@
     .navbar-toggler .navbar-toggler-icon .toggle-bar:last-child {
         margin-bottom: 0;
     }
+
     .user-dropdown .h-block span {
         display: none;
     }
@@ -383,6 +419,7 @@
         justify-content: space-between;
         padding: 0;
     }
+
     .admin-block {
         margin-bottom: 13px;
         padding: 12px 15px;
@@ -412,9 +449,11 @@
         min-height: 38px;
         /* margin-bottom: 24px; */
     }
+
     .h-block .icon {
         margin-right: 12px;
     }
+
     .h-block .icon svg {
         width: 23px;
     }
@@ -429,9 +468,11 @@
     .h-right .h-block {
         margin: 0;
     }
+
     .h-right [class*=col-] {
         padding: 0 8px;
     }
+
     .header {
         padding: 21px 0 0;
     }
@@ -448,12 +489,14 @@
         align-items: center;
         margin-top: 26px;
     }
+
     .account span {
         font-weight: 500;
         font-size: 12px;
         line-height: 16px;
         color: #fff;
     }
+
     .account p {
         font-weight: 500;
         font-size: 10px;
@@ -465,6 +508,7 @@
     .overview-block {
         padding: 34px 0 24px;
     }
+
     .overview-block h2 {
         font-family: Poppins;
         font-weight: 500;
@@ -488,9 +532,11 @@
         align-items: center;
         justify-content: space-between;
     }
+
     .overview-block .h-block .icon {
         margin-right: 25px;
     }
+
     .overview-block .h-block {
         max-width: 122px;
     }
@@ -499,6 +545,7 @@
         right: 30px;
         top: 16px;
     }
+
     .time-block {
         display: flex;
         align-items: center;
@@ -530,21 +577,25 @@
     .emp-block {
         padding-bottom: 45px;
     }
+
     .emp-block:last-child {
         padding-bottom: 0;
     }
+
     .emp-block .top {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0 0 18px;
     }
+
     .emp-block .top ul {
         display: flex;
         padding: 0;
         margin: 0;
         list-style-type: none;
     }
+
     .emp-block .top ul li {
         display: block;
         padding: 0;
@@ -552,6 +603,7 @@
         list-style-type: none;
         padding-left: 5px;
     }
+
     .emp-block .list {
         display: block;
         padding: 0;
@@ -566,6 +618,7 @@
         list-style-type: none;
         justify-content: space-between;
     }
+
     .emp-block .list li:last-child {
         padding: 0;
     }
@@ -593,10 +646,12 @@
         color: #fff;
         margin: 0 0 19px;
     }
+
     .emp-block p span {
         position: relative;
         padding: 0 12px;
     }
+
     .emp-block p span:after {
         position: absolute;
         right: -4px;
@@ -607,24 +662,29 @@
         border-radius: 50%;
         content: "";
     }
+
     .emp-block p span:first-child {
         padding-left: 0;
     }
+
     .emp-block p span:last-child::after {
         display: none;
     }
+
     .emp-block .name {
         display: flex;
         align-items: center;
     }
+
     .emp-block .name .img {
         width: 35px;
         height: 35px;
         border-radius: 17.5px;
         background: #181f2f;
         flex: 0 0 auto;
-        margin-right: 10px;        
+        margin-right: 10px;
     }
+
     .emp-block .name span {
         font-weight: normal;
         font-size: 12px;
@@ -632,6 +692,7 @@
         color: #fff;
         display: block;
     }
+
     .emp-block .name .img img {
         height: 100%;
         width: 100%;
@@ -655,7 +716,7 @@
         left: 0 !important;
     }
 
-    .h-left .h-block  {
+    .h-left .h-block {
         margin: 0;
     }
 
@@ -681,7 +742,7 @@
         right: 10px;
         top: 0px;
     }
-    
+
     .modal {
         bottom: auto;
         transform: translateY(100%);
@@ -692,6 +753,7 @@
     .modal .modal-dialog {
         transform: none !important;
     }
+
     .modal.show {
         bottom: 0;
         transform: translateY(0);
@@ -710,6 +772,7 @@
         content: "";
         top: 5px;
     }
+
     .modal-content {
         border-radius: 20px 20px 0px 0px;
         box-shadow: 0px 3px 20px rgb(0 0 0 / 38%);
@@ -720,12 +783,15 @@
     .modal-body .tab-content {
         padding: 20px 15px;
     }
+
     .member-block [class*=col-]:nth-child(2) {
         order: 1;
     }
+
     .member-block [class*=col-]:nth-child(3) {
         order: 0;
     }
+
     .member-block [class*=col-]:nth-child(4) {
         /* order: 3; */
     }
@@ -779,9 +845,11 @@
     .add-modal .modal-dialog-centered {
         align-items: flex-end;
     }
+
     .search-main .search .s-btn svg {
         width: 24px;
     }
+
     .search-main .h-block {
         min-height: 40px;
         padding: 0 16px;
@@ -801,63 +869,79 @@
 /*---------- Small Mobile , IPhone Start ----------*/
 
 /*=== Screen Size = 240, 320, 360, 480, 568 ===*/
-@media (min-width: 427px) and (max-width: 767px){
+@media (min-width: 427px) and (max-width: 767px) {
     .admin-head [class*=col-] {
         width: 50%;
     }
+
     .h-left [class*=col-] {
         width: 50%;
         padding-bottom: 16px;
     }
 }
 
-@media (min-width: 240px) and (max-width: 575px){
-    .user-dropdown .dropdown-toggle::after
-    ,
+@media (min-width: 240px) and (max-width: 575px) {
+
+    .user-dropdown .dropdown-toggle::after,
     .overview-block,
-    .time-block
-     {
+    .time-block {
         display: none !important;
-    }   
+    }
+
+    div#chart-container-modal {
+        width: 100% !important;
+    }
+
+    .delete-rain-drop {
+        display: block;
+        width: 100%;
+    }
+
+    .delete-rain-drop button.btn.btn-delete {
+        width: 100%;
+    }
+
 }
+
 /*---------- Large Desktop , Large Screen End ----------*/
 
-@media(max-width:767px){
-	.cust{
-		margin-bottom:10px !important
-	}
-	
-	}
-	
-	@media(min-width:767px){
-		.cust{
-			position: absolute;
-            
-            right: 90px;
-            top:300px
-		}
-		
-		}
+@media(max-width:767px) {
+    .cust {
+        margin-bottom: 10px !important
+    }
+
+}
+
+@media(min-width:767px) {
+    .cust {
+        position: absolute;
+
+        right: 90px;
+        top: 300px
+    }
+
+}
 
 
-@media(max-width:767px){
-	.member-block .action{
-		align-items: center;
-        display: flex; justify-content: center;
+@media(max-width:767px) {
+    .member-block .action {
+        align-items: center;
+        display: flex;
+        justify-content: center;
         transform: translateY(-25%) !important
-        
-        
-	}
-	
-	}
-	
-	@media(min-width:767px){
-		.member-block .action{
-			transform: translateY(-50%) !important;
-            display: flex; justify-content: center; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-		}
-		
-		}
+    }
 
+}
 
-        
+@media(min-width:767px) {
+    .member-block .action {
+        transform: translateY(-50%) !important;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+}
