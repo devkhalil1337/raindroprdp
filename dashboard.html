@@ -371,7 +371,7 @@
 	<div class="container">
 		<div class="overview d-md-none d-block">
 			<div class="account">
-				<div class="left">
+				<div class="left" onclick="$('#profileModal').modal('show')">
 					<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
 						<g id="Group_6971" data-name="Group 6971" transform="translate(-153 -83)">
 							<circle id="Ellipse_126" data-name="Ellipse 126" cx="19" cy="19" r="19"
@@ -384,8 +384,9 @@
 					<span>Account</span>
 				</div>
 				<div class="right">
-					<span>Item name</span>
-					<p>Last month</p>
+					<p>This month: <span id="billing_pils_this_month"></span></p>
+					<p>Last month: <span id="billing_pils_last_month"></span></p>
+
 				</div>
 
 			</div>

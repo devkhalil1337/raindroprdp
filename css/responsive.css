@@ -882,7 +882,7 @@
 
 @media (min-width: 240px) and (max-width: 575px) {
 
-    .user-dropdown .dropdown-toggle::after,
+    .user-dropdown,
     .overview-block,
     .time-block {
         display: none !important;

@@ -949,6 +949,9 @@ $(document).ready(function () {
       $("#billing_pils_last_month").text(
         numberWithCommas(currency + content["financial_data"]["last_month"])
       );
+      $("#billing_pils_last_month_mobile").text(
+        numberWithCommas(currency + content["financial_data"]["last_month"])
+      );
 
       $("#item_name").text(content["item_name"]);
 
@@ -3304,7 +3307,7 @@ $(document).ready(function () {
           darkMode: "auto",
 
           title: {
-            show:shouldShowTitle(),
+            show: shouldShowTitle(),
             text: "Activity",
             textStyle: {
               color: "#b3b9e2",
@@ -3413,14 +3416,14 @@ $(document).ready(function () {
   function shouldShowTitle() {
     // Adjust this threshold as needed for mobile view
     const mobileScreenWidth = 768;
-  
+
     // Check the screen width
     const screenWidth = window.innerWidth || document.documentElement.clientWidth;
-  
+
     // Return true to show the title for screens wider than the threshold, false otherwise
     return screenWidth > mobileScreenWidth;
   }
-  
+
 
 
   // ------------- FORM FUNCTIONALITY
