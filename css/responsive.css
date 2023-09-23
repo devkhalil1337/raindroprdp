@@ -411,9 +411,9 @@
         margin-bottom: 0;
     }
 
-    .user-dropdown .h-block span {
+    /* .user-dropdown .h-block span {
         display: none;
-    }
+    } */
 
     .user-dropdown .h-block {
         justify-content: space-between;
@@ -882,7 +882,6 @@
 
 @media (min-width: 240px) and (max-width: 575px) {
 
-    .user-dropdown,
     .overview-block,
     .time-block {
         display: none !important;
